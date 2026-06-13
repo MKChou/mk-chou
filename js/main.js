@@ -3,7 +3,9 @@ const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
 const yearEl = document.getElementById('year');
 
-yearEl.textContent = new Date().getFullYear();
+if (yearEl) {
+  yearEl.textContent = new Date().getFullYear();
+}
 
 window.addEventListener('scroll', () => {
   header.classList.toggle('scrolled', window.scrollY > 40);

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="關於我 — MK Chou 的個人網站">
+  <title>關於我 | MK Chou</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="主要導覽">
+      <a href="../" class="logo">MK Chou</a>
+      <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../">首頁</a></li>
+        <li><a href="../project/">專題</a></li>
+        <li><a href="../about/" class="active" aria-current="page">關於我</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="page-main">
+    <div class="container page-content">
+      <p class="page-label">About</p>
+      <h1 class="page-title">關於我</h1>
+      <div class="page-body">
+        <p>
+          你好，我是 MK Chou。這裡是我的個人網站，部署於
+          <strong>GitHub Pages</strong>，並綁定自訂網域
+          <strong>mk-chou.com</strong>。
+        </p>
+        <p>
+          我對軟體開發、硬體設計與解決實際問題充滿熱情。
+          這個網站會隨著時間慢慢充實，記錄我的專案、想法與學習歷程。
+        </p>
+      </div>
+      <ul class="about-tags page-tags">
+        <li>軟體開發</li>
+        <li>嵌入式系統</li>
+        <li>網頁設計</li>
+        <li>持續學習</li>
+      </ul>
+      <a href="../" class="back-home">← 回到首頁</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> MK Chou. All rights reserved.</p>
+      <a href="../" class="back-to-top">回到首頁 ↑</a>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
