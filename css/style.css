@@ -421,6 +421,34 @@ img {
   margin-bottom: 2.5rem;
 }
 
+.testing-page {
+  text-align: center;
+  padding-top: 2rem;
+}
+
+.testing-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid rgba(232, 168, 124, 0.25);
+  border-radius: 999px;
+  padding: 0.3rem 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
+.testing-page .page-lead {
+  max-width: 42ch;
+  margin-inline: auto;
+}
+
+.testing-page .back-home {
+  margin-top: 2rem;
+}
+
 .page-label {
   font-size: 0.85rem;
   text-transform: uppercase;

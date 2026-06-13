@@ -1,137 +1,45 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="MK Chou 的個人網站 — 工程師、創作者">
-  <title>MK Chou</title>
+  <meta name="description" content="MK Chou — Under Testing">
+  <title>MK Chou | Under Testing</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="site-header">
-    <nav class="nav" aria-label="主要導覽">
+    <nav class="nav" aria-label="Main navigation">
       <a href="./" class="logo">MK Chou</a>
-      <button class="nav-toggle" aria-label="開啟選單" aria-expanded="false">
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
         <span></span>
         <span></span>
       </button>
       <ul class="nav-links">
-        <li><a href="./" class="active" aria-current="page">首頁</a></li>
-        <li><a href="project/">專題</a></li>
-        <li><a href="about/">關於我</a></li>
+        <li><a href="./" class="active" aria-current="page">Home</a></li>
+        <li><a href="project/">Projects</a></li>
+        <li><a href="about/">About</a></li>
       </ul>
     </nav>
   </header>
 
-  <main>
-    <section class="hero" id="top">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="container hero-content">
-        <p class="hero-label">Hello, I'm</p>
-        <h1 class="hero-title">MK Chou</h1>
-        <p class="hero-tagline">
-          打造簡潔而有意義的數位體驗。<br>
-          工程、設計，與持續學習的交會點。
-        </p>
-        <div class="hero-actions">
-          <a href="#work" class="btn btn-primary">查看作品</a>
-          <a href="#contact" class="btn btn-ghost">聯絡我</a>
-        </div>
-      </div>
-      <a href="#about" class="scroll-hint" aria-label="往下捲動">
-        <span>Scroll</span>
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true">
-          <path d="M10 3v14M4 11l6 6 6-6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </a>
-    </section>
-
-    <section class="section about" id="about">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-label">About</span>
-          <h2>關於我</h2>
-        </div>
-        <div class="about-grid">
-          <div class="about-text">
-            <p>
-              你好，我是 MK Chou。這裡是我的個人網站原型——一個簡潔的靜態頁面，
-              準備部署到 <strong>GitHub Pages</strong>，並綁定網域 <strong>mk-chou.com</strong>。
-            </p>
-            <p>
-              我對軟體開發、硬體設計與解決實際問題充滿熱情。
-              這個網站會隨著時間慢慢充實，記錄我的專案、想法與學習歷程。
-            </p>
-          </div>
-          <ul class="about-tags">
-            <li>軟體開發</li>
-            <li>嵌入式系統</li>
-            <li>網頁設計</li>
-            <li>持續學習</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section work" id="work">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-label">Work</span>
-          <h2>精選作品</h2>
-        </div>
-        <div class="project-grid">
-          <article class="project-card">
-            <div class="project-number">01</div>
-            <h3>個人網站</h3>
-            <p>mk-chou.com 的靜態原型，使用純 HTML / CSS / JS 打造，部署於 GitHub Pages。</p>
-            <span class="project-tag">Web</span>
-          </article>
-          <article class="project-card">
-            <div class="project-number">02</div>
-            <h3>專案佔位</h3>
-            <p>之後可以在這裡放上你的實際專案描述、技術棧與連結。</p>
-            <span class="project-tag">Prototype</span>
-          </article>
-          <article class="project-card">
-            <div class="project-number">03</div>
-            <h3>專案佔位</h3>
-            <p>每張卡片都可以改成真實作品，附上 GitHub 或 Demo 連結。</p>
-            <span class="project-tag">Coming Soon</span>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section contact" id="contact">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-label">Contact</span>
-          <h2>聯絡我</h2>
-        </div>
-        <div class="contact-box">
-          <p>有合作、交流或只是想打聲招呼，歡迎透過以下方式聯繫。</p>
-          <div class="contact-links">
-            <a href="mailto:hello@mk-chou.com" class="contact-link">
-              <span class="contact-link-label">Email</span>
-              <span class="contact-link-value">hello@mk-chou.com</span>
-            </a>
-            <a href="https://github.com/" class="contact-link" target="_blank" rel="noopener noreferrer">
-              <span class="contact-link-label">GitHub</span>
-              <span class="contact-link-value">你的 GitHub 帳號 →</span>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
+  <main class="page-main">
+    <div class="container page-content testing-page">
+      <p class="testing-badge">Status</p>
+      <h1 class="page-title">Under Testing</h1>
+      <p class="page-lead">
+        This site is currently under testing. Content and features are not yet available.
+        Please check back soon.
+      </p>
+    </div>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>&copy; <span id="year"></span> MK Chou. All rights reserved.</p>
-      <a href="#top" class="back-to-top">回到頂部 ↑</a>
+      <p>&copy; <span id="year"></span> MK Chou. Under Testing.</p>
     </div>
   </footer>
 
