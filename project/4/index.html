@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="陪你想想 (acp_care) — an elderly-friendly Flutter app that helps seniors and families understand and prepare for Advance Care Planning, with TTM-staged content and voice interaction.">
+  <link rel="canonical" href="https://www.mk-chou.com/project/4">
+  <title>Project 04 | An Elderly-Friendly ACP Companion App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="case.css">
+</head>
+<body class="case">
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation" data-i18n="nav.label" data-i18n-attr="aria-label">
+      <a href="../../" class="logo">MK Chou</a>
+      <div class="nav-end">
+        <ul class="nav-links">
+          <li><a href="../../" data-i18n="nav.home">Home</a></li>
+          <li><a href="../" class="active" aria-current="page" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="../../about/" data-i18n="nav.about">About</a></li>
+        </ul>
+        <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch to Chinese">中文</button>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-i18n="nav.toggle" data-i18n-attr="aria-label">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="case-main">
+    <section class="case-hero">
+      <div class="container">
+        <nav class="case-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../" data-i18n="breadcrumb.home">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="../" data-i18n="breadcrumb.projects">Projects</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">04</span>
+        </nav>
+        <p class="case-eyebrow" data-i18n="hero.eyebrow">Project 04 · Advance Care Planning · Elderly-Friendly App</p>
+        <h1 class="case-title" data-i18n="hero.title" data-i18n-html>"陪你想想" — An Elderly-Friendly<br>Companion App for Advance Care Planning</h1>
+        <p class="case-lead" data-i18n="hero.lead">
+          Built with experts who insisted "this is just a prototype — don't overbuild it," 陪你想想 (acp_care) helps seniors and their families ease into Advance Care Planning (ACP). Instead of pushing forms, it lowers death anxiety, delivers content matched to each person's TTM readiness stage, and gently nudges families to talk — the cultural core in Taiwan.
+        </p>
+        <ul class="case-stats">
+          <li><strong>4</strong><span data-i18n="hero.stat1">TTM readiness stages</span></li>
+          <li><strong>9</strong><span data-i18n="hero.stat2">Voice FAQ topics</span></li>
+          <li><strong>STT + TTS</strong><span data-i18n="hero.stat3">Voice-first interaction</span></li>
+          <li><strong>Flutter</strong><span data-i18n="hero.stat4">Real APK build</span></li>
+        </ul>
+        <ul class="case-tags">
+          <li>Flutter 3.22.3</li>
+          <li data-i18n="tag.ttm">TTM staging</li>
+          <li>flutter_tts</li>
+          <li data-i18n="tag.stt">STT (TA + ZH medical)</li>
+          <li data-i18n="tag.elder">Elderly-friendly UI</li>
+          <li data-i18n="tag.family">Family mode</li>
+        </ul>
+      </div>
+    </section>
+
+    <div class="container case-body">
+
+      <section class="case-section" id="background">
+        <span class="case-section-label" data-i18n="s01.label">01 — Background</span>
+        <h2 data-i18n="s01.h2">Why an app for Advance Care Planning?</h2>
+        <p data-i18n="s01.p1">In Taiwan, talking about future medical care and end-of-life wishes touches a strong cultural taboo. Many older adults already have wishes but don't know how to bring them up; families end up making the hardest decisions in the most chaotic moments. Interviews with a palliative-care expert (drawing on a 400+ patient, multi-morbidity cohort) shaped the whole design.</p>
+        <p data-i18n="s01.p2" data-i18n-html>The expert's clearest instruction was: <strong>"this is just a prototype — it doesn't need every feature."</strong> What matters is hitting three things well, not piling on functions.</p>
+        <div class="case-callout">
+          <h3 data-i18n="s01.callout.h">Three goals that drive everything</h3>
+          <p data-i18n="s01.callout.p" data-i18n-html><strong>1. Lower death anxiety</strong> through emotional design · <strong>2. Match content to TTM stage</strong> for personalization · <strong>3. Push families to talk together</strong> — the cultural core of decision-making in Taiwan.</p>
+        </div>
+      </section>
+
+      <section class="case-section" id="principles">
+        <span class="case-section-label" data-i18n="s02.label">02 — Design Principles</span>
+        <h2 data-i18n="s02.h2">Designing for emotion and for aging eyes & hands</h2>
+        <h3 class="case-subhead" data-i18n="s02.h3a">Naming: avoid the taboo words</h3>
+        <p data-i18n="s02.p1" data-i18n-html>Words like "ACP," "death," and "end-of-life" trigger strong aversion. The app uses warm, neutral names instead — the chosen one is <strong>陪你想想</strong> ("let me think it over with you"). The whole tone reframes planning as an act of love: "planning ahead is a way of caring."</p>
+        <h3 class="case-subhead" data-i18n="s02.h3b">Elderly-friendly UI</h3>
+        <ul class="case-list">
+          <li data-i18n="s02.li1" data-i18n-html><strong>Large type</strong>: body ≥ 18pt, headings ≥ 24pt.</li>
+          <li data-i18n="s02.li2" data-i18n-html><strong>At most 2 options per screen</strong> to avoid choice overload.</li>
+          <li data-i18n="s02.li3" data-i18n-html><strong>Voice on every key screen</strong>: all important text can be read aloud.</li>
+          <li data-i18n="s02.li4" data-i18n-html><strong>High contrast, big buttons</strong> (at least 48×48px).</li>
+          <li data-i18n="s02.li5" data-i18n-html><strong>Gentle wording</strong>: "planning ahead is a way of caring," never lecturing.</li>
+        </ul>
+      </section>
+
+      <section class="case-section" id="flow">
+        <span class="case-section-label" data-i18n="s03.label">03 — Core Flow</span>
+        <h2 data-i18n="s03.h2">From greeting to family conversation</h2>
+        <p data-i18n="s03.p1">The journey is deliberately short and linear, so a senior can complete it without getting lost. Each stage hands off to the next, and the voice FAQ is reachable at any point.</p>
+        <ol class="case-phases">
+          <li><strong data-i18n="s03.f1.h">Spoken greeting</strong><span data-i18n="s03.f1.p">: a warm TTS welcome sets a calm, non-threatening tone.</span></li>
+          <li><strong data-i18n="s03.f2.h">2–3 question assessment</strong><span data-i18n="s03.f2.p">: classify readiness into unaware / thinking / preparing / acting.</span></li>
+          <li><strong data-i18n="s03.f3.h">Stage-matched content</strong><span data-i18n="s03.f3.p">: stories for the unaware, values exploration for thinkers, conversation scripts for preparers, clinic links for actors.</span></li>
+          <li><strong data-i18n="s03.f4.h">Voice FAQ</strong><span data-i18n="s03.f4.p">: ask anything, anytime, by speaking.</span></li>
+          <li><strong data-i18n="s03.f5.h">Family companion mode</strong><span data-i18n="s03.f5.p">: bring relatives into the conversation, with prompts for both sides.</span></li>
+        </ol>
+      </section>
+
+      <section class="case-section" id="stages">
+        <span class="case-section-label" data-i18n="s04.label">04 — TTM Stage Assessment</span>
+        <h2 data-i18n="s04.h2">Meeting people where they are</h2>
+        <p data-i18n="s04.p1" data-i18n-html>Rather than a complex questionnaire, 1–2 gentle questions place the user on the Transtheoretical Model (TTM) of behavior change. The primary pain point to serve is <strong>"already willing, but doesn't know how to start the conversation"</strong> (the preparing stage).</p>
+        <div class="case-table-wrap">
+          <table class="case-table case-table--full">
+            <thead>
+              <tr>
+                <th data-i18n="s04.th1">Answer / mindset</th>
+                <th data-i18n="s04.th2">Stage</th>
+                <th data-i18n="s04.th3">What the app gives</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td data-i18n="s04.r1a">"Never thought about it, don't want to talk"</td><td data-i18n="s04.r1b">Unaware</td><td data-i18n="s04.r1c">Stories &amp; videos (e.g. "Auntie A-jiao") — light a spark, no lecturing</td></tr>
+              <tr><td data-i18n="s04.r2a">"Thought about it, but it's still vague"</td><td data-i18n="s04.r2b">Thinking</td><td data-i18n="s04.r2c">Values scenarios (extend life vs. reduce suffering)</td></tr>
+              <tr><td data-i18n="s04.r3a">"Want to talk, but don't know how to open up"</td><td data-i18n="s04.r3b">Preparing</td><td data-i18n="s04.r3c">Conversation scripts + simulated dialogue</td></tr>
+              <tr><td data-i18n="s04.r4a">"Already discussing with family / doctor"</td><td data-i18n="s04.r4b">Acting</td><td data-i18n="s04.r4c">Counseling clinic map, AD form links</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="case-note" data-i18n="s04.note" data-i18n-html>Content strategy maps to behavior-change theory: SCT observational learning for the unaware, and COM-B (motivation / capability / opportunity) across the later stages.</p>
+      </section>
+
+      <section class="case-section" id="voice">
+        <span class="case-section-label" data-i18n="s05.label">05 — Voice Interaction</span>
+        <h2 data-i18n="s05.h2">Speak to ask, listen to learn</h2>
+        <p data-i18n="s05.p1">Voice is central because reading small text and typing are barriers for many seniors. The app pairs on-device text-to-speech with a recording-based speech recognizer.</p>
+        <div class="case-grid-2">
+          <div class="case-text-block">
+            <h3 data-i18n="s05.h3a">How it works (MVP)</h3>
+            <ul class="case-list">
+              <li data-i18n="s05.li1" data-i18n-html><strong>TTS</strong>: on-device <code>flutter_tts</code> (zh-TW, speech rate 0.45) reads every key message.</li>
+              <li data-i18n="s05.li2" data-i18n-html><strong>STT</strong>: <code>record</code> captures audio → sent to a school API (supports Taiwanese + Chinese medical recognition).</li>
+              <li data-i18n="s05.li3" data-i18n-html><strong>Keyword FAQ</strong>: recognized text is keyword-matched to 9 FAQ items, then the answer is read aloud.</li>
+              <li data-i18n="s05.li4" data-i18n-html><strong>Why this design</strong>: no LLM key needed, demo stays stable, and there's a graceful "didn't catch that" fallback suggesting the closest questions.</li>
+            </ul>
+          </div>
+          <div class="case-text-block">
+            <h3 data-i18n="s05.h3b">FAQ topics covered</h3>
+            <ul class="case-list">
+              <li data-i18n="s05.q1">What is Advance Care Planning?</li>
+              <li data-i18n="s05.q2">What is an Advance Decision (AD)?</li>
+              <li data-i18n="s05.q3">The five clinical conditions</li>
+              <li data-i18n="s05.q4">Who can sign, and with which witnesses?</li>
+              <li data-i18n="s05.q5">Do I have to visit a clinic?</li>
+              <li data-i18n="s05.q6">What if the family disagrees?</li>
+              <li data-i18n="s05.q7">Can it be changed or withdrawn?</li>
+              <li data-i18n="s05.q8">Is this "giving up on treatment"? (No.)</li>
+              <li data-i18n="s05.q9">Isn't it too early to talk about this?</li>
+            </ul>
+          </div>
+        </div>
+        <p class="case-note" data-i18n="s05.note" data-i18n-html>Advanced (stretch) option: route to a real LLM with a system prompt that keeps the assistant strictly on ACP and gentle in tone.</p>
+      </section>
+
+      <section class="case-section" id="family">
+        <span class="case-section-label" data-i18n="s06.label">06 — Family Companion Mode</span>
+        <h2 data-i18n="s06.h2">The differentiating feature</h2>
+        <p data-i18n="s06.p1">Because Taiwanese families decide as a unit, the standout feature invites relatives in rather than treating the senior in isolation. Interactive stories and scenario simulations help the conversation start without pressure.</p>
+        <ul class="case-list">
+          <li data-i18n="s06.li1" data-i18n-html><strong>"Invite family to look together"</strong> mode for shared viewing.</li>
+          <li data-i18n="s06.li2" data-i18n-html><strong>Conversation cards</strong>: separate prompts for the elder and for the relatives.</li>
+          <li data-i18n="s06.li3" data-i18n-html><strong>Scenario stories</strong> (e.g. "Mr. Wang," "Auntie A-xiu"): branch choices with gentle reflections, showing why an early conversation matters.</li>
+          <li data-i18n="s06.li4" data-i18n-html><strong>Values cards</strong>: five quick this-or-that questions produce a shareable "wish card" to hand to family.</li>
+        </ul>
+        <div class="case-callout">
+          <h3 data-i18n="s06.callout.h">Example prompt (to relatives)</h3>
+          <p data-i18n="s06.callout.p" data-i18n-html>Don't say "you're overthinking it." Try: <strong>"I'd really like to hear what you think."</strong></p>
+        </div>
+      </section>
+
+      <section class="case-section" id="tech">
+        <span class="case-section-label" data-i18n="s07.label">07 — Tech Stack</span>
+        <h2 data-i18n="s07.h2">Flutter for a real, demoable APK</h2>
+        <p data-i18n="s07.p1" data-i18n-html>The same stack as the course's reference project, so it produces a real installable APK rather than a slideshow. Built and shipped via <code>flutter build apk --release</code>.</p>
+        <div class="case-table-wrap">
+          <table class="case-table case-table--full">
+            <thead>
+              <tr><th data-i18n="s07.th1">Layer</th><th data-i18n="s07.th2">Choice</th></tr>
+            </thead>
+            <tbody>
+              <tr><td data-i18n="s07.t1">Framework</td><td>Flutter 3.22.3</td></tr>
+              <tr><td data-i18n="s07.t2">Text-to-speech</td><td>flutter_tts ^4.0.2 (zh-TW, rate 0.45)</td></tr>
+              <tr><td data-i18n="s07.t3">Recording / STT</td><td>record ^6.0.0 → school API</td></tr>
+              <tr><td data-i18n="s07.t4">Networking / audio</td><td>http ^1.3.0, just_audio ^0.9.46</td></tr>
+              <tr><td data-i18n="s07.t5">Storage / links</td><td>path_provider ^2.1.5, url_launcher ^6.3.1</td></tr>
+              <tr><td data-i18n="s07.t6">Output</td><td>release APK (per-ABI or universal)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="case-note" data-i18n="s07.note" data-i18n-html>App structure is modular: <code>data/</code> holds stage, FAQ, values, and scenario content; <code>pages/</code> holds each screen; <code>widgets/</code> holds reusable big buttons and voice controls.</p>
+      </section>
+
+      <section class="case-section" id="decisions">
+        <span class="case-section-label" data-i18n="s08.label">08 — Decisions Backed by Interviews</span>
+        <h2 data-i18n="s08.h2">Every design choice traces to a reason</h2>
+        <div class="case-table-wrap">
+          <table class="case-table case-table--full">
+            <thead>
+              <tr><th data-i18n="s08.th1">Design decision</th><th data-i18n="s08.th2">Interview basis</th></tr>
+            </thead>
+            <tbody>
+              <tr><td data-i18n="s08.d1a">Route content by TTM stage</td><td data-i18n="s08.d1b">"Everyone is at a different stage"</td></tr>
+              <tr><td data-i18n="s08.d2a">Avoid death-related words</td><td data-i18n="s08.d2b">"It makes people deeply uncomfortable"</td></tr>
+              <tr><td data-i18n="s08.d3a">Family companion mode</td><td data-i18n="s08.d3b">"In Taiwan, families decide as a unit"</td></tr>
+              <tr><td data-i18n="s08.d4a">App doesn't push signing forms</td><td data-i18n="s08.d4b">"Light a spark, not collect a consent form"</td></tr>
+              <tr><td data-i18n="s08.d5a">Target multi-morbidity geriatric patients</td><td data-i18n="s08.d5b">400+ patient cohort with multiple conditions</td></tr>
+              <tr><td data-i18n="s08.d6a">Build with Flutter → APK</td><td data-i18n="s08.d6b">Same stack as the course project; real on-device demo</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="case-section" id="future">
+        <span class="case-section-label" data-i18n="s09.label">09 — Scope & Future Work</span>
+        <h2 data-i18n="s09.h2">What's built, and what's next</h2>
+        <h3 class="case-subhead" data-i18n="s09.h3a">Done (MVP)</h3>
+        <ul class="case-list case-list--check">
+          <li data-i18n="s09.m1">Greeting + 2–3 question stage assessment</li>
+          <li data-i18n="s09.m2">One content page per TTM stage</li>
+          <li data-i18n="s09.m3">Voice FAQ (keyword matching, 9 topics)</li>
+          <li data-i18n="s09.m4">Elderly-friendly UI throughout</li>
+          <li data-i18n="s09.m5">Successful flutter build apk</li>
+        </ul>
+        <h3 class="case-subhead" data-i18n="s09.h3b">Stretch goals</h3>
+        <ul class="case-list">
+          <li data-i18n="s09.s1">Values-ranking interaction and shareable wish cards</li>
+          <li data-i18n="s09.s2">Deeper family companion mode (skeleton already built)</li>
+          <li data-i18n="s09.s3">Real LLM-backed voice assistant, scoped to ACP only</li>
+          <li data-i18n="s09.s4">Progress tracking via local storage</li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="container case-actions">
+      <a href="../" class="back-home" data-i18n="actions.projects">← Back to projects</a>
+      <a href="../../" class="back-home" data-i18n="actions.home">Back to home</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> MK Chou · <span data-i18n="footer.copy">Project 04</span></p>
+      <a href="#" class="back-to-top" data-i18n="footer.top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="case-i18n.js"></script>
+  <script src="../../js/main.js"></script>
+</body>
+</html>
