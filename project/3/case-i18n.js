@@ -1,7 +1,7 @@
 const CASE_I18N = {
   zh: {
-    'meta.title': '專題 03 ｜ 輕量化 1D-CNN 跌倒偵測系統',
-    'meta.description': '基於輕量化 1D-CNN 之硬體友善跌倒偵測系統：從骨架擷取、模型設計到 PC / Jetson / FPGA 跨平台部署的完整研究紀錄。',
+    'meta.title': '專題 03｜資源受限邊緣平台骨架跌倒偵測與硬體協同設計',
+    'meta.description': '資源受限邊緣平台上基於骨架的跌倒偵測模型與硬體協同設計 — 從 MediaPipe 骨架擷取、輕量 1D-CNN 到 PC / Jetson / FPGA 跨平台部署與驗證。',
     'nav.label': '主導覽',
     'nav.toggle': '開啟選單',
     'nav.home': '首頁',
@@ -11,8 +11,8 @@ const CASE_I18N = {
     'breadcrumb.projects': '專案',
     'lang.switch': 'EN',
     'lang.label': '切換為英文',
-    'hero.eyebrow': '專題 03 · Edge AI · Hardware Co-Design',
-    'hero.title': '基於輕量化 1D-CNN 之<br>硬體友善跌倒偵測系統',
+    'hero.eyebrow': '專題 03 · 骨架跌倒偵測 · 硬體協同設計',
+    'hero.title': '資源受限邊緣平台上基於骨架的<br>跌倒偵測模型與硬體協同設計',
     'hero.lead': '以單顆攝影機擷取人體骨架，透過一個極輕量的時間卷積網路判斷「跌倒 / 正常」，並把同一個模型部署到 PC、Jetson Nano 與 FPGA（PYNQ-Z2）三種平台，驗證它在邊緣裝置上的可行性、即時性與準確度。',
     'hero.stat1': '固定測試集準確率',
     'hero.stat2': '單次模型推論',
@@ -133,8 +133,8 @@ const CASE_I18N = {
     'footer.top': '回到頂端 ↑'
   },
   en: {
-    'meta.title': 'Project 03 | Lightweight 1D-CNN Fall Detection',
-    'meta.description': 'A hardware-friendly fall detection system built on a lightweight 1D-CNN — from skeleton extraction and model design to cross-platform deployment on PC, Jetson, and FPGA.',
+    'meta.title': 'Project 03 | Skeleton-based Fall Detection Co-Design',
+    'meta.description': 'Model-Hardware Co-Design for skeleton-based fall detection on resource-constrained edge platforms — from MediaPipe skeleton extraction and lightweight 1D-CNN to deployment on PC, Jetson, and FPGA.',
     'nav.label': 'Main navigation',
     'nav.toggle': 'Open menu',
     'nav.home': 'Home',
@@ -144,8 +144,8 @@ const CASE_I18N = {
     'breadcrumb.projects': 'Projects',
     'lang.switch': '中文',
     'lang.label': 'Switch to Chinese',
-    'hero.eyebrow': 'Project 03 · Edge AI · Hardware Co-Design',
-    'hero.title': 'Hardware-Friendly Fall Detection<br>with a Lightweight 1D-CNN',
+    'hero.eyebrow': 'Project 03 · Skeleton Fall Detection · Co-Design',
+    'hero.title': 'Model-Hardware Co-Design for<br>Skeleton-based Fall Detection on<br>Resource-Constrained Edge Platforms',
     'hero.lead': 'Using a single camera to extract human skeletons, a tiny temporal convolutional network classifies fall vs. normal activity. The same model was deployed on PC, Jetson Nano, and FPGA (PYNQ-Z2) to validate feasibility, real-time performance, and accuracy on edge devices.',
     'hero.stat1': 'Fixed test-set accuracy',
     'hero.stat2': 'Single inference latency',
