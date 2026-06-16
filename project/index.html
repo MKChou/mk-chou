@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Projects — Under Testing">
+  <meta name="description" content="MK Chou — Projects including skeleton-based fall detection with model-hardware co-design on edge platforms.">
   <link rel="canonical" href="https://www.mk-chou.com/project">
-  <title>Projects | Under Testing</title>
+  <title>Projects | MK Chou</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -28,19 +28,32 @@
   </header>
 
   <main class="page-main">
-    <div class="container page-content testing-page">
-      <p class="testing-badge">Projects</p>
-      <h1 class="page-title">Under Testing</h1>
+    <div class="container page-content page-content--wide">
+      <p class="page-label">Portfolio</p>
+      <h1 class="page-title">Projects</h1>
       <p class="page-lead">
-        The projects section is currently under testing. No projects are available at this time.
+        Selected work — research, edge AI, and hardware co-design.
       </p>
-      <a href="../" class="back-home">← Back to Home</a>
+
+      <div class="project-grid">
+        <a href="3/" class="project-card project-card--link">
+          <p class="project-number">03</p>
+          <h3>Skeleton-based Fall Detection</h3>
+          <p>
+            Model–hardware co-design for fall detection on resource-constrained edge platforms —
+            lightweight 1D-CNN, deployed on PC, Jetson Nano, and PYNQ-Z2 FPGA.
+          </p>
+          <span class="project-tag">1D-CNN</span>
+          <span class="project-tag">FPGA</span>
+          <span class="project-tag">Edge AI</span>
+        </a>
+      </div>
     </div>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>&copy; <span id="year"></span> MK Chou. Under Testing.</p>
+      <p>&copy; <span id="year"></span> MK Chou</p>
       <a href="../" class="back-to-top">Back to Home ↑</a>
     </div>
   </footer>
