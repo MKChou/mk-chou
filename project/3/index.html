@@ -71,6 +71,16 @@
         <p data-i18n="s01.p1" data-i18n-html>這個題目的起點，其實來自<strong><a href="../2/">專題二</a>（FallFusion 多模態跌倒偵測）</strong>的實戰經驗……</p>
         <p data-i18n="s01.p2" data-i18n-html>這不只是學生專題才會踩到的問題……</p>
         <p data-i18n="s01.p3" data-i18n-html>因此專題三想換一個問法……</p>
+        <h3 class="case-subhead" data-i18n="s01.focus.h3">研究定位：貢獻在架構，不在準確率排行榜</h3>
+        <p data-i18n="s01.focus.p1" data-i18n-html>專題三刻意與「把分類準確率刷到 SOTA」分道揚鑣……</p>
+        <p data-i18n="s01.focus.p2" data-i18n-html>這不代表準確率可以忽略……</p>
+        <p data-i18n="s01.focus.p3" data-i18n-html>相對地，<strong>主要貢獻</strong>落在架構與方法……</p>
+        <ul class="case-list">
+          <li data-i18n="s01.focus.li1" data-i18n-html><strong>主要貢獻</strong>：端到端管線……</li>
+          <li data-i18n="s01.focus.li2" data-i18n-html><strong>門檻指標</strong>：固定測試集上的 Accuracy……</li>
+          <li data-i18n="s01.focus.li3" data-i18n-html><strong>不是重點</strong>：在 URFD 小資料集上……</li>
+          <li data-i18n="s01.focus.li4" data-i18n-html><strong>與專題二互補</strong>……</li>
+        </ul>
         <h3 class="case-subhead" data-i18n="s01.h3">研究目標與驗證範圍</h3>
         <ul class="case-list">
           <li data-i18n="s01.goal1">建立從 URFD 影像到骨架序列、再到 1D-CNN 分類的完整軟體管線</li>
@@ -236,7 +246,11 @@
           <li data-i18n="s03.train3" data-i18n-html><strong>分類頭</strong>：AdaptiveAvgPool1d(1) + Linear(128→2)，輸出 Fall / Non-Fall</li>
         </ul>
         <h3 class="case-subhead" data-i18n="s03.h3d">訓練設定與 Early Stopping</h3>
-        <p data-i18n="s03.p4" data-i18n-html>訓練以驗證損失（val_loss）為早停依據：<code>patience = 10</code>，連續 10 個 epoch 沒有改善即停止，並保留最佳權重。實際在第 27 個 epoch 左右觸發早停，避免在小資料集上過度擬合。<strong>用 val_loss 而非準確率判斷</strong>，是因為損失對機率分布的變化更敏感，能更早察覺泛化退化。</p>
+        <p data-i18n="s03.p4" data-i18n-html>訓練以驗證損失（val_loss）為早停依據……</p>
+        <figure class="case-figure">
+          <img src="assets/training-report.png" data-i18n-alt="s03.imgTrain.alt" alt="" loading="lazy">
+          <figcaption data-i18n="s03.imgTrain.cap">訓練／驗證曲線……</figcaption>
+        </figure>
         <ul class="case-list">
           <li data-i18n="s03.tr1" data-i18n-html><strong>早停準則</strong>：監看 val_loss，patience=10，保留最佳模型</li>
           <li data-i18n="s03.tr2" data-i18n-html><strong>觸發時機</strong>：約第 27 epoch（最大 50）提前停止</li>
@@ -270,10 +284,65 @@
           <img src="assets/system-architecture.png" data-i18n-alt="s04.img1.alt" alt="" loading="lazy">
           <figcaption data-i18n="s04.img1.cap">軟硬體切分</figcaption>
         </figure>
-        <figure class="case-figure">
-          <img src="assets/fpga-vivado.png" data-i18n-alt="s04.img2.alt" alt="" loading="lazy">
-          <figcaption data-i18n="s04.img2.cap">Vivado / Vitis HLS 整合</figcaption>
+        <figure class="case-figure case-figure--wide">
+          <img src="assets/FPGA_arch.png" data-i18n-alt="s04.img2.alt" alt="" loading="lazy">
+          <figcaption data-i18n="s04.img2.cap">Vivado Block Design……</figcaption>
         </figure>
+
+        <h3 class="case-subhead" data-i18n="s04.h3bd">HLS 加速器說明（design_1 Block Design）</h3>
+        <p data-i18n="s04.bd.p1" data-i18n-html>這張圖是 PYNQ-Z2……</p>
+
+        <h4 class="case-subhead-sm" data-i18n="s04.bd.why.h">為什麼用 HLS 自研 IP？</h4>
+        <div class="case-table-wrap">
+          <table class="case-table case-table--full">
+            <thead>
+              <tr>
+                <th data-i18n="s04.bd.why.th1">做法</th>
+                <th data-i18n="s04.bd.why.th2">取捨</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td data-i18n="s04.bd.why.r1a">通用 DPU IP</td><td data-i18n="s04.bd.why.r1b">指令解碼、排程開銷大，對極輕量 1D-CNN 不划算</td></tr>
+              <tr><td data-i18n="s04.bd.why.r2a">純 CPU（Jetson）</td><td data-i18n="s04.bd.why.r2b">延遲抖動較大，不利硬即時場景</td></tr>
+              <tr><td data-i18n="s04.bd.why.r3a">HLS 客製 IP</td><td data-i18n="s04.bd.why.r3b">針對 (1, 36, 50) → (1, 2) 量身設計，資源與延遲可控</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4 class="case-subhead-sm" data-i18n="s04.bd.mod.h">Block Design 各模組職責</h4>
+        <div class="case-bd-modules">
+          <div class="case-bd-module">
+            <h5 data-i18n="s04.bd.mod.ps.h">processing_system7_0（Zynq PS）</h5>
+            <p data-i18n="s04.bd.mod.ps.p">載入 bitstream、準備輸入、啟動 DMA、讀回結果；透過 M_AXI_GP0 存取 PL 端 IP。</p>
+          </div>
+          <div class="case-bd-module">
+            <h5 data-i18n="s04.bd.mod.dma.h">axi_dma_0（AXI DMA）</h5>
+            <p data-i18n="s04.bd.mod.dma.p" data-i18n-html>MM2S 把 DDR 中的 36×50 特徵送到 HLS IP；S2MM 把 2 維 logit 寫回 DDR。Stream 寬度 8 bit，與 <code>ap_fixed&lt;8,4&gt;</code> 對齊。</p>
+          </div>
+          <div class="case-bd-module">
+            <h5 data-i18n="s04.bd.mod.ip.h">fall_detection_0（HLS IP）</h5>
+            <p data-i18n="s04.bd.mod.ip.p" data-i18n-html>核心加速器：<code>s_axi_control</code> 控制、AXI-Stream 輸入/輸出（輸出帶 TLAST）、<code>m_axi_gmem0~5</code> 從 DDR Burst Read 權重至 BRAM。</p>
+          </div>
+          <div class="case-bd-module">
+            <h5 data-i18n="s04.bd.mod.ic.h">ps7_0_axi_periph（AXI Interconnect）</h5>
+            <p data-i18n="s04.bd.mod.ic.p">匯流排交換器，連接 PS、DMA 控制埠與 HLS 的 6 條 m_axi，共享 HP0_DDR_LOWOCM 存取 DDR。</p>
+          </div>
+          <div class="case-bd-module">
+            <h5 data-i18n="s04.bd.mod.rst.h">rst_ps7_0_50M（Processor System Reset）</h5>
+            <p data-i18n="s04.bd.mod.rst.p">由 PS 的 FCLK_CLK0（50 MHz）產生 PL 同步重置。</p>
+          </div>
+        </div>
+
+        <h4 class="case-subhead-sm" data-i18n="s04.bd.flow.h">一次推論的資料流</h4>
+        <ol class="case-phases case-phases--compact">
+          <li data-i18n="s04.bd.flow1">PYNQ Python 將骨架特徵 (36×50) 放入 DDR buffer</li>
+          <li data-i18n="s04.bd.flow2">DMA MM2S 以 AXI-Stream 送入 <code>input_stream_V</code>（1800 bytes）</li>
+          <li data-i18n="s04.bd.flow3">HLS IP 透過 m_axi 載入權重至 BRAM，執行 1D-CNN</li>
+          <li data-i18n="s04.bd.flow4">2 bytes 結果經 <code>output_stream</code>（TLAST=1）送回 DMA</li>
+          <li data-i18n="s04.bd.flow5">DMA S2MM 寫回 DDR，Python 讀取並 argmax 判斷 Fall / Non-Fall</li>
+        </ol>
+        <p class="case-note case-bd-flow-note" data-i18n="s04.bd.flow.note" data-i18n-html>DDR 輸入 buffer ──MM2S──► <code>fall_detection_0</code> ──S2MM──► DDR 輸出 buffer；權重經 m_axi 從 DDR 讀入。硬體計算 ~0.41 ms，端對端 ~16.62 ms 多半花在 DMA 搬移。</p>
+
         <h3 class="case-subhead" data-i18n="s04.h3">FPGA 上板流程（PYNQ-Z2）</h3>
         <p data-i18n="s04.p2">FPGA 端不重新訓練模型，而是沿用 PC 上匯出的 deploy ONNX，確保軟硬體比對有單一真實來源（Single Source of Truth）。完整流程如下：</p>
         <ol class="case-phases">
@@ -284,16 +353,61 @@
         </ol>
         <p class="case-note" data-i18n="s04.note" data-i18n-html>軟體端（PS）負責影像 I/O 與 MediaPipe 骨架擷取，屬於<strong>非確定性、OS 排程主導</strong>的路徑；硬體端（PL）只負責收到 INT8 骨架序列後的 1D-CNN 推論，提供<strong>固定延遲、可重複</strong>的計算行為——這正是本專題在邊緣場景想驗證的價值。</p>
 
-        <h3 class="case-subhead" data-i18n="s04.h3hls">HLS 加速器設計重點</h3>
-        <p data-i18n="s04.hls.p">加速器以 Vitis HLS（C++）撰寫，刻意對應模型的每一層，讓硬體資源用在刀口上，而非交給通用 IP 自行排程。</p>
+        <h3 class="case-subhead" data-i18n="s04.h3hls">HLS C++ 實作重點</h3>
+        <p data-i18n="s04.hls.p" data-i18n-html>頂層函式 <code>fall_detection()</code>（Vitis HLS）刻意對應 PyTorch / ONNX 的每一層，讓硬體資源用在刀口上。</p>
         <ul class="case-list">
-          <li data-i18n="s04.hls1" data-i18n-html><strong>INT8 定點運算</strong>：以 <code>ap_fixed&lt;8,4&gt;</code> 取代浮點，省下大量 DSP 與 BRAM。</li>
-          <li data-i18n="s04.hls2" data-i18n-html><strong>Loop Unrolling</strong>：沿通道維度展開卷積迴圈，善用 FPGA 的 DSP Slice 並行運算。</li>
-          <li data-i18n="s04.hls3" data-i18n-html><strong>Pipelining（II=1）</strong>：管線化資料路徑，逼近每週期吐出一筆結果的吞吐。</li>
-          <li data-i18n="s04.hls4" data-i18n-html><strong>Dataflow 架構</strong>：層與層之間以串流串接，減少中間緩衝與等待。</li>
-          <li data-i18n="s04.hls5" data-i18n-html><strong>權重讀取優化</strong>：以 <code>memcpy</code> 搬入 BRAM buffer，避免 AXI 匯流排壅塞。</li>
-          <li data-i18n="s04.hls6" data-i18n-html><strong>通道數對齊並行度</strong>：36→64→128 的設計讓硬體展開更整齊。</li>
+          <li data-i18n="s04.hls1" data-i18n-html><strong>INT8 定點運算</strong>：以 <code>ap_fixed&lt;8,4&gt;</code> 取代浮點，對應軟體端 INT8 量化。</li>
+          <li data-i18n="s04.hls2" data-i18n-html><strong>DATAFLOW + PIPELINE II=1</strong>：層間以 <code>hls::stream</code> 串接，內層迴圈每週期啟動一次。</li>
+          <li data-i18n="s04.hls3" data-i18n-html><strong>memcpy + BRAM</strong>：權重一次性 Burst 載入 BRAM，避免計算中頻繁讀 DDR。</li>
+          <li data-i18n="s04.hls4" data-i18n-html><strong>AXI-Stream + TLAST</strong>：與 DMA 正確握手，S2MM 能辨識傳輸結束。</li>
+          <li data-i18n="s04.hls5" data-i18n-html><strong>ap_ctrl_none</strong>：無需 CPU 反覆 start/stop，stream 驅動即自動運算。</li>
+          <li data-i18n="s04.hls6" data-i18n-html><strong>通道數對齊並行度</strong>：36→64→128，DSP 用滿屬於針對此模型的 Right-Sizing。</li>
         </ul>
+
+        <h4 class="case-subhead-sm" data-i18n="s04.bd.maxi.h">權重與 m_axi 對應</h4>
+        <div class="case-table-wrap">
+          <table class="case-table case-table--full">
+            <thead>
+              <tr>
+                <th>Bundle</th>
+                <th data-i18n="s04.bd.maxi.th">內容</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><code>gmem0</code></td><td data-i18n="s04.bd.maxi.r0">Conv1 權重</td></tr>
+              <tr><td><code>gmem1</code></td><td data-i18n="s04.bd.maxi.r1">Conv1 偏置</td></tr>
+              <tr><td><code>gmem2</code></td><td data-i18n="s04.bd.maxi.r2">Conv2 權重</td></tr>
+              <tr><td><code>gmem3</code></td><td data-i18n="s04.bd.maxi.r3">Conv2 偏置</td></tr>
+              <tr><td><code>gmem4</code></td><td data-i18n="s04.bd.maxi.r4">FC 權重</td></tr>
+              <tr><td><code>gmem5</code></td><td data-i18n="s04.bd.maxi.r5">FC 偏置</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="case-note" data-i18n="s04.bd.weights.note" data-i18n-html>權重由 <code>extract_weights_from_deploy_onnx.py</code> 從 deploy ONNX 導出，編入 <code>weights.h</code>。</p>
+
+        <h4 class="case-subhead-sm" data-i18n="s04.bd.res.h">FPGA 資源使用（Zynq-7020）</h4>
+        <div class="case-table-wrap">
+          <table class="case-table case-table--full">
+            <thead>
+              <tr>
+                <th data-i18n="s04.bd.res.th1">資源</th>
+                <th data-i18n="s04.bd.res.th2">使用率</th>
+                <th data-i18n="s04.bd.res.th3">說明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>DSP48</td><td>100%（220/220）</td><td data-i18n="s04.bd.res.r0">卷積乘加主要由 DSP 承擔</td></tr>
+              <tr><td>BRAM</td><td>~28%（39/140）</td><td data-i18n="s04.bd.res.r1">權重 buffer、特徵圖暫存</td></tr>
+              <tr><td>LUT</td><td data-i18n="s04.bd.res.r2v">綜合偏高</td><td data-i18n="s04.bd.res.r2">實作後 opt_design 通常會下降</td></tr>
+              <tr><td>FF</td><td>~49%</td><td data-i18n="s04.bd.res.r3">暫存器</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="case-callout">
+          <h3 data-i18n="s04.bd.summary.h">與整體專題的關係</h3>
+          <p data-i18n="s04.bd.summary.p" data-i18n-html>階段一（軟體）：訓練硬體友善 1D-CNN · ReLU6 · INT8 量化 → 階段二（Jetson）：邊緣基準 · 瓶頸分析（骨架擷取 ~97%）→ <strong>階段三（FPGA）</strong>：design_1 = HLS IP + DMA + Zynq 整合。實測上板準確率 92.39%，Jitter Std 0.028 ms，驗證協同設計在邊緣平台上的可行性——詳見 <a href="#results">06 實驗結果</a>。</p>
+        </div>
       </section>
 
       <section class="case-section" id="challenges">
@@ -370,7 +484,8 @@
           <p data-i18n="s06.role.p" data-i18n-html>很容易誤會「PC &gt; Jetson &gt; FPGA」是效能排名。其實 <strong>PC 與 Jetson 量的是完整端到端</strong>（解碼 → MediaPipe → 推論），而 <strong>FPGA 量的是固定骨架測試集的推論正確性與延遲</strong>，刻意跳過前處理。所以 FPGA 的目的<strong>不是</strong>解決 96% 的骨架擷取瓶頸，而是驗證協同設計的正確性與硬體的確定性——它與 Jetson 是互補關係，不是同一把尺。</p>
         </div>
 
-        <h3 class="case-subhead" data-i18n="s06.h3a">準確率與量化</h3>
+        <h3 class="case-subhead" data-i18n="s06.h3a">可行性驗證：準確率與量化</h3>
+        <p data-i18n="s06.p0" data-i18n-html>以下準確率與量化數字在專題三中的角色是<strong>可行性驗證</strong>……</p>
         <div class="case-grid-2">
           <figure class="case-figure">
             <img src="assets/confusion-matrix.png" data-i18n-alt="s06.img1.alt" alt="" loading="lazy">
@@ -409,33 +524,31 @@
         </div>
 
         <h3 class="case-subhead" data-i18n="s06.h3c">系統瓶頸分析</h3>
-        <div class="case-grid-2">
-          <figure class="case-figure">
-            <img src="assets/perf-pie.png" data-i18n-alt="s06.img3.alt" alt="" loading="lazy">
-            <figcaption data-i18n="s06.img3.cap">端到端各階段耗時占比</figcaption>
-          </figure>
-          <div class="case-text-block">
-            <p data-i18n="s06.p3" data-i18n-html>把端到端流程拆成五個階段後……</p>
-            <div class="case-table-wrap">
-              <table class="case-table case-table--full">
-                <thead>
-                  <tr>
-                    <th data-i18n="s06.th.stage">階段</th>
-                    <th data-i18n="s06.th.avg">平均耗時</th>
-                    <th data-i18n="s06.th.pct">占比</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr><td>read_decode</td><td>0.69 ms</td><td>2.02%</td></tr>
-                  <tr><td>pose_extract</td><td>33.06 ms</td><td><strong>96.71%</strong></td></tr>
-                  <tr><td>preprocess</td><td>0.016 ms</td><td>0.05%</td></tr>
-                  <tr><td>inference</td><td>0.42 ms</td><td>1.22%</td></tr>
-                  <tr><td>postprocess_draw</td><td>&lt;0.001 ms</td><td>~0%</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <p class="case-note" data-i18n="s06.note2">這個發現很重要……</p>
+        <figure class="case-figure case-figure--wide">
+          <img src="assets/perf-pie.png" data-i18n-alt="s06.img3.alt" alt="" loading="lazy">
+          <figcaption data-i18n="s06.img3.cap">端到端各階段耗時占比</figcaption>
+        </figure>
+        <div class="case-text-block">
+          <p data-i18n="s06.p3" data-i18n-html>把端到端流程拆成五個階段後……</p>
+          <div class="case-table-wrap">
+            <table class="case-table case-table--full">
+              <thead>
+                <tr>
+                  <th data-i18n="s06.th.stage">階段</th>
+                  <th data-i18n="s06.th.avg">平均耗時</th>
+                  <th data-i18n="s06.th.pct">占比</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>read_decode</td><td>0.69 ms</td><td>2.02%</td></tr>
+                <tr><td>pose_extract</td><td>33.06 ms</td><td><strong>96.71%</strong></td></tr>
+                <tr><td>preprocess</td><td>0.016 ms</td><td>0.05%</td></tr>
+                <tr><td>inference</td><td>0.42 ms</td><td>1.22%</td></tr>
+                <tr><td>postprocess_draw</td><td>&lt;0.001 ms</td><td>~0%</td></tr>
+              </tbody>
+            </table>
           </div>
+          <p class="case-note" data-i18n="s06.note2">這個發現很重要……</p>
         </div>
         <figure class="case-figure">
           <img src="assets/fps-stability.png" data-i18n-alt="s06.img3b.alt" alt="" loading="lazy">
@@ -507,35 +620,103 @@
             </tbody>
           </table>
         </div>
-        <p class="case-note" data-i18n="s06.scope.note" data-i18n-html>關鍵結論：FPGA 單幀延遲含 DMA 看似較大，但<strong>抖動只有 Jetson 的約 1/11</strong>。對於即時、事件觸發型的跌倒偵測，「可預測的延遲」往往比「平均更快」更重要——這才是 FPGA 在這個專題真正的賣點。</p>
+        <p data-i18n="s06.scope.p2" data-i18n-html>以下圖表在<strong>同一模型、同一固定骨架測試集、純推論路徑</strong>下……</p>
+        <figure class="case-figure case-figure--wide">
+          <img src="assets/jitter-comparison.png" data-i18n-alt="s06.imgJitter.alt" alt="" loading="lazy">
+          <figcaption data-i18n="s06.imgJitter.cap">跨平台抖動對照……</figcaption>
+        </figure>
+        <p class="case-note" data-i18n="s06.scope.note" data-i18n-html>關鍵結論：FPGA 單幀延遲含 DMA 看似較大，但<strong>抖動只有 Jetson 的約 1/11</strong>……</p>
 
         <h3 class="case-subhead" data-i18n="s06.h3e">失效樣本分析</h3>
         <p data-i18n="s06.p4">檢視模型判斷錯誤的案例……</p>
-        <p data-i18n="s06.p4b">在 92 筆測試樣本中，共標記 4 筆具代表性的錯誤案例（FN #54、#60；FP #26、#83），並以多幀骨架疊圖與 GIF 呈現。這些案例顯示模型對「快速蹲下」「轉身坐下」等與跌倒幾何上相似的动作仍可能混淆，未來可考慮加入更多負樣本或時序上下文特徵來改善。</p>
+        <p data-i18n="s06.p4b">在 92 筆測試樣本中，共標記 4 筆具代表性的錯誤案例……</p>
         <p data-i18n="s06.err.lead" data-i18n-html>把四筆錯誤歸納起來，其實對應到跌倒偵測領域的<strong>三種典型成因</strong>，而且大多<strong>不是分類器本身的缺陷</strong>：</p>
-        <div class="case-challenges">
-          <div class="case-challenge">
-            <h4 data-i18n="s06.err.a.h">標籤雜訊 · FN #54</h4>
-            <p data-i18n="s06.err.a.p">該片段多為站立姿態，真值因「影片級標籤」整段標為跌倒。模型依畫面判為 ADL 其實合理——意味著回報的 Recall 是<strong>保守估計</strong>。</p>
-          </div>
-          <div class="case-challenge">
-            <h4 data-i18n="s06.err.b.h">前處理失敗 · FN #60</h4>
-            <p data-i18n="s06.err.b.p">幾乎抽不到關鍵點（遮擋、低可見度），模型收到的是空或雜訊輸入。這是<strong>上游姿態估計</strong>的限制，而非分類錯誤。</p>
-          </div>
-          <div class="case-challenge">
-            <h4 data-i18n="s06.err.c.h">坐–跌混淆 · FP #26 / #83</h4>
-            <p data-i18n="s06.err.c.p">兩筆都是「準備坐下」的動作，身體下壓、屈膝在骨架上與跌倒相似。這是跌倒偵測的<strong>已知難題</strong>，可用時序或情境特徵改善。</p>
-          </div>
-        </div>
-        <div class="case-grid-2">
-          <figure class="case-figure">
-            <img src="assets/err-fn54.png" data-i18n-alt="s06.img6.alt" alt="" loading="lazy">
-            <figcaption data-i18n="s06.img6.cap">False Negative（漏報）</figcaption>
-          </figure>
-          <figure class="case-figure">
-            <img src="assets/err-fp26.png" data-i18n-alt="s06.img7.alt" alt="" loading="lazy">
-            <figcaption data-i18n="s06.img7.cap">False Positive（誤報）</figcaption>
-          </figure>
+
+        <div class="case-err-samples">
+          <article class="case-err-sample">
+            <header class="case-err-sample__header">
+              <span class="case-err-badge case-err-badge--fn" data-i18n="s06.err.badge.fn">FN</span>
+              <div class="case-err-sample__intro">
+                <h4 data-i18n="s06.err.a.h">標籤雜訊 · FN #54</h4>
+                <p data-i18n="s06.err.a.p">該片段多為站立姿態……</p>
+              </div>
+            </header>
+            <div class="case-err-media case-err-media--duo">
+              <figure class="case-err-fig">
+                <span class="case-err-fig__tag" data-i18n="s06.err.tag.overlay">疊圖</span>
+                <div class="case-err-fig__img-wrap">
+                  <img src="assets/err-fn54-overlay.png" data-i18n-alt="s06.err.fn54.overlay.alt" alt="" loading="lazy">
+                </div>
+                <figcaption data-i18n="s06.err.fn54.overlay.cap">FN #54 多幀骨架疊圖……</figcaption>
+              </figure>
+              <figure class="case-err-fig">
+                <span class="case-err-fig__tag" data-i18n="s06.err.tag.gif">動畫</span>
+                <div class="case-err-fig__img-wrap case-err-fig__img-wrap--dark">
+                  <img src="assets/err-fn54.gif" data-i18n-alt="s06.err.fn54.gif.alt" alt="" loading="lazy">
+                </div>
+                <figcaption data-i18n="s06.err.fn54.gif.cap">FN #54 逐幀動畫……</figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <article class="case-err-sample">
+            <header class="case-err-sample__header">
+              <span class="case-err-badge case-err-badge--fn" data-i18n="s06.err.badge.fn">FN</span>
+              <div class="case-err-sample__intro">
+                <h4 data-i18n="s06.err.b.h">前處理失敗 · FN #60</h4>
+                <p data-i18n="s06.err.b.p">幾乎抽不到關鍵點……</p>
+              </div>
+            </header>
+            <div class="case-err-media case-err-media--fn60">
+              <figure class="case-err-fig">
+                <span class="case-err-fig__tag" data-i18n="s06.err.tag.overlay">疊圖</span>
+                <div class="case-err-fig__img-wrap">
+                  <img src="assets/err-fn60-overlay.png" data-i18n-alt="s06.err.fn60.overlay.alt" alt="" loading="lazy">
+                </div>
+                <figcaption data-i18n="s06.err.fn60.overlay.cap">骨架疊圖幾乎空白……</figcaption>
+              </figure>
+              <figure class="case-err-fig">
+                <span class="case-err-fig__tag" data-i18n="s06.err.tag.timeline">時序</span>
+                <div class="case-err-fig__img-wrap">
+                  <img src="assets/err-fn60-timeline.png" data-i18n-alt="s06.err.fn60.timeline.alt" alt="" loading="lazy">
+                </div>
+                <figcaption data-i18n="s06.err.fn60.timeline.cap">Mean Y 時序……</figcaption>
+              </figure>
+              <figure class="case-err-fig case-err-fig--gif">
+                <span class="case-err-fig__tag" data-i18n="s06.err.tag.gif">動畫</span>
+                <div class="case-err-fig__img-wrap case-err-fig__img-wrap--dark">
+                  <img src="assets/err-fn60.gif" data-i18n-alt="s06.err.fn60.gif.alt" alt="" loading="lazy">
+                </div>
+                <figcaption data-i18n="s06.err.fn60.gif.cap">逐幀動畫……</figcaption>
+              </figure>
+            </div>
+          </article>
+
+          <article class="case-err-sample">
+            <header class="case-err-sample__header">
+              <span class="case-err-badge case-err-badge--fp" data-i18n="s06.err.badge.fp">FP</span>
+              <div class="case-err-sample__intro">
+                <h4 data-i18n="s06.err.c.h">坐–跌混淆 · FP #26 / #83</h4>
+                <p data-i18n="s06.err.c.p">兩筆都是「準備坐下」的動作……</p>
+              </div>
+            </header>
+            <div class="case-err-media case-err-media--duo">
+              <figure class="case-err-fig">
+                <span class="case-err-fig__tag">#26</span>
+                <div class="case-err-fig__img-wrap">
+                  <img src="assets/err-fp26-overlay.png" data-i18n-alt="s06.err.fp26.overlay.alt" alt="" loading="lazy">
+                </div>
+                <figcaption data-i18n="s06.err.fp26.overlay.cap">FP #26……</figcaption>
+              </figure>
+              <figure class="case-err-fig">
+                <span class="case-err-fig__tag">#83</span>
+                <div class="case-err-fig__img-wrap">
+                  <img src="assets/err-fp83-overlay.png" data-i18n-alt="s06.err.fp83.overlay.alt" alt="" loading="lazy">
+                </div>
+                <figcaption data-i18n="s06.err.fp83.overlay.cap">FP #83……</figcaption>
+              </figure>
+            </div>
+          </article>
         </div>
       </section>
 
