@@ -68,9 +68,9 @@
       <section class="case-section" id="background">
         <span class="case-section-label" data-i18n="s01.label">01 — 專題背景</span>
         <h2 data-i18n="s01.h2">為什麼要做這個題目？</h2>
-        <p data-i18n="s01.p1">跌倒是高齡者居家意外傷害的主要原因之一……</p>
-        <p data-i18n="s01.p2" data-i18n-html>因此本專題選擇了一條折衷且務實的路線……</p>
-        <p data-i18n="s01.p3">相較於直接在原始影像上跑大型 CNN / Transformer，骨架序列把問題降維到「人體關節點的時間軌跡」，不僅降低運算量，也讓模型結構更容易對應到 FPGA 上的定點 MAC 陣列。本專題的目標不是追求單一平台上的最高 FPS，而是<strong>在資源受限的邊緣硬體上，驗證一條可重現、可量測、可辯護的協同設計路線</strong>。</p>
+        <p data-i18n="s01.p1" data-i18n-html>這個題目的起點，其實來自<strong><a href="../2/">專題二</a>（FallFusion 多模態跌倒偵測）</strong>的實戰經驗……</p>
+        <p data-i18n="s01.p2" data-i18n-html>這不只是學生專題才會踩到的問題……</p>
+        <p data-i18n="s01.p3" data-i18n-html>因此專題三想換一個問法……</p>
         <h3 class="case-subhead" data-i18n="s01.h3">研究目標與驗證範圍</h3>
         <ul class="case-list">
           <li data-i18n="s01.goal1">建立從 URFD 影像到骨架序列、再到 1D-CNN 分類的完整軟體管線</li>
@@ -123,7 +123,7 @@
 
         <div class="case-callout">
           <h3 data-i18n="sj.callout.h">研究心路的底線</h3>
-          <p data-i18n="sj.callout.p" data-i18n-html>一路走下來，我給自己的原則是：<strong>寧可少報一個炫目數字，也要讓每個數字說得清楚來龍去脈</strong>。當瓶頸在前處理、當 DMA 比卷積更慢、當 DPU 不適合這塊板子——這些都不是失敗，而是協同設計必須面對的真實邊界。專題的價值在於把這條邊界走過一遍，並留下可重現的證據鏈。</p>
+          <p data-i18n="sj.callout.p" data-i18n-html>這份專題在現階段仍有大量顯而易見的系統問題與架構缺陷……</p>
         </div>
       </section>
 
@@ -132,7 +132,7 @@
         <h2 data-i18n="s02.h2">整體流程：從影像到警報</h2>
         <p data-i18n="s02.p1">整個系統是一條清楚的資料流……</p>
         <h3 class="case-subhead" data-i18n="s02.h3a">開發與驗證流程</h3>
-        <p data-i18n="s02.p3">從資料準備到硬體上板，專題依序完成下列階段。每一階段的產出都保留成可重現的檔案（<code>.npy</code>、<code>.onnx</code>、<code>weights.h</code>、實驗 CSV），方便論文引用與後續比對。</p>
+        <p data-i18n="s02.p3" data-i18n-html>從資料準備到硬體上板，專題依序完成下列階段。每一階段的產出都保留成可重現的檔案（<code>.npy</code>、<code>.onnx</code>、<code>weights.h</code>、實驗 CSV），目的是<strong>保證實驗的可重複性</strong>……</p>
         <ol class="case-phases">
           <li><strong data-i18n="s02.phase1.h">資料與訓練</strong><span data-i18n="s02.phase1.p">：URFD 解壓 → MediaPipe 抽骨架 → PyTorch 訓練 1D-CNN → 固定 20% 測試集（seed=42）</span></li>
           <li><strong data-i18n="s02.phase2.h">軟體部署與消融</strong><span data-i18n="s02.phase2.p">：匯出 ONNX（FP32 / INT8）→ PC / Jetson 推論與效能基準 → 跳幀消融、瓶頸剖析、失效樣本視覺化</span></li>
@@ -162,9 +162,9 @@
         </div>
 
         <h3 class="case-subhead" data-i18n="s02.h3data">資料集處理流程</h3>
-        <p data-i18n="s02.data.p1">本專題的模型從未直接吃原始像素，而是吃<strong>離線處理好的骨架時間序列</strong>。資料管線是整條協同設計的起點：先把 URFD 轉成固定格式的數值陣列，再凍結測試集與校準集，後面的訓練、量化、Jetson 推論與 FPGA 上板才能共用同一份「證據鏈」。</p>
+        <p data-i18n="s02.data.p1" data-i18n-html>本專題的模型從未直接吃原始像素……</p>
         <ol class="case-phases">
-          <li><strong data-i18n="s02.data.s1.h">URFD 整理與標註</strong><span data-i18n="s02.data.s1.p">：下載並解壓 URFD，區分 Fall（跌倒）與 ADL（日常活動）兩類來源（資料夾或 RGB zip 影像序列）。依路徑關鍵字自動標註：Fall → 1、ADL → 0；並可排除特定攝影機角度（例如 ADL 的 cam1）以降低視角雜訊。</span></li>
+          <li><strong data-i18n="s02.data.s1.h">URFD 下載與整理</strong><span data-i18n="s02.data.s1.p" data-i18n-html>：自官方頁面下載並解壓……</span></li>
           <li><strong data-i18n="s02.data.s2.h">MediaPipe 骨架擷取</strong><span data-i18n="s02.data.s2.p">：逐幀送入 MediaPipe Pose，擷取 18 個關鍵點的 (x, y) 座標（共 36 維）。可見度低於門檻的關節點填 0；座標為影像正規化值（約 0~1），不保留原始畫面像素。</span></li>
           <li><strong data-i18n="s02.data.s3.h">滑動視窗切樣本</strong><span data-i18n="s02.data.s3.p">：以<strong>長度 50 幀、stride 25</strong>的滑動視窗，從連續骨架幀切出時間序列樣本，每筆形狀為 (36, 50)。過短序列可捨棄或以零填充，確保輸入尺寸固定——這對後續 ONNX 匯出與 FPGA 硬體配置至關重要。</span></li>
           <li><strong data-i18n="s02.data.s4.h">彙整與固定測試集</strong><span data-i18n="s02.data.s4.p">：合併為 <code>x_data.npy</code>（約 460 筆 × 36 × 50）與 <code>y_labels.npy</code>。以 <code>seed=42</code> 隨機切出 20% 固定測試集 → <code>test_data.npy</code> / <code>test_labels.npy</code>（92 筆），後續 PC、Jetson、FPGA 準確率實驗<strong>全部共用這 92 筆</strong>，避免各平台各切一份導致數字不可比。</span></li>
