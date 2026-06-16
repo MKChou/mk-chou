@@ -44,9 +44,7 @@
         <p class="case-eyebrow" data-i18n="hero.eyebrow">Project 03 · Skeleton Fall Detection · Co-Design</p>
         <h1 class="case-title" data-i18n="hero.title" data-i18n-html>Model-Hardware Co-Design for<br>Skeleton-based Fall Detection on<br>Resource-Constrained Edge Platforms</h1>
         <p class="case-lead" data-i18n="hero.lead">
-          以單顆攝影機擷取人體骨架，透過一個極輕量的時間卷積網路判斷「跌倒 / 正常」，
-          並把同一個模型部署到 PC、Jetson Nano 與 FPGA（PYNQ-Z2）三種平台，
-          驗證它在邊緣裝置上的可行性、即時性與準確度。
+          Using a single camera to extract human skeletons, a tiny temporal convolutional network classifies fall vs. normal activity. The same model was deployed on PC, Jetson Nano, and FPGA (PYNQ-Z2) to validate feasibility, real-time performance, and accuracy on edge devices.
         </p>
         <ul class="case-stats">
           <li><strong>95.65%</strong><span data-i18n="hero.stat1">固定測試集準確率</span></li>
@@ -72,6 +70,14 @@
         <h2 data-i18n="s01.h2">為什麼要做這個題目？</h2>
         <p data-i18n="s01.p1">跌倒是高齡者居家意外傷害的主要原因之一……</p>
         <p data-i18n="s01.p2" data-i18n-html>因此本專題選擇了一條折衷且務實的路線……</p>
+        <p data-i18n="s01.p3">相較於直接在原始影像上跑大型 CNN / Transformer，骨架序列把問題降維到「人體關節點的時間軌跡」，不僅降低運算量，也讓模型結構更容易對應到 FPGA 上的定點 MAC 陣列。本專題的目標不是追求單一平台上的最高 FPS，而是<strong>在資源受限的邊緣硬體上，驗證一條可重現、可量測、可辯護的協同設計路線</strong>。</p>
+        <h3 class="case-subhead" data-i18n="s01.h3">研究目標與驗證範圍</h3>
+        <ul class="case-list">
+          <li data-i18n="s01.goal1">建立從 URFD 影像到骨架序列、再到 1D-CNN 分類的完整軟體管線</li>
+          <li data-i18n="s01.goal2">在固定測試集上量測學術指標（Accuracy / Precision / Recall / F1）與 INT8 量化影響</li>
+          <li data-i18n="s01.goal3">比較 PC、Jetson Nano 2GB、PYNQ-Z2 三平台的延遲、吞吐與部署特性</li>
+          <li data-i18n="s01.goal4">以 Vitis HLS 實作可上板的 1D-CNN 加速器，並驗證 FPGA 準確率與 PC 參考一致率</li>
+        </ul>
         <div class="case-callout">
           <h3 data-i18n="s01.callout.h">核心命題</h3>
           <p data-i18n="s01.callout.p" data-i18n-html>設計一個「硬體友善」的跌倒偵測模型……</p>
@@ -82,6 +88,13 @@
         <span class="case-section-label" data-i18n="s02.label">02 — 系統設計</span>
         <h2 data-i18n="s02.h2">整體流程：從影像到警報</h2>
         <p data-i18n="s02.p1">整個系統是一條清楚的資料流……</p>
+        <h3 class="case-subhead" data-i18n="s02.h3a">開發與驗證流程</h3>
+        <p data-i18n="s02.p3">從資料準備到硬體上板，專題依序完成下列階段。每一階段的產出都保留成可重現的檔案（<code>.npy</code>、<code>.onnx</code>、<code>weights.h</code>、實驗 CSV），方便論文引用與後續比對。</p>
+        <ol class="case-phases">
+          <li><strong data-i18n="s02.phase1.h">資料與訓練</strong><span data-i18n="s02.phase1.p">：URFD 解壓 → MediaPipe 抽骨架 → PyTorch 訓練 1D-CNN → 固定 20% 測試集（seed=42）</span></li>
+          <li><strong data-i18n="s02.phase2.h">軟體部署與消融</strong><span data-i18n="s02.phase2.p">：匯出 ONNX（FP32 / INT8）→ PC / Jetson 推論與效能基準 → 跳幀消融、瓶頸剖析、失效樣本視覺化</span></li>
+          <li><strong data-i18n="s02.phase3.h">硬體協同設計</strong><span data-i18n="s02.phase3.p">：從 deploy ONNX 萃取 INT8 權重 → Vitis HLS 綜合 IP → Vivado 整合 → PYNQ-Z2 上板準確率與延遲量測</span></li>
+        </ol>
         <figure class="case-figure case-figure--wide">
           <img src="assets/pipeline.png" data-i18n-alt="s02.img1.alt" alt="" loading="lazy">
           <figcaption data-i18n="s02.img1.cap">端到端流程與三階段平台驗證</figcaption>
@@ -99,7 +112,24 @@
               <li data-i18n="s02.li2" data-i18n-html><strong>50 幀</strong>：以滑動視窗取的時間長度</li>
               <li data-i18n="s02.li3">座標已正規化到 0~1，偵測不到的點補 0</li>
               <li data-i18n="s02.li4">測試集 92 筆，採 20% 切分、固定 seed=42</li>
+              <li data-i18n="s02.li5" data-i18n-html>訓練完成後另備 <strong>128 筆校準資料</strong> 供 INT8 量化使用</li>
+              <li data-i18n="s02.li6">Fall 為正類；混淆矩陣、FNR 等學術指標皆在固定測試集上計算</li>
             </ul>
+          </div>
+        </div>
+        <h3 class="case-subhead" data-i18n="s02.h3b">三平台各自扮演的角色</h3>
+        <div class="case-grid-3">
+          <div class="case-text-block case-platform">
+            <h4>PC (CPU)</h4>
+            <p data-i18n="s02.platform.pc">開發基準：訓練、ONNX 匯出、消融實驗與瓶頸剖析的參考平台，提供最高吞吐的對照組。</p>
+          </div>
+          <div class="case-text-block case-platform">
+            <h4>Jetson Nano 2GB</h4>
+            <p data-i18n="s02.platform.jetson">邊緣軟體部署：在資源受限的 ARM + GPU 環境驗證 ONNX Runtime 推論，觀察 OS 排程對即時性的影響。</p>
+          </div>
+          <div class="case-text-block case-platform">
+            <h4>FPGA (PYNQ-Z2)</h4>
+            <p data-i18n="s02.platform.fpga">硬體加速器驗證：以 Zynq-7020 實作訂製 1D-CNN IP，強調確定性延遲、低功耗與可預測的推論行為。</p>
           </div>
         </div>
       </section>
@@ -127,6 +157,13 @@
             <p data-i18n="s03.p2">跌倒的關鍵資訊在於「骨架隨時間的變化」……</p>
           </div>
         </div>
+        <h3 class="case-subhead" data-i18n="s03.h3c">訓練與部署管線</h3>
+        <p data-i18n="s03.p3">模型以 PyTorch 實作，輸入形狀 <code>(N, 36, 50)</code>，輸出二分類 logits。訓練完成後匯出 <code>fall_model_float32.onnx</code> 作為所有平台的統一部署基準；再以 128 筆校準樣本做 INT8 量化，產生 <code>fall_model_int8.onnx</code> 供邊緣推論與 FPGA 權重萃取使用。</p>
+        <ul class="case-list">
+          <li data-i18n="s03.train1" data-i18n-html><strong>Block 1</strong>：Conv1d(36→64, k=3) + BN + ReLU6 + MaxPool → 時間維度減半</li>
+          <li data-i18n="s03.train2" data-i18n-html><strong>Block 2</strong>：Conv1d(64→128, k=3) + BN + ReLU6 + MaxPool → 再減半</li>
+          <li data-i18n="s03.train3" data-i18n-html><strong>分類頭</strong>：AdaptiveAvgPool1d(1) + Linear(128→2)，輸出 Fall / Non-Fall</li>
+        </ul>
       </section>
 
       <section class="case-section" id="codesign">
@@ -159,6 +196,15 @@
           <img src="assets/fpga-vivado.png" data-i18n-alt="s04.img2.alt" alt="" loading="lazy">
           <figcaption data-i18n="s04.img2.cap">Vivado / Vitis HLS 整合</figcaption>
         </figure>
+        <h3 class="case-subhead" data-i18n="s04.h3">FPGA 上板流程（PYNQ-Z2）</h3>
+        <p data-i18n="s04.p2">FPGA 端不重新訓練模型，而是沿用 PC 上匯出的 deploy ONNX，確保軟硬體比對有單一真實來源（Single Source of Truth）。完整流程如下：</p>
+        <ol class="case-phases">
+          <li><strong data-i18n="s04.step1.h">權重萃取</strong><span data-i18n="s04.step1.p">：從 <code>fall_model_float32.onnx</code> 產生 <code>weights.h</code>（INT8 定點權重）</span></li>
+          <li><strong data-i18n="s04.step2.h">PC 參考</strong><span data-i18n="s04.step2.p">：以 ONNX Runtime 對固定測試集推論，輸出 <code>pc_reference.csv</code> 作為一致率基準</span></li>
+          <li><strong data-i18n="s04.step3.h">硬體整合</strong><span data-i18n="s04.step3.p">：Vitis HLS 綜合 1D-CNN IP → Vivado 建立 Block Design（PS + DMA + Accelerator）→ 產生 bitstream</span></li>
+          <li><strong data-i18n="s04.step4.h">上板驗證</strong><span data-i18n="s04.step4.p">：上傳 bit / hwh / 測試資料至 PYNQ，執行準確率腳本，比對 FPGA 預測與 PC 參考</span></li>
+        </ol>
+        <p class="case-note" data-i18n="s04.note" data-i18n-html>軟體端（PS）負責影像 I/O 與 MediaPipe 骨架擷取，屬於<strong>非確定性、OS 排程主導</strong>的路徑；硬體端（PL）只負責收到 INT8 骨架序列後的 1D-CNN 推論，提供<strong>固定延遲、可重複</strong>的計算行為——這正是本專題在邊緣場景想驗證的價值。</p>
       </section>
 
       <section class="case-section" id="challenges">
@@ -190,6 +236,14 @@
             <h4 data-i18n="s05.c6.h">瓶頸不在模型而在前處理</h4>
             <p data-i18n="s05.c6.p">剖析後發現骨架擷取佔了端到端 96% 的時間……</p>
           </div>
+          <div class="case-challenge">
+            <h4 data-i18n="s05.c7.h">FPGA 延遲主要來自 DMA</h4>
+            <p data-i18n="s05.c7.p" data-i18n-html>上板後發現單次推論 16.62 ms 中，S2MM 傳輸約佔 16.11 ms，IP 計算僅 ~0.41 ms。這說明<strong>記憶體 I/O 才是 FPGA 端的真正瓶頸</strong>，而非卷積本身。</p>
+          </div>
+          <div class="case-challenge">
+            <h4 data-i18n="s05.c8.h">失效樣本難以用單一規則解釋</h4>
+            <p data-i18n="s05.c8.p">FN / FP 多發生在遮擋、蹲坐與跌倒動作相似、或骨架關鍵點缺失的片段。需要結合視覺化疊圖與 GIF 才能向論文讀者清楚說明錯誤原因。</p>
+          </div>
         </div>
       </section>
 
@@ -214,6 +268,7 @@
               </tbody>
             </table>
             <p class="case-note" data-i18n="s06.note1" data-i18n-html>INT8 量化後準確率維持 95.65%……</p>
+            <p data-i18n="s06.p1a">以 Fall 為正類，固定測試集（92 筆）上的 FNR 為 0.0667，代表多數跌倒事件能被正確捕捉。FPGA 上板準確率為 92.39%（85/92），與 PC ONNX 參考之間的落差主要來自定點量化與 DMA 傳輸鏈路的累積誤差，仍在可接受範圍內。</p>
           </div>
         </div>
 
@@ -242,9 +297,31 @@
           </figure>
           <div class="case-text-block">
             <p data-i18n="s06.p3" data-i18n-html>把端到端流程拆成五個階段後……</p>
+            <div class="case-table-wrap">
+              <table class="case-table case-table--full">
+                <thead>
+                  <tr>
+                    <th data-i18n="s06.th.stage">階段</th>
+                    <th data-i18n="s06.th.avg">平均耗時</th>
+                    <th data-i18n="s06.th.pct">占比</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td>read_decode</td><td>0.69 ms</td><td>2.02%</td></tr>
+                  <tr><td>pose_extract</td><td>33.06 ms</td><td><strong>96.71%</strong></td></tr>
+                  <tr><td>preprocess</td><td>0.016 ms</td><td>0.05%</td></tr>
+                  <tr><td>inference</td><td>0.42 ms</td><td>1.22%</td></tr>
+                  <tr><td>postprocess_draw</td><td>&lt;0.001 ms</td><td>~0%</td></tr>
+                </tbody>
+              </table>
+            </div>
             <p class="case-note" data-i18n="s06.note2">這個發現很重要……</p>
           </div>
         </div>
+        <figure class="case-figure">
+          <img src="assets/fps-stability.png" data-i18n-alt="s06.img3b.alt" alt="" loading="lazy">
+          <figcaption data-i18n="s06.img3b.cap">前 100 幀 FPS 穩定性：約第 50 幀後因系統負載與 I/O 波動而下降</figcaption>
+        </figure>
 
         <h3 class="case-subhead" data-i18n="s06.h3d">跨平台效能比較</h3>
         <div class="case-grid-2">
@@ -290,9 +367,11 @@
           </table>
         </div>
         <p class="case-note" data-i18n="s06.note3" data-i18n-html>值得注意的是，FPGA 上 16.62 ms 的延遲中……</p>
+        <p data-i18n="s06.p5">PC 在 Stride=1、No-Draw 設定下端到端 FPS 約 190.61，Jetson 約 18.11——差距主要來自骨架擷取與解碼在嵌入式 CPU 上的負擔，而非 1D-CNN 本身（兩者模型推論皆約 0.42 ms）。這也呼應了前述瓶頸分析：若要提升實際體感速度，應優先優化 MediaPipe 或改為預先離線抽骨架，而非一味加大模型加速器。</p>
 
         <h3 class="case-subhead" data-i18n="s06.h3e">失效樣本分析</h3>
         <p data-i18n="s06.p4">檢視模型判斷錯誤的案例……</p>
+        <p data-i18n="s06.p4b">在 92 筆測試樣本中，共標記 4 筆具代表性的錯誤案例（FN #54、#60；FP #26、#83），並以多幀骨架疊圖與 GIF 呈現。這些案例顯示模型對「快速蹲下」「轉身坐下」等與跌倒幾何上相似的动作仍可能混淆，未來可考慮加入更多負樣本或時序上下文特徵來改善。</p>
         <div class="case-grid-2">
           <figure class="case-figure">
             <img src="assets/err-fn54.png" data-i18n-alt="s06.img6.alt" alt="" loading="lazy">
@@ -320,6 +399,12 @@
           <h3 data-i18n="s07.callout.h">最大的收穫</h3>
           <p data-i18n="s07.callout.p" data-i18n-html>學到的不只是「怎麼把模型變小」……</p>
         </div>
+        <h3 class="case-subhead" data-i18n="s07.h3">未來可延伸方向</h3>
+        <ul class="case-list">
+          <li data-i18n="s07.future1">優化 DMA 與資料搬移策略，縮短 FPGA 端 S2MM 佔比，逼近 IP 本身的 0.41 ms 計算下限</li>
+          <li data-i18n="s07.future2">將 MediaPipe 替換為更輕量的姿態估計器，或改以專用感測器提供骨架，解決端到端 96% 前處理瓶頸</li>
+          <li data-i18n="s07.future3">在更大 FPGA 或異質 SoC 上探索更多層的硬體 offload，並與 INT8 量化流程深度整合</li>
+        </ul>
       </section>
     </div>
 
