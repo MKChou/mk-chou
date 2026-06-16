@@ -480,11 +480,27 @@
   line-height: 1.7;
 }
 
-/* Language toggle — fixed in header top-right, outside mobile drawer */
+/* Language toggle — beside Home, outside mobile drawer */
 .nav-end {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 2rem;
+}
+
+.nav-fore {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.nav-home-link {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+.nav-home-link:hover {
+  color: var(--accent);
 }
 
 .lang-toggle {
@@ -511,6 +527,10 @@
 @media (max-width: 768px) {
   .nav-end {
     gap: 0.75rem;
+  }
+
+  .case .nav-links {
+    padding-top: 4.5rem;
   }
 
   .case-stats {
