@@ -582,6 +582,10 @@ const CASE_I18N = {
     return 'en';
   }
 
+  function usesHtmlMarkup(text) {
+    return /<[a-z][\s\S]*?>/i.test(text);
+  }
+
   function applyLang(lang) {
     const dict = CASE_I18N[lang];
     if (!dict) return;
@@ -591,7 +595,7 @@ const CASE_I18N = {
       const key = el.getAttribute('data-i18n');
       const text = dict[key];
       if (text === undefined) return;
-      if (el.hasAttribute('data-i18n-html')) {
+      if (el.hasAttribute('data-i18n-html') || usesHtmlMarkup(text)) {
         el.innerHTML = text;
       } else {
         el.textContent = text;
