@@ -454,6 +454,56 @@
   font-weight: 600;
 }
 
+/* Timeline — research journey */
+.case-timeline {
+  margin: 2rem 0 2.5rem;
+  border-left: 2px solid rgba(232, 168, 124, 0.35);
+  padding-left: 1.75rem;
+}
+
+.case-timeline-item {
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.case-timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.case-timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -1.75rem;
+  top: 0.4rem;
+  width: 10px;
+  height: 10px;
+  margin-left: -6px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 0 4px var(--accent-soft);
+}
+
+.case-timeline-phase {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 0.4rem;
+}
+
+.case-timeline-item h4 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.55rem;
+  line-height: 1.4;
+}
+
+.case-timeline-item p {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.75;
+}
+
 .case-grid-3 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
