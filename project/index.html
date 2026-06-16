@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="MK Chou — Projects including skeleton-based fall detection with model-hardware co-design on edge platforms.">
+  <meta name="description" content="MK Chou projects — including skeleton-based fall detection with model-hardware co-design on edge platforms.">
   <link rel="canonical" href="https://www.mk-chou.com/project">
   <title>Projects | MK Chou</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,41 +11,51 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body data-page="projects">
   <header class="site-header">
-    <nav class="nav" aria-label="Main navigation">
+    <nav class="nav" aria-label="Main navigation" data-i18n="nav.label" data-i18n-attr="aria-label">
       <a href="../" class="logo">MK Chou</a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="nav-links">
-        <li><a href="../">Home</a></li>
-        <li><a href="../project/" class="active" aria-current="page">Projects</a></li>
-        <li><a href="../about/">About</a></li>
-      </ul>
+      <div class="nav-end">
+        <ul class="nav-links">
+          <li><a href="../" data-i18n="nav.home">Home</a></li>
+          <li><a href="../project/" class="active" aria-current="page" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="../about/" data-i18n="nav.about">About</a></li>
+        </ul>
+        <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch to Chinese">中文</button>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-i18n="nav.toggle" data-i18n-attr="aria-label">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </nav>
   </header>
 
   <main class="page-main">
     <div class="container page-content page-content--wide">
-      <p class="page-label">Portfolio</p>
-      <h1 class="page-title">Projects</h1>
-      <p class="page-lead">
-        Selected work — research, edge AI, and hardware co-design.
+      <p class="page-label" data-i18n="projects.label">Portfolio</p>
+      <h1 class="page-title" data-i18n="projects.title">Projects</h1>
+      <p class="page-lead" data-i18n="projects.lead">
+        Research, edge AI, and hardware co-design. Click a card for the full write-up.
       </p>
 
       <div class="project-grid">
-        <a href="3/" class="project-card project-card--link">
-          <p class="project-number">03</p>
-          <h3>Skeleton-based Fall Detection</h3>
-          <p>
-            Model–hardware co-design for fall detection on resource-constrained edge platforms —
-            lightweight 1D-CNN, deployed on PC, Jetson Nano, and PYNQ-Z2 FPGA.
-          </p>
-          <span class="project-tag">1D-CNN</span>
-          <span class="project-tag">FPGA</span>
-          <span class="project-tag">Edge AI</span>
+        <a href="3/" class="project-card project-card--link project-card--thumb">
+          <img class="project-card-thumb" src="3/assets/system-architecture.png" alt="" width="640" height="360" loading="lazy">
+          <div class="project-card-body">
+            <p class="project-number">03</p>
+            <h3 data-i18n="projects.p3.title">Skeleton-based Fall Detection</h3>
+            <p data-i18n="projects.p3.desc">
+              Model–hardware co-design for fall detection on resource-constrained edge platforms —
+              lightweight 1D-CNN deployed on PC, Jetson Nano, and PYNQ-Z2 FPGA.
+            </p>
+            <div class="project-tags">
+              <span class="project-tag">1D-CNN</span>
+              <span class="project-tag">FPGA</span>
+              <span class="project-tag">Edge AI</span>
+              <span class="project-tag">MediaPipe</span>
+              <span class="project-tag">INT8</span>
+            </div>
+          </div>
         </a>
       </div>
     </div>
@@ -53,11 +63,12 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>&copy; <span id="year"></span> MK Chou</p>
-      <a href="../" class="back-to-top">Back to Home ↑</a>
+      <p>&copy; <span id="year"></span> <span data-i18n="footer.copy">MK Chou</span></p>
+      <a href="../" class="back-to-top" data-i18n="footer.top">Back to top ↑</a>
     </div>
   </footer>
 
+  <script src="../js/site-i18n.js"></script>
   <script src="../js/main.js"></script>
 </body>
 </html>

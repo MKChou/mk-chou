@@ -3,47 +3,51 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="About — Under Testing">
-  <title>About | Under Testing</title>
+  <meta name="description" content="About MK Chou — edge AI, embedded systems, and hardware co-design.">
+  <title>About | MK Chou</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body>
+<body data-page="about">
   <header class="site-header">
-    <nav class="nav" aria-label="Main navigation">
+    <nav class="nav" aria-label="Main navigation" data-i18n="nav.label" data-i18n-attr="aria-label">
       <a href="../" class="logo">MK Chou</a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="nav-links">
-        <li><a href="../">Home</a></li>
-        <li><a href="../project/">Projects</a></li>
-        <li><a href="../about/" class="active" aria-current="page">About</a></li>
-      </ul>
+      <div class="nav-end">
+        <ul class="nav-links">
+          <li><a href="../" data-i18n="nav.home">Home</a></li>
+          <li><a href="../project/" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="../about/" class="active" aria-current="page" data-i18n="nav.about">About</a></li>
+        </ul>
+        <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch to Chinese">中文</button>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-i18n="nav.toggle" data-i18n-attr="aria-label">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </nav>
   </header>
 
   <main class="page-main">
-    <div class="container page-content testing-page">
-      <p class="testing-badge">About</p>
-      <h1 class="page-title">Under Testing</h1>
-      <p class="page-lead">
-        The about page is currently under testing. Profile information is not yet available.
-      </p>
-      <a href="../" class="back-home">← Back to Home</a>
+    <div class="container page-content">
+      <p class="page-label" data-i18n="about.label">About</p>
+      <h1 class="page-title" data-i18n="about.title">About</h1>
+      <p class="page-lead" data-i18n="about.lead">Personal site for research projects, edge AI work, and technical notes worth sharing.</p>
+      <p data-i18n="about.p1">Interests include embedded systems, edge inference, FPGA acceleration, and co-designing deep learning models for resource-constrained hardware.</p>
+      <p data-i18n="about.p2" data-i18n-html>The flagship piece on this site is <strong>Project 03</strong> — background, trade-offs, results, and figures on the project page.</p>
+      <a href="../project/3/" class="back-home" data-i18n="about.link">Go to Project 03 →</a>
     </div>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>&copy; <span id="year"></span> MK Chou. Under Testing.</p>
-      <a href="../" class="back-to-top">Back to Home ↑</a>
+      <p>&copy; <span id="year"></span> <span data-i18n="footer.copy">MK Chou</span></p>
+      <a href="#" class="back-to-top" data-i18n="footer.top">Back to top ↑</a>
     </div>
   </footer>
 
+  <script src="../js/site-i18n.js"></script>
   <script src="../js/main.js"></script>
 </body>
 </html>

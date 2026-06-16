@@ -3,46 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="MK Chou — Under Testing">
-  <title>MK Chou | Under Testing</title>
+  <meta name="description" content="MK Chou — edge AI, embedded systems, and model–hardware co-design projects.">
+  <title>MK Chou | Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body data-page="home">
   <header class="site-header">
-    <nav class="nav" aria-label="Main navigation">
+    <nav class="nav" aria-label="Main navigation" data-i18n="nav.label" data-i18n-attr="aria-label">
       <a href="./" class="logo">MK Chou</a>
-      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
-        <span></span>
-        <span></span>
-      </button>
-      <ul class="nav-links">
-        <li><a href="./" class="active" aria-current="page">Home</a></li>
-        <li><a href="project/">Projects</a></li>
-        <li><a href="about/">About</a></li>
-      </ul>
+      <div class="nav-end">
+        <ul class="nav-links">
+          <li><a href="./" class="active" aria-current="page" data-i18n="nav.home">Home</a></li>
+          <li><a href="project/" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="about/" data-i18n="nav.about">About</a></li>
+        </ul>
+        <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch to Chinese">中文</button>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-i18n="nav.toggle" data-i18n-attr="aria-label">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
     </nav>
   </header>
 
-  <main class="page-main">
-    <div class="container page-content testing-page">
-      <p class="testing-badge">Status</p>
-      <h1 class="page-title">Under Testing</h1>
-      <p class="page-lead">
-        This site is currently under testing. Content and features are not yet available.
-        Please check back soon.
+  <section class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container hero-content">
+      <p class="hero-label" data-i18n="home.hero.label">Edge AI · Embedded · Co-Design</p>
+      <h1 class="hero-title" data-i18n="home.hero.title">MK Chou</h1>
+      <p class="hero-tagline" data-i18n="home.hero.tagline">
+        Edge AI, embedded systems, and model–hardware co-design. Research projects, experiments, and shareable work live here.
       </p>
+      <div class="hero-actions">
+        <a href="project/" class="btn btn-primary" data-i18n="home.hero.cta.projects">View projects</a>
+        <a href="about/" class="btn btn-ghost" data-i18n="home.hero.cta.about">About me</a>
+      </div>
     </div>
-  </main>
+    <a href="#featured" class="scroll-hint" data-i18n="home.scroll">Scroll</a>
+  </section>
+
+  <section class="section" id="featured">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label" data-i18n="home.section.label">Featured</span>
+        <h2 data-i18n="home.section.title">Recent work</h2>
+        <p class="section-lead" data-i18n="home.section.lead">Projects that are documented and available to read online.</p>
+      </div>
+      <div class="project-grid">
+        <a href="project/3/" class="project-card project-card--link project-card--thumb">
+          <img class="project-card-thumb" src="project/3/assets/system-architecture.png" alt="" width="640" height="360" loading="lazy">
+          <div class="project-card-body">
+            <p class="project-number">03</p>
+            <h3 data-i18n="home.p3.title">Skeleton Fall Detection Co-Design</h3>
+            <p data-i18n="home.p3.desc">Lightweight 1D-CNN fall detection on resource-constrained edge platforms — PC, Jetson Nano, and PYNQ-Z2 FPGA.</p>
+            <div class="project-tags">
+              <span class="project-tag">1D-CNN</span>
+              <span class="project-tag">FPGA</span>
+              <span class="project-tag">Edge AI</span>
+            </div>
+            <span class="project-card-cta" data-i18n="home.p3.link">Read case study →</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>&copy; <span id="year"></span> MK Chou. Under Testing.</p>
+      <p>&copy; <span id="year"></span> <span data-i18n="footer.copy">MK Chou</span></p>
+      <a href="#" class="back-to-top" data-i18n="footer.top">Back to top ↑</a>
     </div>
   </footer>
 
+  <script src="js/site-i18n.js"></script>
   <script src="js/main.js"></script>
 </body>
 </html>

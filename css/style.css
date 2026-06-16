@@ -244,6 +244,39 @@ img {
   letter-spacing: -0.02em;
 }
 
+.section-lead {
+  color: var(--text-muted);
+  max-width: 55ch;
+  margin-top: 0.75rem;
+}
+
+/* ── Nav end + language toggle ── */
+.nav-end {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.lang-toggle {
+  flex-shrink: 0;
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid rgba(232, 168, 124, 0.35);
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  cursor: pointer;
+  transition: background var(--transition), border-color var(--transition);
+}
+
+.lang-toggle:hover {
+  background: rgba(232, 168, 124, 0.22);
+  border-color: var(--accent);
+}
+
 /* ── About ── */
 .about-grid {
   display: grid;
@@ -283,7 +316,7 @@ img {
 /* ── Projects ── */
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 1.5rem;
 }
 
@@ -321,7 +354,38 @@ img {
 .project-card p {
   font-size: 0.9rem;
   color: var(--text-muted);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.project-card-cta {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.project-card--thumb {
+  padding: 0;
+  overflow: hidden;
+}
+
+.project-card--thumb .project-card-body {
+  padding: 1.75rem 2rem 2rem;
+}
+
+.project-card-thumb {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
 }
 
 .project-tag {
@@ -465,7 +529,8 @@ img {
 }
 
 .page-lead,
-.page-body p {
+.page-body p,
+.page-content > p:not(.page-label) {
   color: var(--text-muted);
   margin-bottom: 1.25rem;
   line-height: 1.8;
@@ -742,6 +807,10 @@ img {
 
 /* ── Mobile ── */
 @media (max-width: 768px) {
+  .nav-end {
+    gap: 0.75rem;
+  }
+
   .nav-toggle {
     display: flex;
   }

@@ -372,13 +372,15 @@ const CASE_I18N = {
 };
 
 (function () {
-  const STORAGE_KEY = 'case3-lang';
+  const STORAGE_KEY = 'site-lang';
   const html = document.documentElement;
   const metaDesc = document.querySelector('meta[name="description"]');
 
   function getDefaultLang() {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved === 'zh' || saved === 'en') return saved;
+    const legacy = localStorage.getItem('case3-lang');
+    if (legacy === 'zh' || legacy === 'en') return legacy;
     return 'en';
   }
 
