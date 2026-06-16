@@ -1,51 +1,384 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Project 03 — Under Testing">
+  <meta name="description" content="基於輕量化 1D-CNN 之硬體友善跌倒偵測系統：從骨架擷取、模型設計到 PC / Jetson / FPGA 跨平台部署的完整研究紀錄。">
   <link rel="canonical" href="https://www.mk-chou.com/project/3">
-  <title>Project 03 | Under Testing</title>
+  <title>專題 03 ｜ 輕量化 1D-CNN 跌倒偵測系統</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../css/style.css">
+  <link rel="stylesheet" href="case.css">
 </head>
-<body class="qr-branch">
-  <header class="qr-header">
-    <nav class="qr-breadcrumb" aria-label="Breadcrumb">
-      <a href="https://www.mk-chou.com/">mk-chou.com</a>
-      <span class="qr-breadcrumb-sep" aria-hidden="true">/</span>
-      <a href="https://www.mk-chou.com/project/">project</a>
-      <span class="qr-breadcrumb-sep" aria-hidden="true">/</span>
-      <span class="qr-breadcrumb-current" aria-current="page">3</span>
+<body class="case">
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="../../" class="logo">MK Chou</a>
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="../../">Home</a></li>
+        <li><a href="../" class="active" aria-current="page">Projects</a></li>
+        <li><a href="../../about/">About</a></li>
+      </ul>
     </nav>
-    <a href="https://www.mk-chou.com/" class="qr-back-main">Back to Home</a>
   </header>
 
-  <main class="qr-main">
-    <div class="qr-card">
-      <p class="qr-badge">Project 03</p>
-      <h1 class="qr-title">Under Testing</h1>
-      <p class="qr-lead">
-        This project page is currently under testing. Content is not yet available.
-      </p>
-
-      <div class="qr-actions">
-        <a href="https://www.mk-chou.com/project/" class="qr-cta qr-cta--secondary">
-          <span class="qr-cta-label">All Projects</span>
-          <span class="qr-cta-url">mk-chou.com/project</span>
-        </a>
-        <a href="https://www.mk-chou.com/" class="qr-cta">
-          <span class="qr-cta-label">Back to Home</span>
-          <span class="qr-cta-url">mk-chou.com</span>
-        </a>
+  <main class="case-main">
+    <!-- Hero -->
+    <section class="case-hero">
+      <div class="container">
+        <nav class="case-breadcrumb" aria-label="Breadcrumb">
+          <a href="../../">Home</a>
+          <span aria-hidden="true">/</span>
+          <a href="../">Projects</a>
+          <span aria-hidden="true">/</span>
+          <span aria-current="page">03</span>
+        </nav>
+        <p class="case-eyebrow">專題 03 · Edge AI · Hardware Co-Design</p>
+        <h1 class="case-title">基於輕量化 1D-CNN 之<br>硬體友善跌倒偵測系統</h1>
+        <p class="case-lead">
+          以單顆攝影機擷取人體骨架，透過一個極輕量的時間卷積網路判斷「跌倒 / 正常」，
+          並把同一個模型部署到 PC、Jetson Nano 與 FPGA（PYNQ-Z2）三種平台，
+          驗證它在邊緣裝置上的可行性、即時性與準確度。
+        </p>
+        <ul class="case-stats">
+          <li><strong>95.65%</strong><span>固定測試集準確率</span></li>
+          <li><strong>0.42 ms</strong><span>單次模型推論</span></li>
+          <li><strong>92.39%</strong><span>FPGA 上板準確率</span></li>
+          <li><strong>~60 FPS</strong><span>FPGA 推論吞吐</span></li>
+        </ul>
+        <ul class="case-tags">
+          <li>1D-CNN</li>
+          <li>MediaPipe Pose</li>
+          <li>PyTorch / ONNX</li>
+          <li>INT8 量化</li>
+          <li>Vitis HLS</li>
+          <li>PYNQ-Z2</li>
+        </ul>
       </div>
+    </section>
+
+    <div class="container case-body">
+
+      <!-- 背景 -->
+      <section class="case-section" id="background">
+        <span class="case-section-label">01 — 專題背景</span>
+        <h2>為什麼要做這個題目？</h2>
+        <p>
+          跌倒是高齡者居家意外傷害的主要原因之一，能否在事件發生的當下即時偵測並發出警報，
+          往往決定了後續處置的黃金時間。常見的穿戴式裝置必須隨身配戴、容易被遺忘；
+          而純影像的深度模型雖然準確，運算量卻過大，難以塞進低功耗、低成本的邊緣裝置。
+        </p>
+        <p>
+          因此本專題選擇了一條折衷且務實的路線：<strong>先用 MediaPipe 把影像轉成人體骨架座標，
+          再用一個非常輕量的 1D-CNN 對「骨架的時間變化」做分類</strong>。
+          這樣模型不需要看原始畫面、運算量極小，同時保有足夠的辨識能力，
+          也讓「最後能不能被硬體加速」變成一個可以認真討論的問題。
+        </p>
+        <div class="case-callout">
+          <h3>核心命題</h3>
+          <p>
+            設計一個「硬體友善」的跌倒偵測模型 —— 在保持高準確率的前提下，
+            讓它小到能放進 FPGA，並用<strong>模型與硬體協同設計（Co-Design）</strong>的角度，
+            驗證它在 PC、Jetson、FPGA 三個平台上的表現差異。
+          </p>
+        </div>
+      </section>
+
+      <!-- 系統設計 / 流程 -->
+      <section class="case-section" id="pipeline">
+        <span class="case-section-label">02 — 系統設計</span>
+        <h2>整體流程：從影像到警報</h2>
+        <p>
+          整個系統是一條清楚的資料流：影像串流 → 骨架擷取 → 時間序列張量 → 1D-CNN 分類 → 跌倒判斷。
+          骨架擷取與前處理放在 CPU，分類模型則是可被加速的核心，最後在三個平台上分別驗證。
+        </p>
+        <figure class="case-figure case-figure--wide">
+          <img src="assets/pipeline.png" alt="系統流程圖：URFD 影像 → MediaPipe 骨架 → 時間序列張量 → 1D-CNN → 跌倒偵測，並在 PC / Jetson / FPGA 三平台驗證" loading="lazy">
+          <figcaption>端到端流程與三階段平台驗證（PC Baseline → Jetson 邊緣 → FPGA 加速器）。</figcaption>
+        </figure>
+        <div class="case-grid-2">
+          <figure class="case-figure">
+            <img src="assets/skeleton-input.png" alt="骨架輸入示意：18 個關鍵點的 (x, y) 座標隨時間堆疊成序列" loading="lazy">
+            <figcaption>輸入是骨架關鍵點座標隨時間堆疊的序列，而非原始畫面。</figcaption>
+          </figure>
+          <div class="case-text-block">
+            <h3>資料與輸入規格</h3>
+            <p>
+              資料來源為 URFD 公開跌倒資料集。每段影片經 MediaPipe 抽出關鍵點後，
+              固定整理成 <code>(36, 50)</code> 的張量：
+            </p>
+            <ul class="case-list">
+              <li><strong>36 維</strong>：18 個關鍵點的 (x, y) 座標</li>
+              <li><strong>50 幀</strong>：以滑動視窗取的時間長度</li>
+              <li>座標已正規化到 0~1，偵測不到的點補 0</li>
+              <li>測試集 92 筆，採 20% 切分、固定 seed=42</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- 模型設計與概念 -->
+      <section class="case-section" id="model">
+        <span class="case-section-label">03 — 模型設計與概念</span>
+        <h2>刻意「為硬體著想」的 1D-CNN</h2>
+        <p>
+          模型本身刻意保持簡單：兩個卷積區塊加上一個分類頭。但每一個設計選擇背後，
+          都同時考慮了「準確率」與「之後能不能上硬體」這兩件事。
+        </p>
+        <figure class="case-figure case-figure--wide">
+          <img src="assets/model-architecture.png" alt="1D-CNN 架構：Conv 區塊一 (36→64)、區塊二 (64→128)、AdaptiveAvgPool + Linear 分類頭，輸出 Fall / Non-Fall" loading="lazy">
+          <figcaption>輕量化 1D-CNN 架構。使用 ReLU6、無 Dropout、Conv 不含 bias，皆為利於 INT8 量化與硬體實作的選擇。</figcaption>
+        </figure>
+        <div class="case-grid-2">
+          <div class="case-text-block">
+            <h3>硬體友善的關鍵取捨</h3>
+            <ul class="case-list">
+              <li><strong>用 ReLU6 取代 ReLU</strong>：輸出有上界，量化時數值範圍更穩定。</li>
+              <li><strong>移除 Dropout</strong>：推論期無作用，且簡化硬體資料路徑。</li>
+              <li><strong>Conv 不含 bias</strong>：減少參數與一組加法器，方便 HLS 實作。</li>
+              <li><strong>固定輸入尺寸</strong>：(36, 50) 讓硬體記憶體配置可預先決定。</li>
+            </ul>
+          </div>
+          <div class="case-text-block">
+            <h3>為什麼選 1D-CNN？</h3>
+            <p>
+              跌倒的關鍵資訊在於「骨架隨時間的變化」。1D 時間卷積剛好擅長抓這種序列特徵，
+              且相較於 LSTM / Transformer，它的計算高度規律（大量規律的 MAC 運算）、
+              沒有遞迴依賴，非常適合在 FPGA 上做流水線化與平行化。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 概念取捨：FPGA 重新定位 -->
+      <section class="case-section" id="codesign">
+        <span class="case-section-label">04 — 概念與取捨</span>
+        <h2>最重要的決定：放棄 DPU，改做訂製加速器</h2>
+        <p>
+          專題中段遇到一個關鍵岔路。原本打算用 Xilinx 的 DPU + Vitis AI 在 FPGA 上跑模型，
+          但實測發現 <strong>PYNQ-Z2（Zynq-7020）資源不足以承載完整 DPU</strong>，這條路在這塊板子上行不通。
+          與其硬湊，我選擇重新定位 FPGA 的角色：<strong>不用通用加速器，而是親手設計一個訂製的 1D-CNN 加速器 IP</strong>。
+        </p>
+        <div class="case-compare">
+          <div class="case-compare-col case-compare-col--bad">
+            <h4>原方案：DPU + Vitis AI</h4>
+            <ul>
+              <li>黑盒式通用加速器，無法展現協同設計</li>
+              <li>IP 體積大，Z2 資源不足 — 實測不可行</li>
+              <li>偏向「使用工具」而非「設計硬體」</li>
+            </ul>
+          </div>
+          <div class="case-compare-col case-compare-col--good">
+            <h4>採用：訂製 HLS 加速器</h4>
+            <ul>
+              <li>模型結構為硬體而優化，真正的 Co-Design</li>
+              <li>只加速最關鍵的卷積，資源需求可控</li>
+              <li>用 AXI-DMA + AXI-Stream 串接，INT8 定點運算</li>
+            </ul>
+          </div>
+        </div>
+        <figure class="case-figure case-figure--wide">
+          <img src="assets/system-architecture.png" alt="系統切分：PS（ARM Cortex-A9）負責影像與 MediaPipe 骨架擷取，PL（FPGA Fabric）負責 1D-CNN 加速器 IP 與分類判斷，透過 AXI-DMA 傳輸 INT8 骨架序列" loading="lazy">
+          <figcaption>軟硬體切分：CPU（PS）處理影像與骨架擷取（非確定性延遲），FPGA（PL）負責確定性的 1D-CNN 推論。</figcaption>
+        </figure>
+        <figure class="case-figure">
+          <img src="assets/fpga-vivado.png" alt="Vivado 上的 FPGA 區塊設計，包含 1D-CNN 加速器 IP、DMA 與 Zynq 處理系統的連線" loading="lazy">
+          <figcaption>在 Vivado / Vitis HLS 中完成的 FPGA 加速器區塊設計與整合。</figcaption>
+        </figure>
+      </section>
+
+      <!-- 遇到的困難 -->
+      <section class="case-section" id="challenges">
+        <span class="case-section-label">05 — 遇到的困難</span>
+        <h2>實作過程踩過的坑</h2>
+        <p>
+          把一個模型從 PC 一路推到 FPGA，真正花時間的往往不是模型本身，而是跨平台的各種細節問題。
+        </p>
+        <div class="case-challenges">
+          <div class="case-challenge">
+            <h4>PYNQ-Z2 跑不動 DPU</h4>
+            <p>板子資源不足以承載完整 DPU IP。最後改為訂製單層加速器 + CPU 協同，反而讓專題更有設計深度。</p>
+          </div>
+          <div class="case-challenge">
+            <h4>Jetson 裝不了 MediaPipe</h4>
+            <p>Jetson 環境無法安裝 mediapipe。解法：PC 先抽好骨架輸出成 <code>.npy</code>，Jetson 端直接讀骨架做推論。</p>
+          </div>
+          <div class="case-challenge">
+            <h4>Bash 腳本的 CRLF 問題</h4>
+            <p>Windows 換行讓 Jetson 出現 <code>/bin/bash^M</code> 錯誤。用 <code>dos2unix</code> 轉換換行符即可解決。</p>
+          </div>
+          <div class="case-challenge">
+            <h4>輸出影片歪斜、過快</h4>
+            <p>畫面被拉伸、播放速度異常。強制偶數尺寸、固定輸出 FPS 並統一解析度後修正。</p>
+          </div>
+          <div class="case-challenge">
+            <h4>PC / Jetson 比較資料不足</h4>
+            <p>比較腳本找不到對應設定的資料。將 PC 端 warmup 設為 0，讓兩平台量測條件一致。</p>
+          </div>
+          <div class="case-challenge">
+            <h4>瓶頸不在模型而在前處理</h4>
+            <p>剖析後發現骨架擷取佔了端到端 96% 的時間，使「加速模型」的方向必須重新思考（見下節）。</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 結果 -->
+      <section class="case-section" id="results">
+        <span class="case-section-label">06 — 實驗結果</span>
+        <h2>數據怎麼說</h2>
+
+        <h3 class="case-subhead">準確率與量化</h3>
+        <div class="case-grid-2">
+          <figure class="case-figure">
+            <img src="assets/confusion-matrix.png" alt="固定測試集的混淆矩陣，Fall 為正類" loading="lazy">
+            <figcaption>固定測試集混淆矩陣（92 筆）。</figcaption>
+          </figure>
+          <div class="case-text-block">
+            <table class="case-table">
+              <thead><tr><th>指標</th><th>數值</th></tr></thead>
+              <tbody>
+                <tr><td>Accuracy</td><td>95.65%</td></tr>
+                <tr><td>Precision</td><td>93.33%</td></tr>
+                <tr><td>Recall</td><td>93.33%</td></tr>
+                <tr><td>F1-score</td><td>93.33%</td></tr>
+              </tbody>
+            </table>
+            <p class="case-note">
+              INT8 量化後準確率維持 <strong>95.65%</strong>，與 FP32 相比 <strong>Delta = +0.0000</strong> —
+              證明這個模型對量化非常友善，幾乎無損。
+            </p>
+          </div>
+        </div>
+
+        <h3 class="case-subhead">跳幀消融：準確率 vs. 速度</h3>
+        <div class="case-grid-2">
+          <figure class="case-figure">
+            <img src="assets/ablation.png" alt="跳幀 stride 從 1 到 16 的準確率與 FPS 變化曲線" loading="lazy">
+            <figcaption>跳幀步長對準確率與 FPS 的影響。</figcaption>
+          </figure>
+          <div class="case-text-block">
+            <p>
+              透過「跳幀」可以用準確率換取速度。Stride=1 時準確率 93%、約 21 FPS；
+              拉到 Stride=4 仍有 89% 準確率，FPS 卻翻倍到 46。這給了實際部署一個可調的甜蜜點。
+            </p>
+            <ul class="case-list">
+              <li>Stride 1：<strong>93%</strong> / 20.97 FPS</li>
+              <li>Stride 4：<strong>89%</strong> / 46.13 FPS</li>
+              <li>Stride 8：84% / 76.18 FPS</li>
+              <li>Stride 16：75% / 84.25 FPS</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="case-subhead">系統瓶頸分析</h3>
+        <div class="case-grid-2">
+          <figure class="case-figure">
+            <img src="assets/perf-pie.png" alt="端到端各階段時間占比圓餅圖，骨架擷取佔約 96.71%" loading="lazy">
+            <figcaption>端到端各階段耗時占比。</figcaption>
+          </figure>
+          <div class="case-text-block">
+            <p>
+              把端到端流程拆成五個階段後，結論很明確：
+              <strong>骨架擷取（MediaPipe）佔掉約 96.71% 的時間</strong>，
+              而 1D-CNN 推論只佔 1.22%（約 0.42 ms）。
+            </p>
+            <p class="case-note">
+              這個發現很重要 —— 真正的瓶頸是前處理與 I/O，而非模型本身。
+              也因此「進一步加速模型」對端到端 FPS 的邊際效益其實有限，
+              這正是硬體設計中最值得記錄的一課。
+            </p>
+          </div>
+        </div>
+
+        <h3 class="case-subhead">跨平台效能比較</h3>
+        <div class="case-grid-2">
+          <figure class="case-figure">
+            <img src="assets/pc-vs-jetson.png" alt="PC 與 Jetson Nano 在不同 stride 下的 FPS 比較" loading="lazy">
+            <figcaption>PC 與 Jetson Nano 2GB 的端到端 FPS。</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="assets/fpga-jitter.png" alt="FPGA 單次推論延遲的抖動直方圖，集中在約 16.6 ms" loading="lazy">
+            <figcaption>FPGA 推論延遲分佈：穩定落在 16.58–16.85 ms。</figcaption>
+          </figure>
+        </div>
+        <div class="case-table-wrap">
+          <table class="case-table case-table--full">
+            <thead>
+              <tr><th>平台</th><th>模型推論延遲</th><th>推論 FPS</th><th>特性 / 優勢</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>PC (CPU)</td><td>~0.42 ms</td><td>~191（端到端）</td><td>高吞吐，但高功耗、延遲不確定</td></tr>
+              <tr><td>Jetson Nano 2GB</td><td>~0.42 ms</td><td>~18（端到端）</td><td>易開發，受 OS 排程影響</td></tr>
+              <tr><td>FPGA (PYNQ-Z2)</td><td>0.41 ms（IP）/ 16.62 ms（含 DMA）</td><td>~60.25</td><td>確定性延遲、低功耗、即時性</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="case-note">
+          值得注意的是，FPGA 上 16.62 ms 的延遲中，絕大部分（約 16.11 ms）來自 DMA 資料搬移，
+          IP 真正的計算只佔約 0.41 ms。<strong>「推論 FPS 比較低」不代表部署價值較低</strong> ——
+          FPGA 的賣點是確定性延遲與低功耗，這跟通用平台是不同維度的取捨。
+        </p>
+
+        <h3 class="case-subhead">失效樣本分析</h3>
+        <p>
+          檢視模型判斷錯誤的案例，有助於理解它的極限。多數錯誤集中在「動作與跌倒高度相似」
+          或「骨架被嚴重遮擋 / 抽取不全」的邊界情況。
+        </p>
+        <div class="case-grid-2">
+          <figure class="case-figure">
+            <img src="assets/err-fn54.png" alt="False Negative 案例：實際跌倒卻被判為正常的骨架疊圖" loading="lazy">
+            <figcaption>False Negative（漏報）：實際跌倒被判為正常。</figcaption>
+          </figure>
+          <figure class="case-figure">
+            <img src="assets/err-fp26.png" alt="False Positive 案例：實際正常動作卻被判為跌倒的骨架疊圖" loading="lazy">
+            <figcaption>False Positive（誤報）：正常動作被誤判為跌倒。</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- 結論 -->
+      <section class="case-section" id="conclusion">
+        <span class="case-section-label">07 — 結論</span>
+        <h2>總結與收穫</h2>
+        <p>
+          這個專題完整走過了「模型訓練 → 量化 → 跨平台部署 → 訂製 FPGA 加速器」的全流程，
+          並用實驗數據回答了最初的命題：<strong>一個刻意為硬體設計的輕量 1D-CNN，
+          確實能在邊緣裝置上維持高準確率與即時性。</strong>
+        </p>
+        <ul class="case-list case-list--check">
+          <li>輕量 1D-CNN 在固定測試集達 95.65% 準確率，INT8 量化幾乎無損。</li>
+          <li>同一模型成功部署到 PC、Jetson、FPGA 三平台並完成量測。</li>
+          <li>FPGA 上板準確率 92.39%，推論吞吐約 60 FPS，延遲穩定可預測。</li>
+          <li>剖析證實瓶頸在骨架擷取而非模型，為後續優化指出正確方向。</li>
+          <li>從 DPU 轉向訂製加速器，體現真正的模型–硬體協同設計。</li>
+        </ul>
+        <div class="case-callout">
+          <h3>最大的收穫</h3>
+          <p>
+            學到的不只是「怎麼把模型變小」，而是<strong>怎麼在「準確率、速度、功耗、硬體資源」之間做取捨</strong>，
+            以及如何用數據誠實地面對平台限制 —— 當 DPU 行不通時，重新定義問題反而打開了更有價值的方向。
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <div class="container case-actions">
+      <a href="../" class="back-home">← 返回專案列表</a>
+      <a href="../../" class="back-home">回首頁</a>
     </div>
   </main>
 
-  <footer class="qr-footer">
-    <p>&copy; <span id="year"></span> MK Chou · Under Testing</p>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year"></span> MK Chou · 專題 03</p>
+      <a href="#" class="back-to-top">回到頂端 ↑</a>
+    </div>
   </footer>
 
   <script src="../../js/main.js"></script>
