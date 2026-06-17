@@ -177,6 +177,8 @@
 
 .case-figure--wide img {
   padding: 1rem;
+  height: auto;
+  object-fit: contain;
 }
 
 .case-figure figcaption {
@@ -189,6 +191,8 @@
 .case-figure--photo img {
   padding: 0;
   background: var(--bg-elevated);
+  height: auto;
+  object-fit: contain;
 }
 
 /* Grid */
