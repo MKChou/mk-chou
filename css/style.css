@@ -225,7 +225,7 @@ img {
   margin-bottom: 1.5rem;
 }
 
-/* Homepage: contact left, about right */
+/* Homepage: about left, contact right */
 .section--home-split {
   padding: 3rem 0 5rem;
 }
@@ -1154,9 +1154,9 @@ html[lang='en'] .project-meta dt::after {
     margin-bottom: 1rem;
   }
 
-  .about-intro:last-of-type {
-    margin-bottom: 1.5rem;
-  }
+.about-intro:last-of-type {
+  margin-bottom: 2.5rem;
+}
 
   .about-section {
     margin-bottom: 1.75rem;
