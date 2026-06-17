@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="FallFusion — real-time multimodal fall detection fusing vision (MoveNet + CNN) and audio (MFCC + LSTM) with Dempster-Shafer Theory on Jetson Nano 2GB.">
+  <meta name="description" content="DST-FallNet — real-time multimodal fall detection fusing vision (MoveNet + CNN) and audio (MFCC + LSTM) with Dempster-Shafer Theory on Jetson Nano 2GB.">
   <link rel="canonical" href="https://www.mk-chou.com/project/2">
-  <title>Project 02 | Multimodal Fall Detection with DST</title>
+  <title>Project 02 | DST-FallNet</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
@@ -41,10 +41,10 @@
           <span aria-hidden="true">/</span>
           <span aria-current="page">02</span>
         </nav>
-        <p class="case-eyebrow" data-i18n="hero.eyebrow">Project 02 · Multimodal Fall Detection · DST</p>
-        <h1 class="case-title" data-i18n="hero.title" data-i18n-html>Real-Time Multimodal Fall Detection via<br>Audio-Visual Fusion and DST on Edge Devices</h1>
+        <p class="case-eyebrow" data-i18n="hero.eyebrow">Project 02 · DST-FallNet · Multimodal Fall Detection</p>
+        <h1 class="case-title" data-i18n="hero.title" data-i18n-html>DST-FallNet<br>Real-Time Multimodal Fall Detection via<br>Audio-Visual Fusion and DST on Edge Devices</h1>
         <p class="case-lead" data-i18n="hero.lead">
-          FallFusion fuses vision and audio for robust fall detection on the resource-constrained Jetson Nano 2GB. A MoveNet pose estimator and custom CNN handle the visual stream, an MFCC + LSTM model handles sound, and Dempster-Shafer Theory performs decision-level fusion that explicitly reasons about uncertainty and conflict.
+          DST-FallNet is a real-time multimodal fall detection system that integrates visual (MoveNet, CNN) and audio (LSTM) models, utilizing Dempster-Shafer Theory for decision-level fusion. Designed for resource-constrained embedded devices such as Jetson Nano 2GB, with GPIO output for alerts — suitable for long-term automated monitoring.
         </p>
         <ul class="case-stats">
           <li><strong>0.97</strong><span data-i18n="hero.stat1">Audio LSTM accuracy</span></li>
@@ -61,14 +61,26 @@
           <li>Jetson Nano 2GB</li>
         </ul>
         <div class="case-links">
-          <a href="https://github.com/MKChou/DST-FallNet" target="_blank" rel="noopener">DST-FallNet ↗</a>
-          <a href="https://github.com/MKChou/fall-detection-cnn" target="_blank" rel="noopener">fall-detection-cnn ↗</a>
-          <a href="https://github.com/MKChou/fall-sound-detection-lstm" target="_blank" rel="noopener">fall-sound-detection-lstm ↗</a>
+          <a href="https://github.com/MKChou/DST-FallNet" target="_blank" rel="noopener" data-i18n="link.repo">DST-FallNet repo ↗</a>
+          <a href="https://github.com/MKChou/fall-detection-cnn" target="_blank" rel="noopener" data-i18n="link.cnn">fall-detection-cnn ↗</a>
+          <a href="https://github.com/MKChou/fall-sound-detection-lstm" target="_blank" rel="noopener" data-i18n="link.lstm">fall-sound-detection-lstm ↗</a>
         </div>
       </div>
     </section>
 
     <div class="container case-body">
+
+      <section class="case-section" id="overview">
+        <span class="case-section-label" data-i18n="ov.label">Overview</span>
+        <h2 data-i18n="ov.h2">Main features</h2>
+        <ul class="case-list case-list--check">
+          <li data-i18n="ov.f1">Visual fall detection — MoveNet pose estimation and CNN action classification</li>
+          <li data-i18n="ov.f2">Audio anomaly detection — MFCC features with LSTM</li>
+          <li data-i18n="ov.f3">Dempster-Shafer Theory (DST) decision-level fusion</li>
+          <li data-i18n="ov.f4">GPIO output for LED / buzzer alerts</li>
+          <li data-i18n="ov.f5">CLI dashboard for real-time system status over SSH</li>
+        </ul>
+      </section>
 
       <section class="case-section" id="background">
         <span class="case-section-label" data-i18n="s01.label">01 — Motivation</span>
@@ -84,6 +96,17 @@
           <h3 data-i18n="s01.callout.h">Design goals</h3>
           <p data-i18n="s01.callout.p" data-i18n-html>Fuse <strong>vision + audio</strong> to lift accuracy, run fully on a <strong>low-power Jetson Nano 2GB</strong>, and drive real-time hardware alerts (LED / buzzer) — all without sending video off-device.</p>
         </div>
+      </section>
+
+      <section class="case-section" id="hardware">
+        <span class="case-section-label" data-i18n="hw.label">Hardware</span>
+        <h2 data-i18n="hw.h2">Hardware used</h2>
+        <ul class="case-list case-list--check">
+          <li>Jetson Nano 2GB</li>
+          <li data-i18n="hw.li2">USB camera</li>
+          <li data-i18n="hw.li3">USB microphone</li>
+          <li data-i18n="hw.li4">LED and buzzer (GPIO control)</li>
+        </ul>
       </section>
 
       <section class="case-section" id="dst">
@@ -215,6 +238,48 @@
           </table>
         </div>
         <p class="case-note" data-i18n="s08.note" data-i18n-html>The DST fusion step adds only microseconds, so multimodal robustness comes essentially for free relative to the model inference cost.</p>
+      </section>
+
+      <section class="case-section" id="repo">
+        <span class="case-section-label" data-i18n="repo.label">Repository</span>
+        <h2 data-i18n="repo.h2">Source code &amp; how to run</h2>
+        <p data-i18n="repo.p1">The full embedded system lives in the <a href="https://github.com/MKChou/DST-FallNet" target="_blank" rel="noopener">DST-FallNet</a> repository on GitHub. Separate repos hold the CNN and LSTM training code; exported ONNX models are loaded at runtime.</p>
+        <h3 class="case-subhead" data-i18n="repo.tree.h3">Project directory structure</h3>
+        <pre class="case-tree" aria-label="DST-FallNet directory structure"><code>DST-FallNet/
+├── src/                # Main source code
+├── models/             # ONNX model files
+├── assets/             # Documentation images
+├── abnormal_images/    # Runtime abnormal captures
+├── requirements.txt    # Python dependencies
+└── README.md</code></pre>
+        <div class="case-grid-2">
+          <div class="case-text-block">
+            <h3 data-i18n="repo.install.h3">Installation</h3>
+            <ol class="case-phases">
+              <li data-i18n="repo.install.li1">Install Python 3.8 or above</li>
+              <li data-i18n="repo.install.li2" data-i18n-html>Install dependencies: <code>pip install -r requirements.txt</code></li>
+            </ol>
+          </div>
+          <div class="case-text-block">
+            <h3 data-i18n="repo.run.h3">How to run</h3>
+            <ol class="case-phases">
+              <li data-i18n="repo.run.li1">Enter the <code>src/</code> directory</li>
+              <li data-i18n="repo.run.li2" data-i18n-html>Run the main program: <code>python main.py</code></li>
+            </ol>
+          </div>
+        </div>
+        <div class="case-callout">
+          <h3 data-i18n="repo.models.h">Model files</h3>
+          <p data-i18n="repo.models.p">Place downloaded ONNX models in the <code>models/</code> directory before running. Model download links are documented in the GitHub README or available on request.</p>
+        </div>
+        <div class="case-callout case-callout--note">
+          <h3 data-i18n="repo.notes.h">Notes</h3>
+          <ul class="case-list">
+            <li data-i18n="repo.notes.li1">Jetson Nano 2GB and correct GPIO wiring are required</li>
+            <li data-i18n="repo.notes.li2">All <code>.onnx</code> model files must be present under <code>models/</code></li>
+            <li data-i18n="repo.notes.li3">Runtime-generated images and temporary files are not recommended for GitHub upload</li>
+          </ul>
+        </div>
       </section>
 
       <section class="case-section" id="future">
