@@ -587,8 +587,34 @@
     gap: 0.75rem;
   }
 
+  .case-main {
+    padding-top: 4.25rem;
+  }
+
+  .case-hero {
+    padding: 2.25rem 0 1.75rem;
+  }
+
+  .case-breadcrumb {
+    margin-bottom: 1rem;
+  }
+
+  .case-title {
+    margin-bottom: 1rem;
+  }
+
+  .case-lead {
+    margin-bottom: 1.25rem;
+  }
+
   .case-stats {
     grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .case-stats li {
+    padding: 0.9rem 1rem;
   }
 
   .case-grid-2,
@@ -599,6 +625,6 @@
   }
 
   .case-section {
-    padding: 2.5rem 0;
+    padding: 2rem 0;
   }
 }

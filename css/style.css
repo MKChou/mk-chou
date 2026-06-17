@@ -1082,6 +1082,86 @@ html[lang='en'] .project-meta dt::after {
 
 /* ── Mobile ── */
 @media (max-width: 768px) {
+  .container,
+  .nav {
+    width: min(1080px, calc(100% - 1.5rem));
+  }
+
+  .site-header {
+    padding: 0.85rem 0;
+  }
+
+  .page-main {
+    padding: 5.25rem 0 2.5rem;
+  }
+
+  .page-label {
+    margin-bottom: 0.65rem;
+  }
+
+  .page-title {
+    font-size: clamp(1.65rem, 7vw, 2.15rem);
+    margin-bottom: 0.85rem;
+  }
+
+  .page-lead,
+  .page-content > p:not(.page-label) {
+    margin-bottom: 1rem;
+    line-height: 1.75;
+  }
+
+  .page-content--wide .project-grid {
+    margin-bottom: 1.5rem;
+  }
+
+  .project-grid--row {
+    gap: 0.85rem;
+  }
+
+  .project-card {
+    padding: 1.25rem 1.1rem;
+  }
+
+  .project-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .project-card p {
+    margin-bottom: 0.75rem;
+    font-size: 0.875rem;
+  }
+
+  .project-meta {
+    margin-bottom: 0.85rem;
+    row-gap: 0.25rem;
+  }
+
+  .project-tags {
+    margin-bottom: 0;
+    gap: 0.4rem;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .section-header {
+    margin-bottom: 1.25rem;
+  }
+
+  .about-intro {
+    margin-bottom: 1rem;
+  }
+
+  .about-intro:last-of-type {
+    margin-bottom: 1.5rem;
+  }
+
+  .about-section {
+    margin-bottom: 1.75rem;
+  }
+
   .nav-end {
     gap: 0.75rem;
   }
@@ -1149,11 +1229,15 @@ html[lang='en'] .project-meta dt::after {
 
   .home-split {
     grid-template-columns: 1fr;
-    gap: 3rem;
+    gap: 2rem;
+  }
+
+  .section--home-split {
+    padding: 1.75rem 0 2.5rem;
   }
 
   .hero--home {
-    padding: 7.5rem 0 2.5rem;
+    padding: 5.5rem 0 1.75rem;
   }
 
   .hero-content--profile {
