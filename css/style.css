@@ -683,21 +683,22 @@ html[lang='en'] .project-meta dt::after {
 
 .project-grid--row {
   display: flex;
-  flex-wrap: nowrap;
+  flex-direction: column;
   gap: 1.25rem;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
 }
 
 .project-grid--row .project-card {
-  flex: 1 1 0;
   min-width: 0;
 }
 
-@media (max-width: 900px) {
+@media (min-width: 901px) {
+  .project-grid--row {
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+
   .project-grid--row .project-card {
-    flex: 0 0 min(72vw, 320px);
+    flex: 1 1 0;
   }
 }
 
