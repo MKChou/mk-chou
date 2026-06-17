@@ -468,6 +468,12 @@ img {
   border-color: rgba(142, 197, 168, 0.35);
 }
 
+.project-status--done {
+  color: var(--text-muted);
+  background: var(--surface);
+  border-color: var(--border);
+}
+
 .project-card h3 {
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
