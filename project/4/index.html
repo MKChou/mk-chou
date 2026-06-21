@@ -43,23 +43,26 @@
         </nav>
         <p class="case-eyebrow" data-i18n="hero.eyebrow">Project 04 · Advance Care Planning · Elderly-Friendly App</p>
         <span class="case-badge" data-i18n="hero.badge">Design Thinking Case Study</span>
-        <h1 class="case-title" data-i18n="hero.title" data-i18n-html>"陪你想想" — An Elderly-Friendly<br>Companion App for Advance Care Planning</h1>
-        <p class="case-subtitle" data-i18n="hero.subtitle">將「設計思考」導入預立醫療決定（ACP）產品開發之實踐</p>
+        <h1 class="case-title" data-i18n="hero.title">陪你想想 (acp_care)</h1>
+        <p class="case-subtitle" data-i18n="hero.subtitle">設計思考 × 高齡者 × ACP 數位照護</p>
         <p class="case-lead" data-i18n="hero.lead">
-          Built with experts who insisted "this is just a prototype — don't overbuild it," 陪你想想 (acp_care) helps seniors and their families ease into Advance Care Planning (ACP). Instead of pushing forms, it lowers death anxiety, delivers content matched to each person's TTM readiness stage, and gently nudges families to talk — the cultural core in Taiwan.
+          Not another advance-care form — a phone companion that helps elders think first, speak up, and talk with family.
+        </p>
+        <p class="case-hero-team" data-i18n="hero.team" data-i18n-html>
+          <strong>Advisor</strong> 羅玉岱 醫師 · 盧文祥 教授 &nbsp;|&nbsp; <strong>Team</strong> 周明坤（成大不分系）
         </p>
         <ul class="case-stats">
           <li><strong>4</strong><span data-i18n="hero.stat1">TTM readiness stages</span></li>
-          <li><strong>9</strong><span data-i18n="hero.stat2">Voice FAQ topics</span></li>
+          <li><strong>3</strong><span data-i18n="hero.stat2">Behavior-change theories</span></li>
           <li><strong>STT + TTS</strong><span data-i18n="hero.stat3">Voice-first interaction</span></li>
-          <li><strong>Flutter</strong><span data-i18n="hero.stat4">Real APK build</span></li>
+          <li><strong>Flutter</strong><span data-i18n="hero.stat4">Android MVP prototype</span></li>
         </ul>
         <ul class="case-tags">
           <li data-i18n="tag.dt">Design thinking</li>
+          <li data-i18n="tag.ttm">TTM</li>
+          <li data-i18n="tag.comb">COM-B</li>
+          <li data-i18n="tag.sct">SCT</li>
           <li>Flutter 3.22.3</li>
-          <li data-i18n="tag.ttm">TTM staging</li>
-          <li>flutter_tts</li>
-          <li data-i18n="tag.stt">STT (TA + ZH medical)</li>
           <li data-i18n="tag.elder">Elderly-friendly UI</li>
           <li data-i18n="tag.family">Family mode</li>
         </ul>
@@ -70,37 +73,43 @@
 
       <div class="case-callout case-callout--note">
         <h3 data-i18n="pitch.note.h">從冰冷表單到溫暖對話</h3>
-        <p data-i18n="pitch.note.p">預立醫療決定（ACP）在傳統上是一個冰冷、嚴肅且充滿禁忌的話題。我們團隊嘗試導入設計思考，將生硬的法規表單轉化為一場溫暖的家庭對話工具。以下依 Stanford d.school 五大步驟，逐階段分享實踐歷程；後半段則深入產品與技術細節。</p>
+        <p data-i18n="pitch.note.p">以下依期末簡報整理：先看見台灣 ACP 的結構性困境，再以設計思考五步驟，把「不敢談」收斂成可落地的 Flutter 原型。</p>
       </div>
 
-      <section class="case-section" id="pitch-pain">
-        <span class="case-section-label" data-i18n="pitch.s02.label">Slide 02 — 痛點與背景</span>
-        <h2 data-i18n="pitch.s02.h2">台灣家庭的文化痛點：難以開口的愛</h2>
-        <p data-i18n="pitch.s02.p1">在進入設計之前，我們必須先看見問題。在台灣，「預立醫療」推廣最大的阻礙不是法規，而是文化——長者怕談死，子女怕被說不孝，大家選擇逃避。最終，相當高比例的決定都是在混亂的急診室外，由焦慮的家人被迫替長者做決定。</p>
+      <section class="case-section" id="background">
+        <span class="case-section-label" data-i18n="pitch.bg.label">背景 — 為什麼需要重新想 ACP</span>
+        <h2 data-i18n="pitch.bg.h2">善終難關：不健康的餘命</h2>
+        <p data-i18n="pitch.bg.p1">台灣人平均壽命雖長，但在生命終點前，往往經歷漫長且痛苦的「無效醫療」折磨。氣切、插管、洗腎與葉克膜等激烈的加工急救措施，讓無數長輩求生不得、求死不能——臨終前平均 <strong>8.4 年</strong>失能臥床。</p>
+
         <div class="case-challenges">
           <div class="case-challenge">
-            <h4 data-i18n="pitch.s02.c1.h">文化禁忌</h4>
-            <p data-i18n="pitch.s02.c1.p">華人社會避諱談論死亡，長者心裡想卻不敢說，子女想問卻怕被說不孝。</p>
+            <h4 data-i18n="pitch.bg.c1.h">家庭決策的兩難</h4>
+            <p data-i18n="pitch.bg.c1.p">當事人陷入昏迷，決定權落在毫無心理準備的子女身上。「誰簽字，誰不孝」——為了向親戚交代，被迫選擇繼續加工急救。</p>
           </div>
           <div class="case-challenge">
-            <h4 data-i18n="pitch.s02.c2.h">臨終混亂</h4>
-            <p data-i18n="pitch.s02.c2.p">許多決策是在加護病房前，由驚慌失措的家屬迫於無奈替長者做決定。</p>
+            <h4 data-i18n="pitch.bg.c2.h">理想很豐滿，現實很骨感</h4>
+            <p data-i18n="pitch.bg.c2.p">台灣 ACP 簽署率僅約 <strong>1%</strong>。自費諮商費用高昂、法規流程生硬，推動遠比想像困難。</p>
           </div>
           <div class="case-challenge">
-            <h4 data-i18n="pitch.s02.c3.h">生理障礙</h4>
-            <p data-i18n="pitch.s02.c3.p">現行 ACP 資訊生硬、字體小，長者視力退化、排斥填鴨式的複雜合約。</p>
-          </div>
-          <div class="case-challenge">
-            <h4 data-i18n="pitch.s02.c4.h">逃避與混亂</h4>
-            <p data-i18n="pitch.s02.c4.p">對雙方都是極大的精神折磨——本可提早溝通，卻在人生最慌亂的時刻才被迫面對。</p>
+            <h4 data-i18n="pitch.bg.c3.h">四重阻力疊加</h4>
+            <p data-i18n="pitch.bg.c3.p">低簽署率不全是「不知道有這條法」——而是死亡禁忌 × 家庭決策文化 × 冰冷法律語言 × 高齡數位落差，同時壓在長者與家屬身上。</p>
           </div>
         </div>
       </section>
 
-      <section class="case-section" id="pitch-method">
-        <span class="case-section-label" data-i18n="pitch.s03.label">Slide 03 — 設計思考流程</span>
-        <h2 data-i18n="pitch.s03.h2">我們的設計思考路徑</h2>
-        <p data-i18n="pitch.s03.p1">為了系統化地解決這個痛點，我們導入了完整的設計思考五步驟——從走入長者生活、重新定義核心問題、發想溫暖功能，到用 Flutter 親手打造出能實際在手機上運行的動態原型。</p>
+      <section class="case-section" id="reframe">
+        <span class="case-section-label" data-i18n="pitch.reframe.label">問題重新定義</span>
+        <h2 data-i18n="pitch.reframe.h2">我們想重新定義問題</h2>
+        <p data-i18n="pitch.reframe.p1">一般團隊可能會做「加速行政流程、提高簽署率」的數位化——但這真的是我們要解決的核心痛點嗎？</p>
+        <div class="case-callout">
+          <p data-i18n="pitch.reframe.p2" data-i18n-html>我們的答案是：<strong>不是。</strong>長輩需要的不是另一份文件，而是一個能「先想想、再開口、最後和家人談」的低焦慮起點。</p>
+        </div>
+      </section>
+
+      <section class="case-section" id="process">
+        <span class="case-section-label" data-i18n="pitch.s03.label">設計思考流程</span>
+        <h2 data-i18n="pitch.s03.h2">Design Thinking</h2>
+        <p data-i18n="pitch.s03.p1">依 Stanford d.school 五步驟推進：同理 → 定義 → 構思 → 原型 → 測試。每一步都對應簡報中的研究洞察與功能收斂。</p>
 
         <figure class="case-figure case-figure--wide">
           <img src="../1/assets/Desing_Thinking5.png" alt="Design thinking five-stage process" data-i18n-alt="pitch.s03.fig.alt" loading="lazy" width="1024" height="511">
@@ -108,342 +117,267 @@
         </figure>
 
         <ol class="case-phases">
-          <li><strong data-i18n="pitch.s03.f1.h">同理心 Empathize</strong><span data-i18n="pitch.s03.f1.p"> — 專家與長者訪談，挖掘冰山底下的真實心聲。</span></li>
-          <li><strong data-i18n="pitch.s03.f2.h">定義問題 Define</strong><span data-i18n="pitch.s03.f2.p"> — 重新框架 POV，將表單填寫轉為情感溝通。</span></li>
-          <li><strong data-i18n="pitch.s03.f3.h">創意發想 Ideate</strong><span data-i18n="pitch.s03.f3.p"> — 跨理論模型（TTM）導入、長者友善 UI 規範與家庭模式。</span></li>
-          <li><strong data-i18n="pitch.s03.f4.h">原型製作 Prototype</strong><span data-i18n="pitch.s03.f4.p"> — Flutter 高保真動態 App（APK）實作、語音技術整合。</span></li>
-          <li><strong data-i18n="pitch.s03.f5.h">測試與迭代 Test</strong><span data-i18n="pitch.s03.f5.p"> — 測試成果、技術反思與未來 Stretch Goals。</span></li>
+          <li><strong data-i18n="pitch.s03.f1.h">同理 Empathize</strong><span data-i18n="pitch.s03.f1.p"> — 訪談羅醫師，整理四項核心洞察。</span></li>
+          <li><strong data-i18n="pitch.s03.f2.h">定義 Define</strong><span data-i18n="pitch.s03.f2.p"> — 從「簽署工具」轉為「溝通工具」。</span></li>
+          <li><strong data-i18n="pitch.s03.f3.h">構思 Ideate</strong><span data-i18n="pitch.s03.f3.p"> — 以 COM-B、TTM、SCT 收斂功能。</span></li>
+          <li><strong data-i18n="pitch.s03.f4.h">原型 Prototype</strong><span data-i18n="pitch.s03.f4.p"> — Flutter Android MVP，聚焦溝通與心理準備。</span></li>
+          <li><strong data-i18n="pitch.s03.f5.h">測試 Test</strong><span data-i18n="pitch.s03.f5.p"> — 原型驗證完成，規劃語音、LLM 與實測迭代。</span></li>
         </ol>
       </section>
 
-      <section class="case-section" id="pitch-empathize">
-        <span class="case-section-label" data-i18n="pitch.s04.label">Slide 04 — Step 1 同理心</span>
-        <h2 data-i18n="pitch.s04.h2">走入長者的真實世界</h2>
-        <p data-i18n="pitch.s04.p1">在同理心階段，我們訪談了極具臨床經驗的安寧專家，並觀察長者使用智慧型手機的習慣。長者們告訴我們：「那些切結書看起來就像要把我送進棺材，看了就很觸霉頭。」這讓我們意識到，現有系統完全缺乏人性的溫度。</p>
+      <section class="case-section" id="empathize">
+        <span class="case-section-label" data-i18n="pitch.emp.label">Step 1 — 同理心 Empathize</span>
+        <h2 data-i18n="pitch.emp.h2">我們聽到了什麼？</h2>
+        <p data-i18n="pitch.emp.p1">訪談安寧專家羅玉岱醫師後，我們整理出四項洞察，也看見長者在數位介面上的真實阻力。</p>
 
-        <h3 class="case-subhead" data-i18n="pitch.s04.h3">研究對象</h3>
-        <ul class="case-list">
-          <li data-i18n="pitch.s04.r1" data-i18n-html>安寧療護專家（具 <strong>400+</strong> 多重疾病患者臨床臨終決策經驗）。</li>
-          <li data-i18n="pitch.s04.r2">65 歲以上長者及其主要照顧家屬（持續訪談與觀察中）。</li>
-        </ul>
+        <ol class="case-list case-list--numbered">
+          <li data-i18n="pitch.emp.i1" data-i18n-html><strong>洞察 1</strong>：死亡是禁忌，很多人連想都不願想。</li>
+          <li data-i18n="pitch.emp.i2" data-i18n-html><strong>洞察 2</strong>：每個人所在「階段」不同，不能一套衛教打天下。</li>
+          <li data-i18n="pitch.emp.i3" data-i18n-html><strong>洞察 3</strong>：APP 的角色是「點火苗」，不是教人簽文件。</li>
+          <li data-i18n="pitch.emp.i4" data-i18n-html><strong>洞察 4</strong>：台灣以「家庭」為決策單位。</li>
+        </ol>
 
-        <div class="case-callout">
-          <h3 data-i18n="pitch.s04.callout.h">關鍵洞察</h3>
-          <p data-i18n="pitch.s04.callout.p" data-i18n-html>長者不討厭 ACP，他們討厭的是「被強迫塞入冰冷的醫療法規」。長者渴望表達自主權，但需要有尊嚴、無壓力的引導式開口。生理痛點：無法閱讀小字，極度排斥在手機上打字輸入。</p>
+        <div class="case-challenges">
+          <div class="case-challenge">
+            <h4 data-i18n="pitch.emp.b1.h">極深的文化禁忌</h4>
+            <p data-i18n="pitch.emp.b1.p">直接談「死亡」「預立」會引發強烈抗拒。</p>
+          </div>
+          <div class="case-challenge">
+            <h4 data-i18n="pitch.emp.b2.h">排斥複雜介面</h4>
+            <p data-i18n="pitch.emp.b2.p">小字、多步驟表單，對長者幾乎不可用。</p>
+          </div>
+          <div class="case-challenge">
+            <h4 data-i18n="pitch.emp.b3.h">害怕承擔決策責任</h4>
+            <p data-i18n="pitch.emp.b3.p">長者怕連累子女；子女怕背負「不孝」標籤。</p>
+          </div>
         </div>
-
-        <blockquote class="case-quote">
-          <p data-i18n="pitch.s04.quote">「那些切結書看起來就像要把我送進棺材，看了就很觸霉頭。」</p>
-          <cite data-i18n="pitch.s04.quote.cite">— 長者訪談直接引言</cite>
-        </blockquote>
       </section>
 
-      <section class="case-section" id="pitch-define">
-        <span class="case-section-label" data-i18n="pitch.s05.label">Slide 05 — Step 2 定義問題</span>
-        <h2 data-i18n="pitch.s05.h2">觀點的重新框架（Reframe）</h2>
-        <p data-i18n="pitch.s05.p1">在定義問題階段，我們做了一個非常關鍵的重新框架。如果把 ACP 紙本表單照抄到手機 App 上，那不叫設計，那叫數位化。我們把目標重新定義：不是要長者「簽合約」，而是要幫長者與家人「開創一個溫馨且沒有焦慮的對話起點」。</p>
+      <section class="case-section" id="define">
+        <span class="case-section-label" data-i18n="pitch.def.label">Step 2 — 定義問題 Define</span>
+        <h2 data-i18n="pitch.def.h2">溝通工具，不是簽署工具</h2>
+        <p data-i18n="pitch.def.p1">如果把 ACP 紙本表單照抄到手機上，那不叫設計，那叫數位化。我們把問題重新定義如下：</p>
         <div class="case-compare">
           <div class="case-compare-col case-compare-col--bad">
-            <h4 data-i18n="pitch.s05.old.h">傳統設計思維（Old POV）❌</h4>
-            <p data-i18n="pitch.s05.old.p">「我們該如何設計一個介面，讓長者可以快速填寫並簽署 ACP 預立醫療表單？」</p>
-            <p data-i18n="pitch.s05.old.note">後果：將問題簡化為行政表單填寫，長者抗拒心理高，難以跨出第一步。</p>
+            <h4 data-i18n="pitch.def.old.h">簽署工具 ❌</h4>
+            <p data-i18n="pitch.def.old.p">「如何讓長者快速填寫並簽署 ACP 表單？」</p>
           </div>
           <div class="case-compare-col case-compare-col--good">
-            <h4 data-i18n="pitch.s05.new.h">以人為本的設計思維（New POV）✓</h4>
-            <p data-i18n="pitch.s05.new.p">「我們如何為長者與其家人創造一個低焦慮、順應心理準備進度、且能促進家庭對話的溝通工具？」</p>
+            <h4 data-i18n="pitch.def.new.h">溝通工具 ✓</h4>
+            <p data-i18n="pitch.def.new.p">「如何為長者與家人創造一個降低焦慮、順應心理、且能促進家庭對話的溝通工具？」</p>
           </div>
         </div>
       </section>
 
-      <section class="case-section" id="pitch-ideate">
-        <span class="case-section-label" data-i18n="pitch.s06.label">Slide 06–07 — Step 3 創意發想</span>
-        <h2 data-i18n="pitch.s06.h2">溫暖的情感機制與長者友善規範</h2>
-        <p data-i18n="pitch.s06.p1">針對新的 POV，我們發想了三大核心策略，並為生理退化的長者訂立嚴格的 UI 規範。</p>
+      <section class="case-section" id="ideate">
+        <span class="case-section-label" data-i18n="pitch.ide.label">Step 3 — 創意發想 Ideate</span>
+        <h2 data-i18n="pitch.ide.h2">如何把創意收斂成能落地的功能？</h2>
+        <p data-i18n="pitch.ide.p1">我們整合 COM-B 模型、跨理論模式（TTM）與社會認知理論（SCT），用三個問題檢核每個功能：「卡在哪？現在準備到哪個階段？用什麼設計讓人願意動？」</p>
+
+        <h3 class="case-subhead" data-i18n="pitch.ide.comb.h">COM-B：能力 × 機會 × 動機</h3>
+        <div class="case-table-wrap">
+          <table class="case-table case-table--full">
+            <thead>
+              <tr>
+                <th data-i18n="pitch.ide.comb.th1">維度</th>
+                <th data-i18n="pitch.ide.comb.th2">ACP 障礙</th>
+                <th data-i18n="pitch.ide.comb.th3">功能發想</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n="pitch.ide.comb.r1a">能力 Capability</td>
+                <td data-i18n="pitch.ide.comb.r1b">不會開口、不會用手機、用語太難</td>
+                <td data-i18n="pitch.ide.comb.r1c">語音互動、大字二選一、台語 TTS</td>
+              </tr>
+              <tr>
+                <td data-i18n="pitch.ide.comb.r2a">機會 Opportunity</td>
+                <td data-i18n="pitch.ide.comb.r2b">諮商貴、要家人陪、不知去哪諮商</td>
+                <td data-i18n="pitch.ide.comb.r2c">家屬模式、諮商連結、低門檻入口</td>
+              </tr>
+              <tr>
+                <td data-i18n="pitch.ide.comb.r3a">動機 Motivation</td>
+                <td data-i18n="pitch.ide.comb.r3b">避諱死亡、怕不孝、怕等於放棄治療</td>
+                <td data-i18n="pitch.ide.comb.r3c">「陪你想想」故事、提前想≠現在決定</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="case-subhead" data-i18n="pitch.ide.ttm.h">TTM：依準備階段給不同內容</h3>
+        <div class="case-table-wrap">
+          <table class="case-table case-table--full">
+            <thead>
+              <tr>
+                <th data-i18n="pitch.ide.ttm.th1">階段</th>
+                <th data-i18n="pitch.ide.ttm.th2">心理目標</th>
+                <th data-i18n="pitch.ide.ttm.th3">專屬內容 / 主力功能</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n="pitch.ide.ttm.r1a">懵懂期</td>
+                <td data-i18n="pitch.ide.ttm.r1b">降低抗拒</td>
+                <td data-i18n="pitch.ide.ttm.r1c">故事 + 影片 · 聽故事、點燃火苗</td>
+              </tr>
+              <tr>
+                <td data-i18n="pitch.ide.ttm.r2a">思考期</td>
+                <td data-i18n="pitch.ide.ttm.r2b">釐清價值觀</td>
+                <td data-i18n="pitch.ide.ttm.r2c">價值引導 · 想想看 → 心願小卡</td>
+              </tr>
+              <tr>
+                <td data-i18n="pitch.ide.ttm.r3a">準備期</td>
+                <td data-i18n="pitch.ide.ttm.r3b">學會開口</td>
+                <td data-i18n="pitch.ide.ttm.r3c">開場話術 · 家屬陪伴模式</td>
+              </tr>
+              <tr>
+                <td data-i18n="pitch.ide.ttm.r4a">行動期</td>
+                <td data-i18n="pitch.ide.ttm.r4b">銜接正式程序</td>
+                <td data-i18n="pitch.ide.ttm.r4c">諮商指引 · 查詢 ACP 諮商機構</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="case-note" data-i18n="pitch.ide.ttm.note" data-i18n-html>設計原則：<strong>不強迫、沒標準答案、聊一點是一點、不等於放棄治療。</strong></p>
+
+        <h3 class="case-subhead" data-i18n="pitch.ide.sct.h">SCT：用別人的故事，想自己的事</h3>
+        <ul class="case-list">
+          <li data-i18n="pitch.ide.sct.l1" data-i18n-html><strong>觀察學習</strong>：王伯伯／阿秀姨互動故事、阿嬌姨影片——「用別人的故事，想自己的事」。</li>
+          <li data-i18n="pitch.ide.sct.l2" data-i18n-html><strong>自我效能</strong>：家屬陪伴開場話、想想看一步步選、語音優先降低操作難度。</li>
+          <li data-i18n="pitch.ide.sct.l3" data-i18n-html><strong>結果期待</strong>：文案強調「提前想 ≠ 現在決定」「是愛的表現」「家人不用在最慌亂時猜」。</li>
+        </ul>
+      </section>
+
+      <section class="case-section" id="prototype">
+        <span class="case-section-label" data-i18n="pitch.proto.label">Step 4 — 製作原型 Prototype</span>
+        <h2 data-i18n="pitch.proto.h2">「陪你想想」MVP</h2>
+        <p data-i18n="pitch.proto.p1">以 Flutter 開發 Android App 原型，幫助高齡者與家屬理解與準備 ACP——聚焦<strong>溝通與心理準備</strong>，不是完整簽署系統。</p>
+
+        <div class="case-grid-2">
+          <div class="case-text-block">
+            <h3 class="case-subhead" data-i18n="pitch.proto.did.h">做了什麼</h3>
+            <ul class="case-list case-list--check">
+              <li data-i18n="pitch.proto.did.l1">2～4 題階段評估 + 分期專屬內容</li>
+              <li data-i18n="pitch.proto.did.l2">互動故事、想想看、心願小卡</li>
+              <li data-i18n="pitch.proto.did.l3">家屬陪伴模式 + 語音 FAQ（STT + 關鍵字比對）</li>
+              <li data-i18n="pitch.proto.did.l4">台語 TTS、大字介面、長按確認互動</li>
+            </ul>
+          </div>
+          <div class="case-text-block">
+            <h3 class="case-subhead" data-i18n="pitch.proto.skip.h">刻意不做</h3>
+            <ul class="case-list">
+              <li data-i18n="pitch.proto.skip.l1">線上簽署 AD</li>
+              <li data-i18n="pitch.proto.skip.l2">完整病歷或雲端資料</li>
+              <li data-i18n="pitch.proto.skip.l3">LLM 開放式聊天</li>
+            </ul>
+          </div>
+        </div>
+
+        <h3 class="case-subhead" data-i18n="pitch.proto.mod.h">四大模組</h3>
+        <div class="case-table-wrap">
+          <table class="case-table case-table--full">
+            <thead>
+              <tr>
+                <th data-i18n="pitch.proto.mod.th1">模組</th>
+                <th data-i18n="pitch.proto.mod.th2">功能內容</th>
+                <th data-i18n="pitch.proto.mod.th3">解決什麼</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n="pitch.proto.mod.r1a">① 階段評估與分期內容</td>
+                <td data-i18n="pitch.proto.mod.r1b">2～4 題評估時期，各期專屬文案、影片及引導</td>
+                <td data-i18n="pitch.proto.mod.r1c">不是人人都準備好，不能一套內容用到尾</td>
+              </tr>
+              <tr>
+                <td data-i18n="pitch.proto.mod.r2a">② 互動引導</td>
+                <td data-i18n="pitch.proto.mod.r2b">聽故事（王伯伯、阿秀姨）、想想看、心願小卡</td>
+                <td data-i18n="pitch.proto.mod.r2c">避諱、不會表達、想法模糊</td>
+              </tr>
+              <tr>
+                <td data-i18n="pitch.proto.mod.r3a">③ 家屬陪伴模式</td>
+                <td data-i18n="pitch.proto.mod.r3b">長輩開場話、家屬聆聽提示、「一起聊聊」模擬對話</td>
+                <td data-i18n="pitch.proto.mod.r3c">想說不會說、家人聽不進去</td>
+              </tr>
+              <tr>
+                <td data-i18n="pitch.proto.mod.r4a">④ 語音互動</td>
+                <td data-i18n="pitch.proto.mod.r4b">台語 TTS 朗讀、語音 FAQ（STT + 關鍵字比對）</td>
+                <td data-i18n="pitch.proto.mod.r4c">視力差、討厭打字、用語太難</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="case-subhead" data-i18n="pitch.proto.assess.h">行為階段評估（2～4 題）</h3>
+        <p data-i18n="pitch.proto.assess.p">透過簡短提問替使用者做 TTM 分類，再對應後續功能。交互設計：<strong>點擊播放語音、長按確認選項</strong>。</p>
+        <div class="case-table-wrap">
+          <table class="case-table case-table--full">
+            <thead>
+              <tr>
+                <th data-i18n="pitch.proto.stage.th1">階段</th>
+                <th data-i18n="pitch.proto.stage.th2">專屬內容</th>
+                <th data-i18n="pitch.proto.stage.th3">主推功能</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td data-i18n="pitch.proto.stage.r1a">懵懂期</td><td data-i18n="pitch.proto.stage.r1b">聽一個故事、相關案例與影片</td><td data-i18n="pitch.proto.stage.r1c">影片觀看 · 點燃火苗</td></tr>
+              <tr><td data-i18n="pitch.proto.stage.r2a">思考期</td><td data-i18n="pitch.proto.stage.r2b">價值觀引導（什麼對我最重要）</td><td data-i18n="pitch.proto.stage.r2c">想想看 → 心願小卡</td></tr>
+              <tr><td data-i18n="pitch.proto.stage.r3a">準備期</td><td data-i18n="pitch.proto.stage.r3b">與家人互動的引導、釐清不清楚的內容</td><td data-i18n="pitch.proto.stage.r3c">家屬陪伴模式 · 問答模式</td></tr>
+              <tr><td data-i18n="pitch.proto.stage.r4a">行動期</td><td data-i18n="pitch.proto.stage.r4b">正式諮商說明</td><td data-i18n="pitch.proto.stage.r4c">查詢 ACP 諮商機構</td></tr>
+            </tbody>
+          </table>
+        </div>
 
         <div class="case-grid-3">
           <div class="case-platform">
-            <h4 data-i18n="pitch.s06.t1.h">名稱與情感翻轉</h4>
-            <p data-i18n="pitch.s06.t1.p">放棄生硬的「ACP」與「預立醫療」，命名為溫柔的「陪你想想」，定義為因愛而準備的家庭陪伴。</p>
+            <h4 data-i18n="pitch.proto.f1.h">聽一個故事</h4>
+            <p data-i18n="pitch.proto.f1.p">用別人的故事讓長輩想自己的事——不說教，透過情境選擇慢慢點出「提前想一想」的意義。</p>
           </div>
           <div class="case-platform">
-            <h4 data-i18n="pitch.s06.t2.h">跨理論模型（TTM）循序引導</h4>
-            <p data-i18n="pitch.s06.t2.p">不強推行動。針對「無意圖期」長者，先講故事、聽聽音樂；對於「準備期」長者，才引導醫療選項。</p>
+            <h4 data-i18n="pitch.proto.f2.h">心願小卡</h4>
+            <p data-i18n="pitch.proto.f2.p">把「想想看」的選擇整理成「我希望……」的句子，給家人、給醫師、給不敢開口的自己。</p>
           </div>
           <div class="case-platform">
-            <h4 data-i18n="pitch.s06.t3.h">家庭換位討論模式</h4>
-            <p data-i18n="pitch.s06.t3.p">設計情境式數位卡片，讓子女與長者「互猜心願」，用遊戲化方式化解談論死亡的尷尬。</p>
-          </div>
-        </div>
-
-        <h3 class="case-subhead" data-i18n="pitch.s07.h3">消除生理與認知負荷的介面規範</h3>
-        <ul class="case-list">
-          <li data-i18n="pitch.s07.l1" data-i18n-html><strong>語音優先互動</strong>：全面整合 TTS 與 STT，長者只要用「聽」的跟用「說」的就能完成所有對答，免除打字痛苦。</li>
-          <li data-i18n="pitch.s07.l2" data-i18n-html><strong>長者友善 UI 視覺</strong>：文字全面大於 18pt，高對比大按鈕；一頁最多只給「兩個」核心選項，避免選擇焦慮。</li>
-          <li data-i18n="pitch.s07.l3" data-i18n-html><strong>故事化引導分流</strong>：以「阿嬌姨的故事」等情境切入，用台語／國語日常話語，取代硬邦邦的醫學專有名詞。</li>
-        </ul>
-        <p class="case-note" data-i18n="pitch.s07.note" data-i18n-html>範例語氣：「阿伯，如果有一天我們生重病沒辦法吃東西，你想用灌食的，還是讓我們舒舒服服的走？」</p>
-      </section>
-
-      <section class="case-section" id="pitch-prototype">
-        <span class="case-section-label" data-i18n="pitch.s08.label">Slide 08–09 — Step 4 原型製作</span>
-        <h2 data-i18n="pitch.s08.h2">高保真 Flutter APK 實作</h2>
-        <p data-i18n="pitch.s08.p1">到了原型製作階段，我們不希望只用靜態簡報來講故事。我們使用 Flutter 跨平台框架，開發出可以在真實 Android 手機上點擊、說話、互動的 APK 原型，並整合雙向語音 API，實作台語和國語的雙向問答。</p>
-        <ul class="case-list">
-          <li data-i18n="pitch.s08.l1" data-i18n-html><strong>跨平台框架</strong>：直接編譯出能在真實 Android 手機上流暢運行的高保真 APK 原型。</li>
-          <li data-i18n="pitch.s08.l2" data-i18n-html><strong>語音技術驗證</strong>：串接 <code>flutter_tts</code> 與語音辨識 API，實作台語與國語雙向語音對答。</li>
-          <li data-i18n="pitch.s08.l3" data-i18n-html><strong>敏捷開發</strong>：專注於最核心的使用者路徑（MVP），精確呈現使用者體驗的完整閉環。</li>
-        </ul>
-
-        <h3 class="case-subhead" data-i18n="pitch.s09.h3">最小可行性產品（MVP）架構</h3>
-        <div class="case-table-wrap">
-          <table class="case-table case-table--full">
-            <thead>
-              <tr>
-                <th data-i18n="pitch.s09.th1">功能模組</th>
-                <th data-i18n="pitch.s09.th2">核心內容與機制</th>
-                <th data-i18n="pitch.s09.th3">設計同理考量</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td data-i18n="pitch.s09.r1a">語音問候</td>
-                <td data-i18n="pitch.s09.r1b">台／國語語音溫馨開場，2–3 題超簡短狀態評估</td>
-                <td data-i18n="pitch.s09.r1c">消除初次使用的焦慮感</td>
-              </tr>
-              <tr>
-                <td data-i18n="pitch.s09.r2a">階段互動內容</td>
-                <td data-i18n="pitch.s09.r2b">依 TTM 狀態，分流給予軟性故事或醫療選擇引導</td>
-                <td data-i18n="pitch.s09.r2c">尊重使用者的心理準備度，不強迫推進</td>
-              </tr>
-              <tr>
-                <td data-i18n="pitch.s09.r3a">雙向語音 FAQ</td>
-                <td data-i18n="pitch.s09.r3b">關鍵字匹配技術，長者提問（台／國語）即時語音答覆</td>
-                <td data-i18n="pitch.s09.r3c">解決閱讀冗長 ACP 條款的視力與認知負擔</td>
-              </tr>
-              <tr>
-                <td data-i18n="pitch.s09.r4a">家庭陪伴模式</td>
-                <td data-i18n="pitch.s09.r4b">雙向情境卡片，促使長者與子女換位思考</td>
-                <td data-i18n="pitch.s09.r4c">破冰工具，打破華人家庭的沉默</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section class="case-section" id="pitch-test">
-        <span class="case-section-label" data-i18n="pitch.s10.label">Slide 10 — Step 5 測試與迭代</span>
-        <h2 data-i18n="pitch.s10.h2">專案進程與未來藍圖</h2>
-        <p data-i18n="pitch.s10.p1">在測試與迭代階段，我們不僅檢視目前的成果，更勾勒出《陪你想想》未來的發展藍圖。</p>
-        <div class="case-timeline">
-          <div class="case-timeline-item">
-            <p class="case-timeline-phase" data-i18n="pitch.s10.t1.phase">當前成果（Current MVP）</p>
-            <h4 data-i18n="pitch.s10.t1.h">核心驗證已完成</h4>
-            <p data-i18n="pitch.s10.t1.p">完成 Flutter 實機動態 APK、長者友善 UI 視覺規範、台國語語音對答與基礎 FAQ 技術驗證。</p>
-          </div>
-          <div class="case-timeline-item">
-            <p class="case-timeline-phase" data-i18n="pitch.s10.t2.phase">階段二</p>
-            <h4 data-i18n="pitch.s10.t2.h">語音 AI 智能化（LLM Integration）</h4>
-            <p data-i18n="pitch.s10.t2.p">規劃將「關鍵字匹配」升級為串接 ACP 專業醫療知識庫的真實 LLM 語音助理。</p>
-          </div>
-          <div class="case-timeline-item">
-            <p class="case-timeline-phase" data-i18n="pitch.s10.t3.phase">階段三</p>
-            <h4 data-i18n="pitch.s10.t3.h">數位價值卡片（Value Sorting Card）</h4>
-            <p data-i18n="pitch.s10.t3.p">開發「價值觀卡片排序」功能，一鍵生成並分享給親友的「專屬心願卡」。</p>
-          </div>
-          <div class="case-timeline-item">
-            <p class="case-timeline-phase" data-i18n="pitch.s10.t4.phase">階段四</p>
-            <h4 data-i18n="pitch.s10.t4.h">本機進度追蹤（Local State Tracker）</h4>
-            <p data-i18n="pitch.s10.t4.p">導入 Local Storage，讓長者能隨時中斷旅程、隨時繼續，符合長者碎片化學習特點。</p>
+            <h4 data-i18n="pitch.proto.f3.h">家屬陪伴模式</h4>
+            <p data-i18n="pitch.proto.f3.p">長輩和家人輪流說話，App 一步步帶，不用自己想怎麼開場。</p>
           </div>
         </div>
       </section>
 
-      <blockquote class="case-quote case-quote--featured">
-        <p data-i18n="pitch.s11.quote">設計思考不是一套線性的公式，而是一場「以人為本」、不斷在同理與實作中循環迭代的共感歷程。</p>
-        <cite data-i18n="pitch.s11.cite">—— 《陪你想想》產品開發團隊</cite>
-      </blockquote>
-
-      <section class="case-section" id="background">
-        <span class="case-section-label" data-i18n="s01.label">01 — Background</span>
-        <h2 data-i18n="s01.h2">Why an app for Advance Care Planning?</h2>
-        <p data-i18n="s01.p1">In Taiwan, talking about future medical care and end-of-life wishes touches a strong cultural taboo. Many older adults already have wishes but don't know how to bring them up; families end up making the hardest decisions in the most chaotic moments. Interviews with a palliative-care expert (drawing on a 400+ patient, multi-morbidity cohort) shaped the whole design.</p>
-        <p data-i18n="s01.p2" data-i18n-html>The expert's clearest instruction was: <strong>"this is just a prototype — it doesn't need every feature."</strong> What matters is hitting three things well, not piling on functions.</p>
-        <div class="case-callout">
-          <h3 data-i18n="s01.callout.h">Three goals that drive everything</h3>
-          <p data-i18n="s01.callout.p" data-i18n-html><strong>1. Lower death anxiety</strong> through emotional design · <strong>2. Match content to TTM stage</strong> for personalization · <strong>3. Push families to talk together</strong> — the cultural core of decision-making in Taiwan.</p>
-        </div>
-      </section>
-
-      <section class="case-section" id="principles">
-        <span class="case-section-label" data-i18n="s02.label">02 — Design Principles</span>
-        <h2 data-i18n="s02.h2">Designing for emotion and for aging eyes & hands</h2>
-        <h3 class="case-subhead" data-i18n="s02.h3a">Naming: avoid the taboo words</h3>
-        <p data-i18n="s02.p1" data-i18n-html>Words like "ACP," "death," and "end-of-life" trigger strong aversion. The app uses warm, neutral names instead — the chosen one is <strong>陪你想想</strong> ("let me think it over with you"). The whole tone reframes planning as an act of love: "planning ahead is a way of caring."</p>
-        <h3 class="case-subhead" data-i18n="s02.h3b">Elderly-friendly UI</h3>
-        <ul class="case-list">
-          <li data-i18n="s02.li1" data-i18n-html><strong>Large type</strong>: body ≥ 18pt, headings ≥ 24pt.</li>
-          <li data-i18n="s02.li2" data-i18n-html><strong>At most 2 options per screen</strong> to avoid choice overload.</li>
-          <li data-i18n="s02.li3" data-i18n-html><strong>Voice on every key screen</strong>: all important text can be read aloud.</li>
-          <li data-i18n="s02.li4" data-i18n-html><strong>High contrast, big buttons</strong> (at least 48×48px).</li>
-          <li data-i18n="s02.li5" data-i18n-html><strong>Gentle wording</strong>: "planning ahead is a way of caring," never lecturing.</li>
-        </ul>
-      </section>
-
-      <section class="case-section" id="flow">
-        <span class="case-section-label" data-i18n="s03.label">03 — Core Flow</span>
-        <h2 data-i18n="s03.h2">From greeting to family conversation</h2>
-        <p data-i18n="s03.p1">The journey is deliberately short and linear, so a senior can complete it without getting lost. Each stage hands off to the next, and the voice FAQ is reachable at any point.</p>
-        <ol class="case-phases">
-          <li><strong data-i18n="s03.f1.h">Spoken greeting</strong><span data-i18n="s03.f1.p">: a warm TTS welcome sets a calm, non-threatening tone.</span></li>
-          <li><strong data-i18n="s03.f2.h">2–3 question assessment</strong><span data-i18n="s03.f2.p">: classify readiness into unaware / thinking / preparing / acting.</span></li>
-          <li><strong data-i18n="s03.f3.h">Stage-matched content</strong><span data-i18n="s03.f3.p">: stories for the unaware, values exploration for thinkers, conversation scripts for preparers, clinic links for actors.</span></li>
-          <li><strong data-i18n="s03.f4.h">Voice FAQ</strong><span data-i18n="s03.f4.p">: ask anything, anytime, by speaking.</span></li>
-          <li><strong data-i18n="s03.f5.h">Family companion mode</strong><span data-i18n="s03.f5.p">: bring relatives into the conversation, with prompts for both sides.</span></li>
-        </ol>
-      </section>
-
-      <section class="case-section" id="stages">
-        <span class="case-section-label" data-i18n="s04.label">04 — TTM Stage Assessment</span>
-        <h2 data-i18n="s04.h2">Meeting people where they are</h2>
-        <p data-i18n="s04.p1" data-i18n-html>Rather than a complex questionnaire, 1–2 gentle questions place the user on the Transtheoretical Model (TTM) of behavior change. The primary pain point to serve is <strong>"already willing, but doesn't know how to start the conversation"</strong> (the preparing stage).</p>
-        <div class="case-table-wrap">
-          <table class="case-table case-table--full">
-            <thead>
-              <tr>
-                <th data-i18n="s04.th1">Answer / mindset</th>
-                <th data-i18n="s04.th2">Stage</th>
-                <th data-i18n="s04.th3">What the app gives</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><td data-i18n="s04.r1a">"Never thought about it, don't want to talk"</td><td data-i18n="s04.r1b">Unaware</td><td data-i18n="s04.r1c">Stories &amp; videos (e.g. "Auntie A-jiao") — light a spark, no lecturing</td></tr>
-              <tr><td data-i18n="s04.r2a">"Thought about it, but it's still vague"</td><td data-i18n="s04.r2b">Thinking</td><td data-i18n="s04.r2c">Values scenarios (extend life vs. reduce suffering)</td></tr>
-              <tr><td data-i18n="s04.r3a">"Want to talk, but don't know how to open up"</td><td data-i18n="s04.r3b">Preparing</td><td data-i18n="s04.r3c">Conversation scripts + simulated dialogue</td></tr>
-              <tr><td data-i18n="s04.r4a">"Already discussing with family / doctor"</td><td data-i18n="s04.r4b">Acting</td><td data-i18n="s04.r4c">Counseling clinic map, AD form links</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="case-note" data-i18n="s04.note" data-i18n-html>Content strategy maps to behavior-change theory: SCT observational learning for the unaware, and COM-B (motivation / capability / opportunity) across the later stages.</p>
-      </section>
-
-      <section class="case-section" id="voice">
-        <span class="case-section-label" data-i18n="s05.label">05 — Voice Interaction</span>
-        <h2 data-i18n="s05.h2">Speak to ask, listen to learn</h2>
-        <p data-i18n="s05.p1">Voice is central because reading small text and typing are barriers for many seniors. The app pairs on-device text-to-speech with a recording-based speech recognizer.</p>
+      <section class="case-section" id="test">
+        <span class="case-section-label" data-i18n="pitch.test.label">Step 5 — 測試與迭代 Test</span>
+        <h2 data-i18n="pitch.test.h2">已完成的驗證與未來方向</h2>
         <div class="case-grid-2">
           <div class="case-text-block">
-            <h3 data-i18n="s05.h3a">How it works (MVP)</h3>
-            <ul class="case-list">
-              <li data-i18n="s05.li1" data-i18n-html><strong>TTS</strong>: on-device <code>flutter_tts</code> (zh-TW, speech rate 0.45) reads every key message.</li>
-              <li data-i18n="s05.li2" data-i18n-html><strong>STT</strong>: <code>record</code> captures audio → sent to a school API (supports Taiwanese + Chinese medical recognition).</li>
-              <li data-i18n="s05.li3" data-i18n-html><strong>Keyword FAQ</strong>: recognized text is keyword-matched to 9 FAQ items, then the answer is read aloud.</li>
-              <li data-i18n="s05.li4" data-i18n-html><strong>Why this design</strong>: no LLM key needed, demo stays stable, and there's a graceful "didn't catch that" fallback suggesting the closest questions.</li>
+            <h3 class="case-subhead" data-i18n="pitch.test.done.h">已完成</h3>
+            <ul class="case-list case-list--check">
+              <li data-i18n="pitch.test.done.l1">Flutter Android App 可互動原型</li>
+              <li data-i18n="pitch.test.done.l2">TTM 分期內容 + 語音 FAQ 技術驗證</li>
+              <li data-i18n="pitch.test.done.l3">高齡友善 UI 與家屬模式骨架</li>
             </ul>
           </div>
           <div class="case-text-block">
-            <h3 data-i18n="s05.h3b">FAQ topics covered</h3>
+            <h3 class="case-subhead" data-i18n="pitch.test.next.h">未來迭代</h3>
             <ul class="case-list">
-              <li data-i18n="s05.q1">What is Advance Care Planning?</li>
-              <li data-i18n="s05.q2">What is an Advance Decision (AD)?</li>
-              <li data-i18n="s05.q3">The five clinical conditions</li>
-              <li data-i18n="s05.q4">Who can sign, and with which witnesses?</li>
-              <li data-i18n="s05.q5">Do I have to visit a clinic?</li>
-              <li data-i18n="s05.q6">What if the family disagrees?</li>
-              <li data-i18n="s05.q7">Can it be changed or withdrawn?</li>
-              <li data-i18n="s05.q8">Is this "giving up on treatment"? (No.)</li>
-              <li data-i18n="s05.q9">Isn't it too early to talk about this?</li>
+              <li data-i18n="pitch.test.next.l1">優化語音：引進自然語調，消除機械音</li>
+              <li data-i18n="pitch.test.next.l2">LLM 語境受控導入：安全探討 ACP 核心問答</li>
+              <li data-i18n="pitch.test.next.l3">家屬陪伴實測：在真實情境中驗證溝通效果</li>
+              <li data-i18n="pitch.test.next.l4">量化統計數據以支持國科會後續學術研究</li>
             </ul>
           </div>
         </div>
-        <p class="case-note" data-i18n="s05.note" data-i18n-html>Advanced (stretch) option: route to a real LLM with a system prompt that keeps the assistant strictly on ACP and gentle in tone.</p>
       </section>
 
-      <section class="case-section" id="family">
-        <span class="case-section-label" data-i18n="s06.label">06 — Family Companion Mode</span>
-        <h2 data-i18n="s06.h2">The differentiating feature</h2>
-        <p data-i18n="s06.p1">Because Taiwanese families decide as a unit, the standout feature invites relatives in rather than treating the senior in isolation. Interactive stories and scenario simulations help the conversation start without pressure.</p>
-        <ul class="case-list">
-          <li data-i18n="s06.li1" data-i18n-html><strong>"Invite family to look together"</strong> mode for shared viewing.</li>
-          <li data-i18n="s06.li2" data-i18n-html><strong>Conversation cards</strong>: separate prompts for the elder and for the relatives.</li>
-          <li data-i18n="s06.li3" data-i18n-html><strong>Scenario stories</strong> (e.g. "Mr. Wang," "Auntie A-xiu"): branch choices with gentle reflections, showing why an early conversation matters.</li>
-          <li data-i18n="s06.li4" data-i18n-html><strong>Values cards</strong>: five quick this-or-that questions produce a shareable "wish card" to hand to family.</li>
-        </ul>
-        <div class="case-callout">
-          <h3 data-i18n="s06.callout.h">Example prompt (to relatives)</h3>
-          <p data-i18n="s06.callout.p" data-i18n-html>Don't say "you're overthinking it." Try: <strong>"I'd really like to hear what you think."</strong></p>
-        </div>
-      </section>
-
-      <section class="case-section" id="tech">
-        <span class="case-section-label" data-i18n="s07.label">07 — Tech Stack</span>
-        <h2 data-i18n="s07.h2">Flutter for a real, demoable APK</h2>
-        <p data-i18n="s07.p1" data-i18n-html>The same stack as the course's reference project, so it produces a real installable APK rather than a slideshow. Built and shipped via <code>flutter build apk --release</code>.</p>
-        <div class="case-table-wrap">
-          <table class="case-table case-table--full">
-            <thead>
-              <tr><th data-i18n="s07.th1">Layer</th><th data-i18n="s07.th2">Choice</th></tr>
-            </thead>
-            <tbody>
-              <tr><td data-i18n="s07.t1">Framework</td><td>Flutter 3.22.3</td></tr>
-              <tr><td data-i18n="s07.t2">Text-to-speech</td><td>flutter_tts ^4.0.2 (zh-TW, rate 0.45)</td></tr>
-              <tr><td data-i18n="s07.t3">Recording / STT</td><td>record ^6.0.0 → school API</td></tr>
-              <tr><td data-i18n="s07.t4">Networking / audio</td><td>http ^1.3.0, just_audio ^0.9.46</td></tr>
-              <tr><td data-i18n="s07.t5">Storage / links</td><td>path_provider ^2.1.5, url_launcher ^6.3.1</td></tr>
-              <tr><td data-i18n="s07.t6">Output</td><td>release APK (per-ABI or universal)</td></tr>
-            </tbody>
-          </table>
-        </div>
-        <p class="case-note" data-i18n="s07.note" data-i18n-html>App structure is modular: <code>data/</code> holds stage, FAQ, values, and scenario content; <code>pages/</code> holds each screen; <code>widgets/</code> holds reusable big buttons and voice controls.</p>
-      </section>
-
-      <section class="case-section" id="decisions">
-        <span class="case-section-label" data-i18n="s08.label">08 — Decisions Backed by Interviews</span>
-        <h2 data-i18n="s08.h2">Every design choice traces to a reason</h2>
-        <div class="case-table-wrap">
-          <table class="case-table case-table--full">
-            <thead>
-              <tr><th data-i18n="s08.th1">Design decision</th><th data-i18n="s08.th2">Interview basis</th></tr>
-            </thead>
-            <tbody>
-              <tr><td data-i18n="s08.d1a">Route content by TTM stage</td><td data-i18n="s08.d1b">"Everyone is at a different stage"</td></tr>
-              <tr><td data-i18n="s08.d2a">Avoid death-related words</td><td data-i18n="s08.d2b">"It makes people deeply uncomfortable"</td></tr>
-              <tr><td data-i18n="s08.d3a">Family companion mode</td><td data-i18n="s08.d3b">"In Taiwan, families decide as a unit"</td></tr>
-              <tr><td data-i18n="s08.d4a">App doesn't push signing forms</td><td data-i18n="s08.d4b">"Light a spark, not collect a consent form"</td></tr>
-              <tr><td data-i18n="s08.d5a">Target multi-morbidity geriatric patients</td><td data-i18n="s08.d5b">400+ patient cohort with multiple conditions</td></tr>
-              <tr><td data-i18n="s08.d6a">Build with Flutter → APK</td><td data-i18n="s08.d6b">Same stack as the course project; real on-device demo</td></tr>
-            </tbody>
-          </table>
-        </div>
-      </section>
-
-      <section class="case-section" id="future">
-        <span class="case-section-label" data-i18n="s09.label">09 — Scope & Future Work</span>
-        <h2 data-i18n="s09.h2">What's built, and what's next</h2>
-        <h3 class="case-subhead" data-i18n="s09.h3a">Done (MVP)</h3>
-        <ul class="case-list case-list--check">
-          <li data-i18n="s09.m1">Greeting + 2–3 question stage assessment</li>
-          <li data-i18n="s09.m2">One content page per TTM stage</li>
-          <li data-i18n="s09.m3">Voice FAQ (keyword matching, 9 topics)</li>
-          <li data-i18n="s09.m4">Elderly-friendly UI throughout</li>
-          <li data-i18n="s09.m5">Successful flutter build apk</li>
-        </ul>
-        <h3 class="case-subhead" data-i18n="s09.h3b">Stretch goals</h3>
-        <ul class="case-list">
-          <li data-i18n="s09.s1">Values-ranking interaction and shareable wish cards</li>
-          <li data-i18n="s09.s2">Deeper family companion mode (skeleton already built)</li>
-          <li data-i18n="s09.s3">Real LLM-backed voice assistant, scoped to ACP only</li>
-          <li data-i18n="s09.s4">Progress tracking via local storage</li>
+      <section class="case-section" id="references">
+        <span class="case-section-label" data-i18n="pitch.refs.label">參考文獻</span>
+        <ul class="case-list case-list--refs">
+          <li data-i18n="pitch.refs.r1">Lo, Y.-T. (2026). eHealth intervention via LINE® to increase the uptake of advance care planning among older adults with multimorbidity in Taiwan.</li>
+          <li data-i18n="pitch.refs.r2">Lo, Y.-T., et al. (2025). Prevalence and factors associated with informal advance care planning discussion and do-not-resuscitate directives in patients at geriatric clinics.</li>
+          <li data-i18n="pitch.refs.r3">Schickedanz, A. D., et al. (2009). A clinical framework for improving the advance care planning process: Start with patients' self-identified barriers. <em>Journal of the American Geriatrics Society</em>.</li>
+          <li data-i18n="pitch.refs.r4">Scheerens, C., et al. (2021). Developing eHealth tools for diverse older adults: Lessons learned from the PREPARE for Your Care Program. <em>Journal of the American Geriatrics Society</em>.</li>
         </ul>
       </section>
     </div>
-
-    <section class="case-closing">
-      <div class="container">
-        <h2 data-i18n="pitch.s12.h2">簡報結束 · 敬請指導</h2>
-        <p class="case-closing-tagline" data-i18n="pitch.s12.tagline">陪你想想 (acp_care) —— 用溫暖的對話，做最愛的準備。</p>
-        <p class="case-closing-contact" data-i18n="pitch.s12.contact">報告團隊：MK Chou · 成大跨領域菁英計畫 | 聯絡信箱：contact@mk-chou.com</p>
-      </div>
-    </section>
 
     <div class="container case-actions">
       <a href="../" class="back-home" data-i18n="actions.projects">← Back to projects</a>
