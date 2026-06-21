@@ -245,6 +245,94 @@ img {
   max-width: none;
 }
 
+.home-pets {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35em;
+  margin-top: 1rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+}
+
+.pet-photo-trigger {
+  background: none;
+  border: none;
+  padding: 0 0.15em;
+  font: inherit;
+  color: var(--accent);
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  transition: color var(--transition);
+}
+
+.pet-photo-trigger:hover {
+  color: #f0b88e;
+}
+
+.photo-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+  background: rgba(8, 10, 14, 0.88);
+  backdrop-filter: blur(8px);
+}
+
+.photo-lightbox[hidden] {
+  display: none;
+}
+
+.photo-lightbox__close {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: border-color var(--transition), color var(--transition);
+}
+
+.photo-lightbox__close:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.photo-lightbox__inner {
+  margin: 0;
+  max-width: min(92vw, 720px);
+  max-height: 85vh;
+}
+
+.photo-lightbox__inner img {
+  display: block;
+  max-width: 100%;
+  max-height: calc(85vh - 3rem);
+  width: auto;
+  height: auto;
+  margin-inline: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.45);
+}
+
+.photo-lightbox__inner figcaption {
+  margin-top: 0.75rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
 .home-split__col .contact-plain {
   max-width: none;
 }

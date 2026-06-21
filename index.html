@@ -56,6 +56,11 @@
         <p class="section-lead" data-i18n="home.about.p1">
           Hi, I'm Chou, Ming-Kun — a kid from Linbian with a little music and a little sports under my belt. I share my home in Tainan with a dachshund named Fries (薯條). I study in the Cross College Elite Program at NCKU, majoring in Electrical Engineering and Computer Science, and I've been lucky to meet remarkable people across many fields. I care less about how deep the tech goes than what a project is really worth beyond the problem itself; I like moving plans and research forward through design thinking, and I enjoy exploring and discovering along the way. These days I'm collaborating with several labs on some genuinely cool work.
         </p>
+        <p class="home-pets">
+          <span data-i18n="home.about.pets.lead">看看我家小狗</span>
+          <button type="button" class="pet-photo-trigger" data-photo="pic/shutiao.jpg" data-i18n="home.pets.shutiao.aria" data-i18n-attr="aria-label">薯條</button>
+          <button type="button" class="pet-photo-trigger" data-photo="pic/digua.jpg" data-i18n="home.pets.digua.aria" data-i18n-attr="aria-label">地瓜</button>
+        </p>
       </div>
       <div class="home-split__col" id="contact">
         <div class="section-header">
@@ -97,6 +102,14 @@
       </div>
     </div>
   </section>
+
+  <div class="photo-lightbox" id="photo-lightbox" hidden>
+    <button type="button" class="photo-lightbox__close" id="photo-lightbox-close" data-i18n="home.pets.close" data-i18n-attr="aria-label" aria-label="Close">×</button>
+    <figure class="photo-lightbox__inner">
+      <img src="" alt="" id="photo-lightbox-img">
+      <figcaption id="photo-lightbox-caption"></figcaption>
+    </figure>
+  </div>
 
   <footer class="site-footer">
     <div class="container footer-inner">
