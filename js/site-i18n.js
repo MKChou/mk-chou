@@ -21,7 +21,7 @@ const SITE_I18N = {
     'home.about.label': '關於',
     'home.about.title': '自我介紹',
     'home.about.p1': '大家好，我是周明坤（Chou, Ming-Kun），林邊囡仔，略懂音樂、略懂體育，家裡了一隻養臘腸狗叫做薯條，目前住在台南市，大學在成大不分系主修電機與資訊工程，認識很多不同領域很厲害的人。比起技術深度更在意題目以外真正的價值；喜歡用設計思考推進計畫與研究，也享受研究探索與發現的過程，目前與實驗室合作做很多酷酷的東西。',
-    'home.about.pets.lead': '看看我家小狗',
+    'home.about.pets.lead': '看看我家寶貝',
     'home.pets.shutiao.aria': '查看薯條的照片',
     'home.pets.digua.aria': '查看地瓜的照片',
     'home.pets.close': '關閉',
