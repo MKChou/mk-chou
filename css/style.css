@@ -529,6 +529,30 @@ html[lang='en'] .project-meta dt::after {
   margin-bottom: 1.25rem;
 }
 
+.project-card-foot {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+}
+
+.project-card-foot .project-tags {
+  flex: 1;
+  min-width: 0;
+  margin-bottom: 0;
+}
+
+.project-card-grant {
+  flex-shrink: 0;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  text-align: right;
+  align-self: flex-end;
+}
+
 .project-card-cta {
   display: inline-block;
   font-size: 0.9rem;
