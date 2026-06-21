@@ -42,7 +42,9 @@
           <span aria-current="page">04</span>
         </nav>
         <p class="case-eyebrow" data-i18n="hero.eyebrow">Project 04 · Advance Care Planning · Elderly-Friendly App</p>
+        <span class="case-badge" data-i18n="hero.badge">Design Thinking Case Study</span>
         <h1 class="case-title" data-i18n="hero.title" data-i18n-html>"陪你想想" — An Elderly-Friendly<br>Companion App for Advance Care Planning</h1>
+        <p class="case-subtitle" data-i18n="hero.subtitle">將「設計思考」導入預立醫療決定（ACP）產品開發之實踐</p>
         <p class="case-lead" data-i18n="hero.lead">
           Built with experts who insisted "this is just a prototype — don't overbuild it," 陪你想想 (acp_care) helps seniors and their families ease into Advance Care Planning (ACP). Instead of pushing forms, it lowers death anxiety, delivers content matched to each person's TTM readiness stage, and gently nudges families to talk — the cultural core in Taiwan.
         </p>
@@ -53,6 +55,7 @@
           <li><strong>Flutter</strong><span data-i18n="hero.stat4">Real APK build</span></li>
         </ul>
         <ul class="case-tags">
+          <li data-i18n="tag.dt">Design thinking</li>
           <li>Flutter 3.22.3</li>
           <li data-i18n="tag.ttm">TTM staging</li>
           <li>flutter_tts</li>
@@ -64,6 +67,201 @@
     </section>
 
     <div class="container case-body">
+
+      <div class="case-callout case-callout--note">
+        <h3 data-i18n="pitch.note.h">從冰冷表單到溫暖對話</h3>
+        <p data-i18n="pitch.note.p">預立醫療決定（ACP）在傳統上是一個冰冷、嚴肅且充滿禁忌的話題。我們團隊嘗試導入設計思考，將生硬的法規表單轉化為一場溫暖的家庭對話工具。以下依 Stanford d.school 五大步驟，逐階段分享實踐歷程；後半段則深入產品與技術細節。</p>
+      </div>
+
+      <section class="case-section" id="pitch-pain">
+        <span class="case-section-label" data-i18n="pitch.s02.label">Slide 02 — 痛點與背景</span>
+        <h2 data-i18n="pitch.s02.h2">台灣家庭的文化痛點：難以開口的愛</h2>
+        <p data-i18n="pitch.s02.p1">在進入設計之前，我們必須先看見問題。在台灣，「預立醫療」推廣最大的阻礙不是法規，而是文化——長者怕談死，子女怕被說不孝，大家選擇逃避。最終，相當高比例的決定都是在混亂的急診室外，由焦慮的家人被迫替長者做決定。</p>
+        <div class="case-challenges">
+          <div class="case-challenge">
+            <h4 data-i18n="pitch.s02.c1.h">文化禁忌</h4>
+            <p data-i18n="pitch.s02.c1.p">華人社會避諱談論死亡，長者心裡想卻不敢說，子女想問卻怕被說不孝。</p>
+          </div>
+          <div class="case-challenge">
+            <h4 data-i18n="pitch.s02.c2.h">臨終混亂</h4>
+            <p data-i18n="pitch.s02.c2.p">許多決策是在加護病房前，由驚慌失措的家屬迫於無奈替長者做決定。</p>
+          </div>
+          <div class="case-challenge">
+            <h4 data-i18n="pitch.s02.c3.h">生理障礙</h4>
+            <p data-i18n="pitch.s02.c3.p">現行 ACP 資訊生硬、字體小，長者視力退化、排斥填鴨式的複雜合約。</p>
+          </div>
+          <div class="case-challenge">
+            <h4 data-i18n="pitch.s02.c4.h">逃避與混亂</h4>
+            <p data-i18n="pitch.s02.c4.p">對雙方都是極大的精神折磨——本可提早溝通，卻在人生最慌亂的時刻才被迫面對。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" id="pitch-method">
+        <span class="case-section-label" data-i18n="pitch.s03.label">Slide 03 — 設計思考流程</span>
+        <h2 data-i18n="pitch.s03.h2">我們的設計思考路徑</h2>
+        <p data-i18n="pitch.s03.p1">為了系統化地解決這個痛點，我們導入了完整的設計思考五步驟——從走入長者生活、重新定義核心問題、發想溫暖功能，到用 Flutter 親手打造出能實際在手機上運行的動態原型。</p>
+
+        <figure class="case-figure case-figure--wide">
+          <img src="../1/assets/Desing_Thinking5.png" alt="Design thinking five-stage process" data-i18n-alt="pitch.s03.fig.alt" loading="lazy" width="1024" height="511">
+          <figcaption data-i18n="pitch.s03.fig.cap">設計思考五階段：同理 → 定義 → 構思 → 原型 → 測試。</figcaption>
+        </figure>
+
+        <ol class="case-phases">
+          <li><strong data-i18n="pitch.s03.f1.h">同理心 Empathize</strong><span data-i18n="pitch.s03.f1.p"> — 專家與長者訪談，挖掘冰山底下的真實心聲。</span></li>
+          <li><strong data-i18n="pitch.s03.f2.h">定義問題 Define</strong><span data-i18n="pitch.s03.f2.p"> — 重新框架 POV，將表單填寫轉為情感溝通。</span></li>
+          <li><strong data-i18n="pitch.s03.f3.h">創意發想 Ideate</strong><span data-i18n="pitch.s03.f3.p"> — 跨理論模型（TTM）導入、長者友善 UI 規範與家庭模式。</span></li>
+          <li><strong data-i18n="pitch.s03.f4.h">原型製作 Prototype</strong><span data-i18n="pitch.s03.f4.p"> — Flutter 高保真動態 App（APK）實作、語音技術整合。</span></li>
+          <li><strong data-i18n="pitch.s03.f5.h">測試與迭代 Test</strong><span data-i18n="pitch.s03.f5.p"> — 測試成果、技術反思與未來 Stretch Goals。</span></li>
+        </ol>
+      </section>
+
+      <section class="case-section" id="pitch-empathize">
+        <span class="case-section-label" data-i18n="pitch.s04.label">Slide 04 — Step 1 同理心</span>
+        <h2 data-i18n="pitch.s04.h2">走入長者的真實世界</h2>
+        <p data-i18n="pitch.s04.p1">在同理心階段，我們訪談了極具臨床經驗的安寧專家，並觀察長者使用智慧型手機的習慣。長者們告訴我們：「那些切結書看起來就像要把我送進棺材，看了就很觸霉頭。」這讓我們意識到，現有系統完全缺乏人性的溫度。</p>
+
+        <h3 class="case-subhead" data-i18n="pitch.s04.h3">研究對象</h3>
+        <ul class="case-list">
+          <li data-i18n="pitch.s04.r1" data-i18n-html>安寧療護專家（具 <strong>400+</strong> 多重疾病患者臨床臨終決策經驗）。</li>
+          <li data-i18n="pitch.s04.r2">65 歲以上長者及其主要照顧家屬（持續訪談與觀察中）。</li>
+        </ul>
+
+        <div class="case-callout">
+          <h3 data-i18n="pitch.s04.callout.h">關鍵洞察</h3>
+          <p data-i18n="pitch.s04.callout.p" data-i18n-html>長者不討厭 ACP，他們討厭的是「被強迫塞入冰冷的醫療法規」。長者渴望表達自主權，但需要有尊嚴、無壓力的引導式開口。生理痛點：無法閱讀小字，極度排斥在手機上打字輸入。</p>
+        </div>
+
+        <blockquote class="case-quote">
+          <p data-i18n="pitch.s04.quote">「那些切結書看起來就像要把我送進棺材，看了就很觸霉頭。」</p>
+          <cite data-i18n="pitch.s04.quote.cite">— 長者訪談直接引言</cite>
+        </blockquote>
+      </section>
+
+      <section class="case-section" id="pitch-define">
+        <span class="case-section-label" data-i18n="pitch.s05.label">Slide 05 — Step 2 定義問題</span>
+        <h2 data-i18n="pitch.s05.h2">觀點的重新框架（Reframe）</h2>
+        <p data-i18n="pitch.s05.p1">在定義問題階段，我們做了一個非常關鍵的重新框架。如果把 ACP 紙本表單照抄到手機 App 上，那不叫設計，那叫數位化。我們把目標重新定義：不是要長者「簽合約」，而是要幫長者與家人「開創一個溫馨且沒有焦慮的對話起點」。</p>
+        <div class="case-compare">
+          <div class="case-compare-col case-compare-col--bad">
+            <h4 data-i18n="pitch.s05.old.h">傳統設計思維（Old POV）❌</h4>
+            <p data-i18n="pitch.s05.old.p">「我們該如何設計一個介面，讓長者可以快速填寫並簽署 ACP 預立醫療表單？」</p>
+            <p data-i18n="pitch.s05.old.note">後果：將問題簡化為行政表單填寫，長者抗拒心理高，難以跨出第一步。</p>
+          </div>
+          <div class="case-compare-col case-compare-col--good">
+            <h4 data-i18n="pitch.s05.new.h">以人為本的設計思維（New POV）✓</h4>
+            <p data-i18n="pitch.s05.new.p">「我們如何為長者與其家人創造一個低焦慮、順應心理準備進度、且能促進家庭對話的溝通工具？」</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="case-section" id="pitch-ideate">
+        <span class="case-section-label" data-i18n="pitch.s06.label">Slide 06–07 — Step 3 創意發想</span>
+        <h2 data-i18n="pitch.s06.h2">溫暖的情感機制與長者友善規範</h2>
+        <p data-i18n="pitch.s06.p1">針對新的 POV，我們發想了三大核心策略，並為生理退化的長者訂立嚴格的 UI 規範。</p>
+
+        <div class="case-grid-3">
+          <div class="case-platform">
+            <h4 data-i18n="pitch.s06.t1.h">名稱與情感翻轉</h4>
+            <p data-i18n="pitch.s06.t1.p">放棄生硬的「ACP」與「預立醫療」，命名為溫柔的「陪你想想」，定義為因愛而準備的家庭陪伴。</p>
+          </div>
+          <div class="case-platform">
+            <h4 data-i18n="pitch.s06.t2.h">跨理論模型（TTM）循序引導</h4>
+            <p data-i18n="pitch.s06.t2.p">不強推行動。針對「無意圖期」長者，先講故事、聽聽音樂；對於「準備期」長者，才引導醫療選項。</p>
+          </div>
+          <div class="case-platform">
+            <h4 data-i18n="pitch.s06.t3.h">家庭換位討論模式</h4>
+            <p data-i18n="pitch.s06.t3.p">設計情境式數位卡片，讓子女與長者「互猜心願」，用遊戲化方式化解談論死亡的尷尬。</p>
+          </div>
+        </div>
+
+        <h3 class="case-subhead" data-i18n="pitch.s07.h3">消除生理與認知負荷的介面規範</h3>
+        <ul class="case-list">
+          <li data-i18n="pitch.s07.l1" data-i18n-html><strong>語音優先互動</strong>：全面整合 TTS 與 STT，長者只要用「聽」的跟用「說」的就能完成所有對答，免除打字痛苦。</li>
+          <li data-i18n="pitch.s07.l2" data-i18n-html><strong>長者友善 UI 視覺</strong>：文字全面大於 18pt，高對比大按鈕；一頁最多只給「兩個」核心選項，避免選擇焦慮。</li>
+          <li data-i18n="pitch.s07.l3" data-i18n-html><strong>故事化引導分流</strong>：以「阿嬌姨的故事」等情境切入，用台語／國語日常話語，取代硬邦邦的醫學專有名詞。</li>
+        </ul>
+        <p class="case-note" data-i18n="pitch.s07.note" data-i18n-html>範例語氣：「阿伯，如果有一天我們生重病沒辦法吃東西，你想用灌食的，還是讓我們舒舒服服的走？」</p>
+      </section>
+
+      <section class="case-section" id="pitch-prototype">
+        <span class="case-section-label" data-i18n="pitch.s08.label">Slide 08–09 — Step 4 原型製作</span>
+        <h2 data-i18n="pitch.s08.h2">高保真 Flutter APK 實作</h2>
+        <p data-i18n="pitch.s08.p1">到了原型製作階段，我們不希望只用靜態簡報來講故事。我們使用 Flutter 跨平台框架，開發出可以在真實 Android 手機上點擊、說話、互動的 APK 原型，並整合雙向語音 API，實作台語和國語的雙向問答。</p>
+        <ul class="case-list">
+          <li data-i18n="pitch.s08.l1" data-i18n-html><strong>跨平台框架</strong>：直接編譯出能在真實 Android 手機上流暢運行的高保真 APK 原型。</li>
+          <li data-i18n="pitch.s08.l2" data-i18n-html><strong>語音技術驗證</strong>：串接 <code>flutter_tts</code> 與語音辨識 API，實作台語與國語雙向語音對答。</li>
+          <li data-i18n="pitch.s08.l3" data-i18n-html><strong>敏捷開發</strong>：專注於最核心的使用者路徑（MVP），精確呈現使用者體驗的完整閉環。</li>
+        </ul>
+
+        <h3 class="case-subhead" data-i18n="pitch.s09.h3">最小可行性產品（MVP）架構</h3>
+        <div class="case-table-wrap">
+          <table class="case-table case-table--full">
+            <thead>
+              <tr>
+                <th data-i18n="pitch.s09.th1">功能模組</th>
+                <th data-i18n="pitch.s09.th2">核心內容與機制</th>
+                <th data-i18n="pitch.s09.th3">設計同理考量</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td data-i18n="pitch.s09.r1a">語音問候</td>
+                <td data-i18n="pitch.s09.r1b">台／國語語音溫馨開場，2–3 題超簡短狀態評估</td>
+                <td data-i18n="pitch.s09.r1c">消除初次使用的焦慮感</td>
+              </tr>
+              <tr>
+                <td data-i18n="pitch.s09.r2a">階段互動內容</td>
+                <td data-i18n="pitch.s09.r2b">依 TTM 狀態，分流給予軟性故事或醫療選擇引導</td>
+                <td data-i18n="pitch.s09.r2c">尊重使用者的心理準備度，不強迫推進</td>
+              </tr>
+              <tr>
+                <td data-i18n="pitch.s09.r3a">雙向語音 FAQ</td>
+                <td data-i18n="pitch.s09.r3b">關鍵字匹配技術，長者提問（台／國語）即時語音答覆</td>
+                <td data-i18n="pitch.s09.r3c">解決閱讀冗長 ACP 條款的視力與認知負擔</td>
+              </tr>
+              <tr>
+                <td data-i18n="pitch.s09.r4a">家庭陪伴模式</td>
+                <td data-i18n="pitch.s09.r4b">雙向情境卡片，促使長者與子女換位思考</td>
+                <td data-i18n="pitch.s09.r4c">破冰工具，打破華人家庭的沉默</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="case-section" id="pitch-test">
+        <span class="case-section-label" data-i18n="pitch.s10.label">Slide 10 — Step 5 測試與迭代</span>
+        <h2 data-i18n="pitch.s10.h2">專案進程與未來藍圖</h2>
+        <p data-i18n="pitch.s10.p1">在測試與迭代階段，我們不僅檢視目前的成果，更勾勒出《陪你想想》未來的發展藍圖。</p>
+        <div class="case-timeline">
+          <div class="case-timeline-item">
+            <p class="case-timeline-phase" data-i18n="pitch.s10.t1.phase">當前成果（Current MVP）</p>
+            <h4 data-i18n="pitch.s10.t1.h">核心驗證已完成</h4>
+            <p data-i18n="pitch.s10.t1.p">完成 Flutter 實機動態 APK、長者友善 UI 視覺規範、台國語語音對答與基礎 FAQ 技術驗證。</p>
+          </div>
+          <div class="case-timeline-item">
+            <p class="case-timeline-phase" data-i18n="pitch.s10.t2.phase">階段二</p>
+            <h4 data-i18n="pitch.s10.t2.h">語音 AI 智能化（LLM Integration）</h4>
+            <p data-i18n="pitch.s10.t2.p">規劃將「關鍵字匹配」升級為串接 ACP 專業醫療知識庫的真實 LLM 語音助理。</p>
+          </div>
+          <div class="case-timeline-item">
+            <p class="case-timeline-phase" data-i18n="pitch.s10.t3.phase">階段三</p>
+            <h4 data-i18n="pitch.s10.t3.h">數位價值卡片（Value Sorting Card）</h4>
+            <p data-i18n="pitch.s10.t3.p">開發「價值觀卡片排序」功能，一鍵生成並分享給親友的「專屬心願卡」。</p>
+          </div>
+          <div class="case-timeline-item">
+            <p class="case-timeline-phase" data-i18n="pitch.s10.t4.phase">階段四</p>
+            <h4 data-i18n="pitch.s10.t4.h">本機進度追蹤（Local State Tracker）</h4>
+            <p data-i18n="pitch.s10.t4.p">導入 Local Storage，讓長者能隨時中斷旅程、隨時繼續，符合長者碎片化學習特點。</p>
+          </div>
+        </div>
+      </section>
+
+      <blockquote class="case-quote case-quote--featured">
+        <p data-i18n="pitch.s11.quote">設計思考不是一套線性的公式，而是一場「以人為本」、不斷在同理與實作中循環迭代的共感歷程。</p>
+        <cite data-i18n="pitch.s11.cite">—— 《陪你想想》產品開發團隊</cite>
+      </blockquote>
 
       <section class="case-section" id="background">
         <span class="case-section-label" data-i18n="s01.label">01 — Background</span>
@@ -238,6 +436,14 @@
         </ul>
       </section>
     </div>
+
+    <section class="case-closing">
+      <div class="container">
+        <h2 data-i18n="pitch.s12.h2">簡報結束 · 敬請指導</h2>
+        <p class="case-closing-tagline" data-i18n="pitch.s12.tagline">陪你想想 (acp_care) —— 用溫暖的對話，做最愛的準備。</p>
+        <p class="case-closing-contact" data-i18n="pitch.s12.contact">報告團隊：MK Chou · 成大跨領域菁英計畫 | 聯絡信箱：contact@mk-chou.com</p>
+      </div>
+    </section>
 
     <div class="container case-actions">
       <a href="../" class="back-home" data-i18n="actions.projects">← Back to projects</a>

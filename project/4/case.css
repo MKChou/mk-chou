@@ -55,7 +55,29 @@
   font-size: clamp(1rem, 2vw, 1.15rem);
   color: var(--text-muted);
   max-width: 60ch;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.case-subtitle {
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  color: var(--text);
+  max-width: 52ch;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.case-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #fff;
+  background: linear-gradient(135deg, #e8a87c, #d4845a);
+  padding: 0.35rem 0.85rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
 }
 
 /* Stats */
@@ -603,4 +625,85 @@
   .case-section {
     padding: 2rem 0;
   }
+}
+
+.case-callout--note {
+  border-color: rgba(232, 168, 124, 0.35);
+  background: rgba(232, 168, 124, 0.06);
+  margin-bottom: 0;
+}
+
+.case-compare-col p {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.case-compare-col p:last-child {
+  margin-bottom: 0;
+}
+
+.case-quote {
+  margin: 2rem 0 2.5rem;
+  padding: 1.75rem 2rem;
+  background: var(--bg-elevated);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius);
+}
+
+.case-quote p {
+  font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+}
+
+.case-quote cite {
+  font-size: 0.88rem;
+  font-style: normal;
+  color: var(--text-muted);
+}
+
+.case-quote--featured {
+  width: min(900px, 92vw);
+  margin: 3rem auto;
+  text-align: center;
+  border-left: none;
+  border: 1px solid rgba(232, 168, 124, 0.3);
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(232, 168, 124, 0.08), transparent),
+    var(--bg-elevated);
+}
+
+.case-quote--featured p {
+  font-size: clamp(1.1rem, 2.8vw, 1.35rem);
+}
+
+.case-closing {
+  padding: 4rem 0;
+  margin-top: 2rem;
+  text-align: center;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 100%, rgba(100, 140, 200, 0.1), transparent),
+    radial-gradient(ellipse 50% 40% at 80% 20%, rgba(232, 168, 124, 0.1), transparent);
+  border-top: 1px solid var(--border);
+}
+
+.case-closing h2 {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.case-closing-tagline {
+  font-size: 1.05rem;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.case-closing-contact {
+  font-size: 0.9rem;
+  color: var(--text-muted);
 }
