@@ -19,6 +19,7 @@
           <li><a href="../" data-i18n="nav.home">Home</a></li>
           <li><a href="../project/" data-i18n="nav.projects">Projects</a></li>
           <li><a href="../about/" class="active" aria-current="page" data-i18n="nav.about">About</a></li>
+          <li><a href="../publication/" data-i18n="nav.publication">Publication</a></li>
         </ul>
         <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch to Chinese">中文</button>
         <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-i18n="nav.toggle" data-i18n-attr="aria-label">
@@ -34,14 +35,86 @@
       <p class="page-label" data-i18n="about.label">About</p>
       <h1 class="page-title" data-i18n="about.title">About me</h1>
 
+      <section class="about-section about-section--timeline" aria-labelledby="about-education-title">
+        <h2 class="about-section-title" id="about-education-title" data-i18n="about.education.label">Education &amp; Experience</h2>
+        <div class="about-timeline">
+          <article class="about-timeline-item">
+            <div class="about-timeline-node" aria-hidden="true"></div>
+            <div class="about-timeline-card">
+              <img
+                class="about-timeline-logo about-timeline-logo--wide"
+                src="assets/mi2s.png"
+                alt="Multilingual Intelligent Mind Service Lab"
+                width="200"
+                height="80"
+                loading="lazy"
+                data-i18n="about.education.t1.logoAlt"
+                data-i18n-attr="alt"
+              >
+              <h3 class="about-timeline-title" data-i18n="about.education.t1.title">Multilingual Intelligent Mind Service Lab (Mi2S)</h3>
+              <p class="about-timeline-desc" data-i18n="about.education.t1.p">Multilingual Intelligent Mind Service Lab</p>
+            </div>
+          </article>
+          <article class="about-timeline-item">
+            <div class="about-timeline-node" aria-hidden="true"></div>
+            <div class="about-timeline-card">
+              <time class="about-timeline-date" datetime="2026" data-i18n="about.education.t2.period">2026</time>
+              <img
+                class="about-timeline-logo"
+                src="assets/ncku.png"
+                alt="National Cheng Kung University"
+                width="128"
+                height="128"
+                loading="lazy"
+                data-i18n="about.education.t2.logoAlt"
+                data-i18n-attr="alt"
+              >
+              <h3 class="about-timeline-title" data-i18n="about.education.t2.title">Cross College Elite Program, NCKU</h3>
+              <p class="about-timeline-desc" data-i18n="about.education.t2.p">Major: Electrical Engineering · CSIE (Computer Science and Information Engineering)</p>
+            </div>
+          </article>
+          <article class="about-timeline-item">
+            <div class="about-timeline-node" aria-hidden="true"></div>
+            <div class="about-timeline-card">
+              <time class="about-timeline-date" datetime="2020" data-i18n="about.education.t3.period">2020</time>
+              <img
+                class="about-timeline-logo"
+                src="assets/sai.png"
+                alt="Superalloy Industrial Co., Ltd."
+                width="128"
+                height="128"
+                loading="lazy"
+                data-i18n="about.education.t3.logoAlt"
+                data-i18n-attr="alt"
+              >
+              <h3 class="about-timeline-title" data-i18n="about.education.t3.title">Superalloy Industrial Co., Ltd.</h3>
+              <p class="about-timeline-desc" data-i18n="about.education.t3.p">水平澆鑄與材料科學</p>
+            </div>
+          </article>
+          <article class="about-timeline-item">
+            <div class="about-timeline-node" aria-hidden="true"></div>
+            <div class="about-timeline-card">
+              <time class="about-timeline-date" datetime="2018" data-i18n="about.education.t4.period">2018</time>
+              <img
+                class="about-timeline-logo"
+                src="assets/kihs.png"
+                alt="Kaohsiung Industrial High School"
+                width="128"
+                height="128"
+                loading="lazy"
+                data-i18n="about.education.t4.logoAlt"
+                data-i18n-attr="alt"
+              >
+              <h3 class="about-timeline-title" data-i18n="about.education.t4.title">Kaohsiung Industrial High School — Comprehensive Program</h3>
+              <p class="about-timeline-desc" data-i18n="about.education.t4.p">嵌入式系統以及工業配線</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
       <section class="about-section" aria-labelledby="about-skills-title">
         <h2 class="about-section-title" id="about-skills-title" data-i18n="about.skills.label">Skills</h2>
         <p class="about-section-list" data-i18n="about.skills.list"></p>
-      </section>
-
-      <section class="about-section" aria-labelledby="about-education-title">
-        <h2 class="about-section-title" id="about-education-title" data-i18n="about.education.label">Education</h2>
-        <p class="about-section-list" data-i18n="about.education.list"></p>
       </section>
 
       <section class="about-section" aria-labelledby="about-roles-title">
@@ -56,7 +129,7 @@
 
       <section class="about-section" aria-labelledby="about-creative-title">
         <h2 class="about-section-title" id="about-creative-title" data-i18n="about.creative.label">On the side</h2>
-        <p class="about-section-list" data-i18n="about.creative.list" data-i18n-html></p>
+        <p class="about-section-list" data-i18n="about.creative.list"></p>
       </section>
     </div>
   </main>
