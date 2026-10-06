@@ -8,20 +8,21 @@
   <title>Project 03 | Skeleton-based Fall Detection Co-Design</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../../css/style.css">
   <link rel="stylesheet" href="case.css">
 </head>
 <body class="case">
   <header class="site-header">
     <nav class="nav" aria-label="Main navigation" data-i18n="nav.label" data-i18n-attr="aria-label">
-      <a href="../../" class="logo">MK Chou</a>
+      <a href="../../" class="logo">Ming-Kun Chou</a>
       <div class="nav-end">
         <ul class="nav-links">
           <li><a href="../../" data-i18n="nav.home">Home</a></li>
+          <li><a href="../../research/" data-i18n="nav.research">Research</a></li>
+          <li><a href="../../publication/" data-i18n="nav.publications">Publications</a></li>
           <li><a href="../" class="active" aria-current="page" data-i18n="nav.projects">Projects</a></li>
-          <li><a href="../../about/" data-i18n="nav.about">About</a></li>
-          <li><a href="../../publication/" data-i18n="nav.publication">Publication</a></li>
+          <li><a href="../../about/" data-i18n="nav.cv">CV</a></li>
         </ul>
         <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch to Chinese">中文</button>
         <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-i18n="nav.toggle" data-i18n-attr="aria-label">
@@ -50,7 +51,7 @@
         <ul class="case-stats">
           <li><strong>95.65%</strong><span data-i18n="hero.stat1">固定測試集準確率</span></li>
           <li><strong>0.42 ms</strong><span data-i18n="hero.stat2">單次模型推論</span></li>
-          <li><strong>92.39%</strong><span data-i18n="hero.stat3">FPGA 上板準確率</span></li>
+          <li><strong>91.30%</strong><span data-i18n="hero.stat3">FPGA 上板準確率</span></li>
           <li><strong>~60 FPS</strong><span data-i18n="hero.stat4">FPGA 推論吞吐</span></li>
         </ul>
         <ul class="case-tags">
@@ -128,7 +129,7 @@
           <div class="case-timeline-item">
             <p class="case-timeline-phase" data-i18n="sj.t5.phase">階段五 · 上板定案</p>
             <h4 data-i18n="sj.t5.title">用實驗回答「FPGA 到底贏在哪」</h4>
-            <p data-i18n="sj.t5.p">PYNQ-Z2 上依序完成準確率（92.39%）、吞吐量（~60 FPS）、延遲抖動（Std ≈ 0.028 ms）量測，並誠實揭露 DMA 佔 16.62 ms 中的絕大部分、IP 計算僅 ~0.41 ms。<strong>開發策略收尾</strong>：不宣稱 FPGA 讓端到端變快 10 倍，而是論證其在確定性、低抖動與可預測延遲上的價值——這與 Jetson 軟體推論形成互補對照，而非單純數字競賽。</p>
+            <p data-i18n="sj.t5.p">PYNQ-Z2 上依序完成準確率（91.30%）、吞吐量（~60 FPS）、延遲抖動（Std ≈ 0.025 ms）量測，並誠實揭露 DMA 佔 16.62 ms 中的絕大部分、IP 計算僅 ~0.41 ms。<strong>開發策略收尾</strong>：不宣稱 FPGA 讓端到端變快 10 倍，而是論證其在確定性、低抖動與可預測延遲上的價值——這與 Jetson 軟體推論形成互補對照，而非單純數字競賽。</p>
           </div>
         </div>
 
@@ -407,7 +408,7 @@
 
         <div class="case-callout">
           <h3 data-i18n="s04.bd.summary.h">與整體專題的關係</h3>
-          <p data-i18n="s04.bd.summary.p" data-i18n-html>階段一（軟體）：訓練硬體友善 1D-CNN · ReLU6 · INT8 量化 → 階段二（Jetson）：邊緣基準 · 瓶頸分析（骨架擷取 ~97%）→ <strong>階段三（FPGA）</strong>：design_1 = HLS IP + DMA + Zynq 整合。實測上板準確率 92.39%，Jitter Std 0.028 ms，驗證協同設計在邊緣平台上的可行性——詳見 <a href="#results">06 實驗結果</a>。</p>
+          <p data-i18n="s04.bd.summary.p" data-i18n-html>階段一（軟體）：訓練硬體友善 1D-CNN · ReLU6 · INT8 量化 → 階段二（Jetson）：邊緣基準 · 瓶頸分析（骨架擷取 ~97%）→ <strong>階段三（FPGA）</strong>：design_1 = HLS IP + DMA + Zynq 整合。實測上板準確率 91.30%，Jitter Std 0.025 ms，驗證協同設計在邊緣平台上的可行性——詳見 <a href="#results">06 實驗結果</a>。</p>
         </div>
       </section>
 
@@ -472,8 +473,8 @@
               <tr><td>E2</td><td>Jetson Nano</td><td data-i18n="s06.exp.r2">延遲抖動</td><td>Std ~0.28 ms</td></tr>
               <tr><td>E3</td><td>Jetson Nano</td><td data-i18n="s06.exp.r3">準確率</td><td>95.65%</td></tr>
               <tr><td>E4</td><td>FPGA PYNQ-Z2</td><td data-i18n="s06.exp.r4">吞吐量</td><td>~60 FPS</td></tr>
-              <tr><td>E5</td><td>FPGA PYNQ-Z2</td><td data-i18n="s06.exp.r5">延遲抖動</td><td>Std ~0.028 ms</td></tr>
-              <tr><td>E6</td><td>FPGA PYNQ-Z2</td><td data-i18n="s06.exp.r6">準確率</td><td>92.39%</td></tr>
+              <tr><td>E5</td><td>FPGA PYNQ-Z2</td><td data-i18n="s06.exp.r5">延遲抖動</td><td>Std ~0.025 ms</td></tr>
+              <tr><td>E6</td><td>FPGA PYNQ-Z2</td><td data-i18n="s06.exp.r6">準確率</td><td>91.30%</td></tr>
               <tr><td>E7</td><td>Jetson Nano</td><td data-i18n="s06.exp.r7">僅推論吞吐</td><td>~1010 FPS</td></tr>
             </tbody>
           </table>
@@ -503,7 +504,7 @@
               </tbody>
             </table>
             <p class="case-note" data-i18n="s06.note1" data-i18n-html>INT8 量化後準確率維持 95.65%……</p>
-            <p data-i18n="s06.p1a">以 Fall 為正類，固定測試集（92 筆）上的 FNR 為 0.0667，代表多數跌倒事件能被正確捕捉。FPGA 上板準確率為 92.39%（85/92），與 PC ONNX 參考之間的落差主要來自定點量化與 DMA 傳輸鏈路的累積誤差，仍在可接受範圍內。</p>
+            <p data-i18n="s06.p1a">以 Fall 為正類，固定測試集（92 筆）上的 FNR 為 0.0667，代表多數跌倒事件能被正確捕捉。FPGA 上板準確率為 91.30%（84/92），與 PC ONNX 參考之間的落差主要來自定點量化與 DMA 傳輸鏈路的累積誤差，仍在可接受範圍內。</p>
           </div>
         </div>
 
@@ -617,7 +618,7 @@
             <tbody>
               <tr><td data-i18n="s06.scope.a">核心推論延遲</td><td>~1.3 ms</td><td>~0.41 ms（IP）</td><td data-i18n="s06.scope.a2">算一次 forward 要多久</td></tr>
               <tr><td data-i18n="s06.scope.b">系統單幀延遲</td><td data-i18n="s06.scope.bj">1–4 ms 波動</td><td data-i18n="s06.scope.bf">~16.6 ms 穩定</td><td data-i18n="s06.scope.b2">一幀完整走完推論</td></tr>
-              <tr><td data-i18n="s06.scope.c">抖動（Jitter, Std）</td><td>~0.28 ms</td><td><strong>~0.028 ms</strong></td><td data-i18n="s06.scope.c2">延遲的穩定度</td></tr>
+              <tr><td data-i18n="s06.scope.c">抖動（Jitter, Std）</td><td>~0.28 ms</td><td><strong>~0.025 ms</strong></td><td data-i18n="s06.scope.c2">延遲的穩定度</td></tr>
             </tbody>
           </table>
         </div>
@@ -728,7 +729,7 @@
         <ul class="case-list case-list--check">
           <li data-i18n="s07.li1">輕量 1D-CNN 在固定測試集達 95.65% 準確率……</li>
           <li data-i18n="s07.li2">同一模型成功部署到 PC、Jetson、FPGA 三平台……</li>
-          <li data-i18n="s07.li3">FPGA 上板準確率 92.39%……</li>
+          <li data-i18n="s07.li3">FPGA 上板準確率 91.30%……</li>
           <li data-i18n="s07.li4">剖析證實瓶頸在骨架擷取……</li>
           <li data-i18n="s07.li5">從 DPU 轉向訂製加速器……</li>
         </ul>
@@ -756,7 +757,7 @@
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>&copy; <span id="year"></span> MK Chou · <span data-i18n="footer.copy">專題 03</span></p>
+      <p>&copy; <span id="year"></span> Ming-Kun Chou · <span data-i18n="footer.copy">專題 03</span></p>
       <a href="#" class="back-to-top" data-i18n="footer.top">回到頂端 ↑</a>
     </div>
   </footer>

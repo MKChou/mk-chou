@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DRPF sorts speech recognition errors into three types by the follow-up each one needs, and adds a probe for negated answers rewritten into medical action words. ROCLING 2026.">
+  <meta name="author" content="Ming-Kun Chou">
+  <link rel="canonical" href="https://www.mk-chou.com/research/drpf/">
+  <title>DRPF: Deployment Risk Probe Framework | Ming-Kun Chou</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body data-page="research.drpf">
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation" data-i18n="nav.label" data-i18n-attr="aria-label">
+      <a href="../../" class="logo">Ming-Kun Chou</a>
+      <div class="nav-end">
+        <ul class="nav-links">
+          <li><a href="../../" data-i18n="nav.home">Home</a></li>
+          <li><a href="../../research/" class="active" aria-current="page" data-i18n="nav.research">Research</a></li>
+          <li><a href="../../publication/" data-i18n="nav.publications">Publications</a></li>
+          <li><a href="../../project/" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="../../about/" data-i18n="nav.cv">CV</a></li>
+        </ul>
+        <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch to Chinese">中文</button>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-i18n="nav.toggle" data-i18n-attr="aria-label">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page">
+    <div class="container">
+      <header class="page-head">
+        <p class="small"><a href="../" class="back-home"><span data-i18n="drpf.back">← Research</span></a></p>
+        <h1 class="page-title">Deployment Risk Probe Framework (DRPF)</h1>
+        <p class="page-lead" data-i18n="drpf.sub">Complementing CER with actionable failure modes</p>
+        <p class="pub-authors" style="margin-top:.9rem"><span class="me">Ming-Kun Chou</span>, Yu-Tai Lo, Wen-Hsiang Lu</p>
+        <p class="pub-venue" data-i18n="drpf.venue">ROCLING 2026, Archival Track. Oral presentation, November 2026.</p>
+        <ul class="pub-links">
+          <li><a href="https://github.com/MKChou/DRPF-rocling2026"><span data-i18n="pub.link.code">Code and probe sets</span></a></li>
+          <li><a href="#cite"><span data-i18n="drpf.link.cite">Citation</span></a></li>
+        </ul>
+        <div class="note">
+          <p data-i18n="drpf.note">The paper is written in Chinese with an English abstract. This page summarizes it; the proceedings version will be linked here once it is in the ACL Anthology.</p>
+        </div>
+      </header>
+
+      <div class="prose">
+        <section class="section">
+          <h2 class="section-title" data-i18n="drpf.h.why">Why CER is not enough</h2>
+          <p data-i18n="drpf.why.p1">In a voice interface for advance care planning (ACP), an older adult may answer a question such as whether they would want intubation with one short phrase. If 「不要了」 (“no more”) is transcribed as 「服藥了」 (“took the medication”), the meaning is reversed, yet character error rate (CER) counts it as two wrong characters.</p>
+          <p data-i18n="drpf.why.p2">Two systems with similar CER can also fail in different ways. One tends to output something wrong, which a person has to check. The other tends to output nothing, in which case the right response is to ask again. CER does not show which situation you are in.</p>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title" data-i18n="drpf.h.types">Three error types, three follow-ups</h2>
+          <p data-i18n="drpf.types.p">DRPF sorts errors by the kind of input, and each type maps to one deployment response. It does not replace CER; it is reported alongside CER and a keyword error rate for medical terms (KW-ERR).</p>
+        </section>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th><span data-i18n="drpf.t1.h0">Input</span></th><th><span data-i18n="drpf.t1.h1">System output</span></th><th><span data-i18n="drpf.t1.h2">Error type</span></th><th><span data-i18n="drpf.t1.h3">Follow-up</span></th></tr>
+          </thead>
+          <tbody>
+            <tr><td><span data-i18n="drpf.t1.r0c0">Background noise only, nobody speaking</span></td><td><span data-i18n="drpf.t1.r0c1">A line of text</span></td><td><span data-i18n="drpf.t1.r0c2">(i) Text on non-speech input</span></td><td><span data-i18n="drpf.t1.r0c3">Filter the input or tune voice activity detection</span></td></tr>
+            <tr><td lang="zh-Hant">「嗯」</td><td><span data-i18n="drpf.t1.r1c1">(no output)</span></td><td><span data-i18n="drpf.t1.r1c2">(ii) Empty output on speech</span></td><td><span data-i18n="drpf.t1.r1c3">Ask the speaker to repeat; never treat it as consent</span></td></tr>
+            <tr><td lang="zh-Hant">「嗯啊」</td><td lang="zh-Hant">「二十」</td><td><span data-i18n="drpf.t1.r2c2">(iii) Incorrect content on speech</span></td><td><span data-i18n="drpf.t1.r2c3">Manual verification</span></td></tr>
+            <tr><td lang="zh-Hant">「不要了」</td><td lang="zh-Hant">「服藥了」</td><td><span data-i18n="drpf.t1.r3c2">(iii), counted by PCP</span></td><td><span data-i18n="drpf.t1.r3c3">Verify first</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="prose">
+        <section class="section">
+          <h2 class="section-title" data-i18n="drpf.h.pcp">Polarity-conflict probe (PCP)</h2>
+          <p data-i18n="drpf.pcp.p">Within type (iii), PCP counts the clearest high-risk case: the speaker gives a negated short answer and the transcript contains a medical action word such as 服藥 (take medication), 插管 (intubation) or 急救 (resuscitation). The trigger words were fixed during development and then checked on held-out sentences that played no part in choosing them, so that the rule is not simply fitted to the test answers.</p>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title" data-i18n="drpf.h.setup">Setup</h2>
+          <p data-i18n="drpf.setup.p1">Two deployment pipelines were run on the same recordings and scored the same way, changing one setting at a time: a cloud pipeline (remote Whisper large-v3-turbo with built-in voice activity detection) under two language settings, called lang-med and lang-base, and an edge pipeline (Nemotron 3.5 ASR 0.6B).</p>
+          <p data-i18n="drpf.setup.p2">The short-answer probes are 400 clips from four speakers: confirmations, negations, other short replies, and hesitations. Of these, 76 are negated answers used for PCP. A separate set of 200 clinic-style sentences provided by a physician gives the CER reference.</p>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title" data-i18n="drpf.h.results">Results</h2>
+        </section>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th><span data-i18n="drpf.t2.h0">Setting</span></th>
+              <th class="num"><span data-i18n="drpf.t2.h1">Clinic-sentence CER</span></th>
+              <th class="num"><span data-i18n="drpf.t2.h2">Short-answer mismatch</span></th>
+              <th class="num"><span data-i18n="drpf.t2.h3">(ii) Empty</span></th>
+              <th class="num"><span data-i18n="drpf.t2.h4">(iii) Incorrect</span></th>
+              <th class="num">PCP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row"><span data-i18n="drpf.set0">Cloud, lang-med</span></th><td class="num">11.2%</td><td class="num">259/400</td><td class="num">16/400</td><td class="num">243/400</td><td class="num">20/76</td></tr>
+            <tr><th scope="row"><span data-i18n="drpf.set1">Cloud, lang-base</span></th><td class="num">3.9%</td><td class="num">128/400</td><td class="num">16/400</td><td class="num">112/400</td><td class="num">0/76</td></tr>
+            <tr><th scope="row"><span data-i18n="drpf.set2">Edge (Nemotron)</span></th><td class="num">7.6%</td><td class="num">132/400</td><td class="num">72/400</td><td class="num">60/400</td><td class="num">0/76</td></tr>
+          </tbody>
+          <caption data-i18n="drpf.t2.cap">Mismatch is (ii) plus (iii). Counts are those reported in the paper.</caption>
+        </table>
+      </div>
+      <div class="prose">
+        <div class="bars" aria-hidden="false">
+          <div class="bar-row">
+            <span data-i18n="drpf.set0">Cloud, lang-med</span>
+            <div class="bar-track" role="img" aria-label="243 incorrect content, 16 empty output, of 400">
+              <div class="bar-seg bar-seg--iii" style="width:60.75%">243</div>
+              <div class="bar-seg bar-seg--ii" style="width:4.00%">16</div>
+            </div>
+            <span class="bar-total">259/400</span>
+          </div>
+          <div class="bar-row">
+            <span data-i18n="drpf.set1">Cloud, lang-base</span>
+            <div class="bar-track" role="img" aria-label="112 incorrect content, 16 empty output, of 400">
+              <div class="bar-seg bar-seg--iii" style="width:28.00%">112</div>
+              <div class="bar-seg bar-seg--ii" style="width:4.00%">16</div>
+            </div>
+            <span class="bar-total">128/400</span>
+          </div>
+          <div class="bar-row">
+            <span data-i18n="drpf.set2">Edge (Nemotron)</span>
+            <div class="bar-track" role="img" aria-label="60 incorrect content, 72 empty output, of 400">
+              <div class="bar-seg bar-seg--iii" style="width:15.00%">60</div>
+              <div class="bar-seg bar-seg--ii" style="width:18.00%">72</div>
+            </div>
+            <span class="bar-total">132/400</span>
+          </div>
+        </div>
+        <ul class="legend">
+          <li><i style="background:#1e4e6e"></i><span data-i18n="drpf.leg.iii">(iii) incorrect content</span></li>
+          <li><i style="background:#b5651d"></i><span data-i18n="drpf.leg.ii">(ii) empty output</span></li>
+          <li><span data-i18n="drpf.leg.note">Short-answer errors out of 400 clips</span></li>
+        </ul>
+
+        <ul style="margin-top:1.5rem">
+          <li data-i18n="drpf.find.1" data-i18n-html><strong>Nearly equal error counts, different handling.</strong> Cloud with lang-base and the edge pipeline miss about the same number of short answers (128 and 132 of 400). For the cloud pipeline, close to nine in ten of those are incorrect content, which needs manual verification. For the edge pipeline, more than half are empty output, where asking the speaker to repeat is the fitting response.</li>
+          <li data-i18n="drpf.find.2" data-i18n-html><strong>A high-risk error that CER does not show.</strong> Under lang-med, 20 of 76 negated short answers were rewritten into text containing a medical action word. On held-out negated sentences the count was 24 of 120, and the error appeared for all four speakers.</li>
+          <li data-i18n="drpf.find.3" data-i18n-html><strong>One setting changes the risk profile.</strong> Switching the cloud language setting from lang-med to lang-base removed these rewrites (0 of 76), while the Taiwanese lexical hit rate fell from 86.1% to 11.2%.</li>
+          <li data-i18n="drpf.find.4" data-i18n-html><strong>The scoring carries over to other domains.</strong> With the trigger words replaced by finance and law terms, the same program measured PCP at 10 of 72 and 6 of 72 under lang-med.</li>
+        </ul>
+
+        <section class="section">
+          <h2 class="section-title" data-i18n="drpf.h.limits">Limitations</h2>
+          <ul>
+            <li data-i18n="drpf.lim.1">This is a proof of concept on scripted utterances from four speakers. The results show that the error types can be told apart; they are not estimates of how often each error occurs in a population or statements about clinical safety.</li>
+            <li data-i18n="drpf.lim.2">The probes assume clear turns, one speaker at a time, and non-streaming input. Overlapping speech, interruptions, and streaming recognition were not covered, and the speech of real older patients was not included.</li>
+            <li data-i18n="drpf.lim.3">Only a small set of recognition systems was compared. Whether the same pattern holds for newer large audio-language models and for models trained specifically for Traditional Chinese remains to be tested.</li>
+            <li data-i18n="drpf.lim.4">Type (iii) errors are currently handed to manual verification. Detecting or correcting them semi-automatically is outside this evaluation design.</li>
+          </ul>
+        </section>
+
+        <section class="section">
+          <h2 class="section-title" data-i18n="drpf.h.code">Code and data</h2>
+          <p data-i18n="drpf.code.p" data-i18n-html>The <a href="https://github.com/MKChou/DRPF-rocling2026">repository</a> contains the scoring code, text normalization, the digital-silence clips, manifests for the public noise set, and the sentence scripts for the short-answer and hesitation probes. Speaker recordings, hospital background noise, and the physician-provided sentences are not released because they contain personal data or are restricted by the institutions involved.</p>
+          <p class="muted small" data-i18n="drpf.ack">This work was supported by the National Science and Technology Council, Taiwan (NSTC 115-2314-B-006-045).</p>
+        </section>
+
+        <section class="section" id="cite">
+          <h2 class="section-title" data-i18n="drpf.h.cite">Citation</h2>
+          <pre>@inproceedings{chou2026drpf,
+  title     = {Deployment Risk Probe Framework ({DRPF}): Complementing {CER} with Actionable Failure Modes},
+  author    = {Chou, Ming-Kun and Lo, Yu-Tai and Lu, Wen-Hsiang},
+  booktitle = {Proceedings of the 38th Conference on Computational Linguistics and Speech Processing (ROCLING 2026)},
+  year      = {2026}
+}</pre>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2026</span> Ming-Kun Chou · <span data-i18n="footer.updated">Last updated October 2026</span></p>
+      <a class="back-to-top" data-i18n="footer.top" href="#">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="../../js/site-i18n.js"></script>
+  <script src="../../js/main.js"></script>
+</body>
+</html>

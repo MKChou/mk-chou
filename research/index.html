@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Research by Ming-Kun Chou: speech recognition evaluation for high-stakes use, knowledge-grounded language models for healthcare, and applied speech and retrieval systems.">
+  <meta name="author" content="Ming-Kun Chou">
+  <link rel="canonical" href="https://www.mk-chou.com/research/">
+  <title>Research | Ming-Kun Chou</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body data-page="research">
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation" data-i18n="nav.label" data-i18n-attr="aria-label">
+      <a href="../" class="logo">Ming-Kun Chou</a>
+      <div class="nav-end">
+        <ul class="nav-links">
+          <li><a href="../" data-i18n="nav.home">Home</a></li>
+          <li><a href="../research/" class="active" aria-current="page" data-i18n="nav.research">Research</a></li>
+          <li><a href="../publication/" data-i18n="nav.publications">Publications</a></li>
+          <li><a href="../project/" data-i18n="nav.projects">Projects</a></li>
+          <li><a href="../about/" data-i18n="nav.cv">CV</a></li>
+        </ul>
+        <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch to Chinese">中文</button>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-i18n="nav.toggle" data-i18n-attr="aria-label">
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main class="page">
+    <div class="container">
+      <header class="page-head">
+        <h1 class="page-title" data-i18n="res.title">Research</h1>
+        <p class="page-lead" data-i18n="res.lead">Work carried out as a full-time research assistant at the Multilingual Intelligent Mind Service Lab (Mi2S), NCKU. The first item is published. The others are funded or collaborative projects, so they are described here in outline only.</p>
+      </header>
+
+      <article class="entry" id="drpf">
+        <h2 class="entry-title"><span data-i18n="res.drpf.title">DRPF: evaluating deployment risk in speech recognition</span><span class="tag tag--pub" data-i18n="res.drpf.tag">Published</span></h2>
+        <p class="entry-meta"><span data-i18n="res.drpf.meta0">First author; ROCLING 2026, oral</span><span data-i18n="res.drpf.meta1">Advisors: Dr. Yu-Tai Lo and Prof. Wen-Hsiang Lu</span></p>
+        <p data-i18n="res.drpf.body">When older adults answer advance care planning questions by voice, a misrecognized short answer can reverse their meaning while barely moving the character error rate. DRPF sorts recognition errors into three types according to the follow-up each one needs (filter the input, ask the speaker to repeat, or verify by hand) and adds a probe for negated answers rewritten into medical action words. On the same recordings, a cloud pipeline and an edge pipeline with nearly equal short-answer error counts turned out to need different handling.</p>
+        <ul class="pub-links"><li><a href="../research/drpf/"><span data-i18n="res.drpf.link0">Read more</span></a></li><li><a href="https://github.com/MKChou/DRPF-rocling2026"><span data-i18n="res.drpf.link1">Code</span></a></li></ul>
+      </article>
+      <article class="entry" id="voice">
+        <h2 class="entry-title"><span data-i18n="res.voice.title">VOICE: a voice-interaction platform for advance care planning</span><span class="tag" data-i18n="res.voice.tag">NSTC project</span></h2>
+        <p class="entry-meta"><span data-i18n="res.voice.meta0">PIs: Yu-Tai Lo, Wen-Hsiang Lu, Chung-Ching Huang, Sheng-Yu Fan (NCKU)</span><span data-i18n="res.voice.meta1">Role: knowledge graph, language-model question answering, app prototype</span></p>
+        <p data-i18n="res.voice.body">Advance care planning lets people decide, while they can still speak for themselves, which treatments they would not want later. Interviews in this project suggested that older adults get stuck well before any paperwork: they are reluctant to think about it and unsure how to raise it with family. The app therefore first gauges how ready a person is, following the transtheoretical model of behavior change, and shows content for that stage. Questions are answered by retrieving from an advance care planning knowledge graph before a language model writes the reply, so that answers stay within vetted content and each one lists the graph nodes it used. I lead the technical implementation. The prototype has been tried within the team; testing with older adults is planned for the project's second year.</p>
+        <ul class="pub-links"><li><a href="../project/4/"><span data-i18n="res.voice.link0">App prototype write-up</span></a></li></ul>
+      </article>
+      <article class="entry" id="chimei">
+        <h2 class="entry-title"><span data-i18n="res.chimei.title">Mandarin–Taiwanese speech recognition for a hospital service desk</span><span class="tag" data-i18n="res.chimei.tag">ITRI × Chi Mei Medical Center</span></h2>
+        <p class="entry-meta"><span data-i18n="res.chimei.meta0">PIs: Dr. 葉永輝 (ITRI), Prof. Wen-Hsiang Lu (NCKU CSIE)</span><span data-i18n="res.chimei.meta1">Role: data augmentation, Whisper fine-tuning, on-site deployment</span></p>
+        <p data-i18n="res.chimei.body">Visitors ask the service desk for departments and directions in Mandarin, Taiwanese, or a mix of both. Department names were the hardest part to recognize, and there was no recorded speech for them. I wrote guidance sentences from the hospital's department and location names, synthesized speech for them to extend the training data, fine-tuned the lab's Whisper-based model, traced errors sentence by sentence to decide what data to add next, and deployed the system for field validation at the service desk.</p>
+      </article>
+      <article class="entry" id="kuenling">
+        <h2 class="entry-title"><span data-i18n="res.kuenling.title">An on-premise document retrieval system</span><span class="tag" data-i18n="res.kuenling.tag">Industry collaboration</span></h2>
+        <p class="entry-meta"><span data-i18n="res.kuenling.meta0">PI: Prof. Wen-Hsiang Lu; partner: Kuen Ling (堃霖冷凍)</span><span data-i18n="res.kuenling.meta1">Role: retrieval system development, on-site deployment</span></p>
+        <p data-i18n="res.kuenling.body">Employees ask questions about internal procedures, memos, and equipment manuals in plain language and check the source page of each answer. Documents and queries may not leave the company network, many files are scanned PDFs, and people search both by describing a problem and by exact part numbers. The system combines vector search with keyword search, runs OCR on scanned pages, and uses a language model hosted inside the company. It was built by a team; my part was the retrieval system and the deployment on the company's own hardware.</p>
+      </article>
+      <article class="entry" id="ship">
+        <h2 class="entry-title"><span data-i18n="res.ship.title">Ship sound classification across datasets</span><span class="tag" data-i18n="res.ship.tag">NCSIST project</span></h2>
+        <p class="entry-meta"><span data-i18n="res.ship.meta0">PIs: Prof. Sun-Yuan Hsieh, Prof. Wen-Hsiang Lu (NCKU CSIE)</span><span data-i18n="res.ship.meta1">Role: model training and error analysis, in a team of four</span></p>
+        <p data-i18n="res.ship.body">The goal is to recognize vessel types from the sound they make under way, on hardware with limited power and compute. Training data came from two datasets recorded with different equipment in different places, so classes with the same name did not sound the same. The team built a lightweight pipeline that runs without a GPU, then went from the confusion matrix back to the spectrograms to find why specific classes were confused, and cleaned the data accordingly.</p>
+      </article>
+      <article class="entry" id="iseeme">
+        <h2 class="entry-title"><span data-i18n="res.iseeme.title">iSeeME: an app for guided emotional disclosure and assessment</span><span class="tag" data-i18n="res.iseeme.tag">NSTC project</span></h2>
+        <p class="entry-meta"><span data-i18n="res.iseeme.meta0">PIs: Prof. Mei-Feng Lin (NCKU Nursing), Prof. Wen-Hsiang Lu (NCKU CSIE)</span><span data-i18n="res.iseeme.meta1">Role: app development and model integration</span></p>
+        <p data-i18n="res.iseeme.body">The user watches a guided video on a tablet and answers its questions aloud while the app records video and audio. The recording is transcribed by the lab's speech recognizer, then scored by a semantic model from a labmate's thesis and a facial-expression model from a partner team, and the scores are combined into a report. I built the app in Flutter, the audio preprocessing that removes silence, background music and the video's own narration before recognition, and the integration of the three models. The app is in development and testing; it was exhibited at a smart-healthcare industry forum in September 2026.</p>
+      </article>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2026</span> Ming-Kun Chou · <span data-i18n="footer.updated">Last updated October 2026</span></p>
+      <a class="back-to-top" data-i18n="footer.top" href="#">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="../js/site-i18n.js"></script>
+  <script src="../js/main.js"></script>
+</body>
+</html>

@@ -3,24 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="MK Chou projects — including skeleton-based fall detection with model-hardware co-design on edge platforms.">
-  <link rel="canonical" href="https://www.mk-chou.com/project">
-  <title>Projects | MK Chou</title>
+  <meta name="description" content="Projects by Ming-Kun Chou: edge AI fall detection, FPGA co-design, an advance care planning app prototype, and embedded course projects.">
+  <meta name="author" content="Ming-Kun Chou">
+  <link rel="canonical" href="https://www.mk-chou.com/project/">
+  <title>Projects | Ming-Kun Chou</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
 </head>
-<body data-page="projects">
+<body data-page="project">
   <header class="site-header">
     <nav class="nav" aria-label="Main navigation" data-i18n="nav.label" data-i18n-attr="aria-label">
-      <a href="../" class="logo">MK Chou</a>
+      <a href="../" class="logo">Ming-Kun Chou</a>
       <div class="nav-end">
         <ul class="nav-links">
           <li><a href="../" data-i18n="nav.home">Home</a></li>
+          <li><a href="../research/" data-i18n="nav.research">Research</a></li>
+          <li><a href="../publication/" data-i18n="nav.publications">Publications</a></li>
           <li><a href="../project/" class="active" aria-current="page" data-i18n="nav.projects">Projects</a></li>
-          <li><a href="../about/" data-i18n="nav.about">About</a></li>
-          <li><a href="../publication/" data-i18n="nav.publication">Publication</a></li>
+          <li><a href="../about/" data-i18n="nav.cv">CV</a></li>
         </ul>
         <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch to Chinese">中文</button>
         <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-i18n="nav.toggle" data-i18n-attr="aria-label">
@@ -31,135 +33,77 @@
     </nav>
   </header>
 
-  <main class="page-main">
-    <div class="container page-content page-content--wide">
-      <p class="page-label" data-i18n="projects.label">Work</p>
-      <h1 class="page-title" data-i18n="projects.title">Projects</h1>
-      <p class="page-lead" data-i18n="projects.lead">
-        Site under construction; some content is currently organized with AI assistance.
-      </p>
+  <main class="page">
+    <div class="container">
+      <header class="page-head">
+        <h1 class="page-title" data-i18n="proj.title">Projects</h1>
+        <p class="page-lead" data-i18n="proj.lead">Undergraduate capstone projects, prototypes, and course work. Research carried out at the lab is on the Research page.</p>
+      </header>
 
-      <div class="project-grid project-grid--row">
-        <a href="4/" class="project-card project-card--link">
-          <div class="project-card__head">
-            <h3 data-i18n="projects.p4.title">陪你想想 — ACP Companion App</h3>
-            <span class="project-status project-status--active" data-i18n="projects.p4.status">執行中</span>
+      <section class="section">
+        <h2 class="section-title" data-i18n="proj.h.ug">Undergraduate research projects</h2>
+        <article class="entry" id="codesign">
+          <h3 class="entry-title"><a href="3/"><span data-i18n="proj.codesign.title">Skeleton-based fall detection: model–hardware co-design</span></a></h3>
+          <p class="entry-meta"><span data-i18n="proj.codesign.meta0">Individual capstone project, January to May 2026</span><span data-i18n="proj.codesign.meta1">Advisor: Prof. Meng-Hsueh Li</span></p>
+          <p data-i18n="proj.codesign.body">My earlier fall detector ran on a Jetson but its latency was erratic, and I could not say which stage was slow. In this project I designed a small 1D-CNN that fits on an FPGA, wrote a convolution accelerator in Vitis HLS, and measured the same model on the same 92-sample test set on a PC, a Jetson Nano, and a PYNQ-Z2. Accuracy was 95.65% on the PC and Jetson and 91.30% on the FPGA. Pose extraction took 96.7% of end-to-end time, so shrinking the classifier further would not help much. The FPGA did not make the pipeline faster overall, but its latency jitter was 0.025 ms against 0.278 ms on the Jetson.</p>
+          <ul class="pub-links"><li><a href="3/"><span data-i18n="proj.codesign.link0">Full write-up</span></a></li></ul>
+        </article>
+        <article class="entry" id="dst">
+          <h3 class="entry-title"><a href="2/"><span data-i18n="proj.dst.title">DST-FallNet: audio-visual fall detection on an edge device</span></a></h3>
+          <p class="entry-meta"><span data-i18n="proj.dst.meta0">Individual capstone project, January to June 2025</span><span data-i18n="proj.dst.meta1">Advisor: Prof. Meng-Hsueh Li</span></p>
+          <p data-i18n="proj.dst.body">A camera loses the person in poor light or behind furniture, and a microphone is confused by a television. DST-FallNet runs both on a Jetson Nano with 2 GB of memory, entirely offline: pose keypoints from MoveNet and an LSTM on audio features each give a fall score, the two are combined with Dempster–Shafer theory, and a posture classifier is called only when the fused score crosses a threshold. Fusion itself takes under 0.1 ms. Pose estimation was the slow step at three to four frames per second, which led to the co-design project above.</p>
+          <ul class="pub-links"><li><a href="2/"><span data-i18n="proj.dst.link0">Full write-up</span></a></li><li><a href="https://github.com/MKChou/DST-FallNet"><span data-i18n="proj.dst.link1">Code</span></a></li></ul>
+        </article>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title" data-i18n="proj.h.proto">Prototypes and proposals</h2>
+        <article class="entry" id="acp-app">
+          <h3 class="entry-title"><a href="4/"><span data-i18n="proj.acp-app.title">陪你想想: an advance care planning companion app</span></a></h3>
+          <p class="entry-meta"><span data-i18n="proj.acp-app.meta0">Part of the VOICE project, May 2026 to present</span><span data-i18n="proj.acp-app.meta1">With Dr. Yu-Tai Lo and Prof. Wen-Hsiang Lu</span></p>
+          <p data-i18n="proj.acp-app.body">A Flutter prototype for older adults that presents advance care planning content by readiness stage, with Taiwanese read-aloud, large type, and two-choice questions to keep it easy to operate. It is positioned as a tool for starting the conversation and deliberately leaves out online signing.</p>
+          <ul class="pub-links"><li><a href="4/"><span data-i18n="proj.acp-app.link0">Full write-up</span></a></li></ul>
+        </article>
+        <article class="entry" id="tainan-play">
+          <h3 class="entry-title"><a href="1/"><span data-i18n="proj.tainan-play.title">台南ㄏ勝 Tainan Play: a design-thinking proposal</span></a></h3>
+          <p class="entry-meta"><span data-i18n="proj.tainan-play.meta0">Team of four, September to October 2025</span><span data-i18n="proj.tainan-play.meta1">Advisor: Prof. Li-Fang Chou</span></p>
+          <p data-i18n="proj.tainan-play.body">First place in the Smart Cultural Tourism track of the Visioning the South 2025 proposal competition. The proposal turns a walk through old Tainan into a city game with tasks that lead visitors into side streets and long-standing shops. I was the lead proposer and handled the concept, the app's features and flow, the slides, and the final pitch.</p>
+          <ul class="pub-links"><li><a href="1/"><span data-i18n="proj.tainan-play.link0">Full write-up</span></a></li></ul>
+        </article>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title" data-i18n="proj.h.course">Course and workshop projects</h2>
+        <article class="entry" id="touchless">
+          <h3 class="entry-title"><span data-i18n="proj.touchless.title">Touchless medical image viewer for sterile settings</span></h3>
+          <p class="entry-meta"><span data-i18n="proj.touchless.meta0">Course project, team of two</span><span data-i18n="proj.touchless.meta1">Intelligent medical information systems, NCKU CSIE</span></p>
+          <p data-i18n="proj.touchless.body">During surgery, touching a mouse breaks sterility. This system lets a surgeon browse images by hand gesture, voice, and proximity using a Raspberry Pi and a PC. Hand landmarks from MediaPipe are mapped to four gestures, and a gesture is accepted only when four of five consecutive frames agree. Voice commands go through a Mandarin–Taiwanese speech recognition service, and an ultrasonic sensor enables control only when someone is within a meter. I wrote the programs on both machines and did the wiring and integration.</p>
+        </article>
+        <article class="entry entry-with-figure" id="cane">
+          <div>
+          <h3 class="entry-title"><span data-i18n="proj.cane.title">Adaptive ground calibration cane</span></h3>
+          <p class="entry-meta"><span data-i18n="proj.cane.meta0">Course project, team of four</span><span data-i18n="proj.cane.meta1">Microcontroller system design, NCKU EE</span></p>
+          <p data-i18n="proj.cane.body">A conventional cane finds a step only when it touches the edge. This one measures the distance to the ground ahead with an ultrasonic sensor and warns by vibration and sound when the distance suddenly grows. One button press on level ground sets the baseline for the user's height and grip, and an inertial sensor corrects for the cane's swing. I wrote the STM32 firmware and the ESP32 dashboard, and did the circuit and assembly.</p>
+          <ul class="pub-links"><li><a href="https://github.com/MKChou/adaptive-calibration-cane"><span data-i18n="proj.cane.link0">Code</span></a></li></ul>
           </div>
-          <p data-i18n="projects.p4.desc">
-            An elderly-friendly Flutter app for Advance Care Planning — TTM-staged content,
-            voice-first interaction, and a family companion mode.
-          </p>
-          <dl class="project-meta">
-            <div class="project-meta__item">
-              <dt data-i18n="projects.meta.advisor">Advisor</dt>
-              <dd data-i18n="projects.p4.advisor">Dr. Lo Yu-tai (Dept. of Public Health, NCKU)</dd>
-            </div>
-            <div class="project-meta__item project-meta__item--sub">
-              <dt aria-hidden="true"></dt>
-              <dd data-i18n="projects.p4.advisor2">Prof. Wen-Hsiang Lu (Dept. of Computer Science, NCKU)</dd>
-            </div>
-            <div class="project-meta__item">
-              <dt data-i18n="projects.meta.period">Period</dt>
-              <dd data-i18n="projects.p4.period">May 2026 — Present</dd>
-            </div>
-          </dl>
-          <div class="project-card-foot">
-            <div class="project-tags">
-              <span class="project-tag">Flutter</span>
-              <span class="project-tag">TTM</span>
-              <span class="project-tag">STT / TTS</span>
-              <span class="project-tag">Elderly UX</span>
-              <span class="project-tag">Healthcare</span>
-            </div>
+          <figure class="entry-figure"><img src="assets/cane-wiring.jpg" data-i18n="proj.cane.alt" data-i18n-attr="alt" alt="Wiring diagram of the cane: STM32 board, ultrasonic sensor, inertial sensor, buzzer, vibration motor and ESP32" loading="lazy"></figure>
+        </article>
+        <article class="entry entry-with-figure" id="wristband">
+          <div>
+          <h3 class="entry-title"><span data-i18n="proj.wristband.title">E-paper triage wristband</span></h3>
+          <p class="entry-meta"><span data-i18n="proj.wristband.meta0">Workshop project, team of four from three departments</span><span data-i18n="proj.wristband.meta1">E Ink e-paper design workshop, 2025</span></p>
+          <p data-i18n="proj.wristband.body">Paper triage tags cannot be updated when a patient's condition changes, and they do not survive water or blood. The wristband uses e-paper, which keeps its image without power and draws current only when it is refreshed. A responder picks the triage level and enters treatment notes on a phone, and the band's display follows. I built the hardware prototype and firmware and the phone interface.</p>
           </div>
-        </a>
-        <a href="3/" class="project-card project-card--link">
-          <div class="project-card__head">
-            <h3 data-i18n="projects.p3.title">Skeleton-based Fall Detection and Hardware Co-Design on Resource-Constrained Edge Platforms</h3>
-          </div>
-          <p data-i18n="projects.p3.desc">
-            Model–hardware co-design for fall detection on resource-constrained edge platforms —
-            lightweight 1D-CNN deployed on PC, Jetson Nano, and PYNQ-Z2 FPGA.
-          </p>
-          <dl class="project-meta">
-            <div class="project-meta__item">
-              <dt data-i18n="projects.meta.advisor">Advisor</dt>
-              <dd data-i18n="projects.p3.advisor">Prof. Meng-Hsueh Li (Cross College Elite Program, NCKU)</dd>
-            </div>
-            <div class="project-meta__item">
-              <dt data-i18n="projects.meta.period">Period</dt>
-              <dd data-i18n="projects.p3.period">Jan 2026 — May 2026</dd>
-            </div>
-          </dl>
-          <div class="project-tags">
-            <span class="project-tag">1D-CNN</span>
-            <span class="project-tag">FPGA</span>
-            <span class="project-tag">Edge AI</span>
-            <span class="project-tag">MediaPipe</span>
-            <span class="project-tag">INT8</span>
-          </div>
-        </a>
-        <a href="2/" class="project-card project-card--link">
-          <div class="project-card__head">
-            <h3 data-i18n="projects.p2.title">Edge Real-Time Fall Detection with Audio-Visual Fusion and DST</h3>
-            <span class="project-status project-status--done" data-i18n="projects.p2.status">已結束</span>
-          </div>
-          <p data-i18n="projects.p2.desc">
-            Real-time audio-visual fall detection fusing MoveNet + CNN and MFCC + LSTM with
-            Dempster-Shafer Theory on the Jetson Nano 2GB.
-          </p>
-          <dl class="project-meta">
-            <div class="project-meta__item">
-              <dt data-i18n="projects.meta.advisor">Advisor</dt>
-              <dd data-i18n="projects.p2.advisor">Prof. Meng-Hsueh Li (Cross College Elite Program, NCKU)</dd>
-            </div>
-            <div class="project-meta__item">
-              <dt data-i18n="projects.meta.period">Period</dt>
-              <dd data-i18n="projects.p2.period">Jan 2025 — Jun 2025</dd>
-            </div>
-          </dl>
-          <div class="project-tags">
-            <span class="project-tag">CNN</span>
-            <span class="project-tag">LSTM</span>
-            <span class="project-tag">DST Fusion</span>
-            <span class="project-tag">MoveNet</span>
-            <span class="project-tag">Jetson Nano</span>
-          </div>
-        </a>
-        <a href="1/" class="project-card project-card--link">
-          <div class="project-card__head">
-            <h3 data-i18n="projects.p1.title">台南ㄏ勝 — Tainan Play: Design-Thinking Proposal</h3>
-            <span class="project-status project-status--done" data-i18n="projects.p1.status">已結束</span>
-          </div>
-          <p data-i18n="projects.p1.desc">
-            1st place, Smart Cultural Tourism, Visioning the South 2025. A competition pitch built through the double-diamond design process — empathize, define, ideate, prototype, and test — converging on a viable proposal. Deck only.
-          </p>
-          <dl class="project-meta">
-            <div class="project-meta__item">
-              <dt data-i18n="projects.meta.advisor">Advisor</dt>
-              <dd data-i18n="projects.p1.advisor">Prof. Li-Fang Chou (Dept. of Psychology, NCKU)</dd>
-            </div>
-            <div class="project-meta__item">
-              <dt data-i18n="projects.meta.period">Period</dt>
-              <dd data-i18n="projects.p1.period">Sep 2025 — Oct 2025</dd>
-            </div>
-          </dl>
-          <div class="project-tags">
-            <span class="project-tag">Design Thinking</span>
-            <span class="project-tag">Field Research</span>
-            <span class="project-tag">Proposal</span>
-            <span class="project-tag">Pitch</span>
-            <span class="project-tag">Tainan</span>
-          </div>
-        </a>
-      </div>
+          <figure class="entry-figure"><img src="assets/wristband-prototype.jpg" data-i18n="proj.wristband.alt" data-i18n-attr="alt" alt="Prototype of the wristband: an e-paper display mounted on a 3D-printed band" loading="lazy"></figure>
+        </article>
+      </section>
     </div>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>&copy; <span id="year"></span> <span data-i18n="footer.copy">MK Chou</span></p>
-      <a href="../" class="back-to-top" data-i18n="footer.top">Back to top ↑</a>
+      <p>&copy; <span id="year">2026</span> Ming-Kun Chou · <span data-i18n="footer.updated">Last updated October 2026</span></p>
+      <a class="back-to-top" data-i18n="footer.top" href="#">Back to top ↑</a>
     </div>
   </footer>
 

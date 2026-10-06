@@ -3,23 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Publications by MK Chou.">
-  <title>Publication | MK Chou</title>
+  <meta name="description" content="Publications by Ming-Kun Chou.">
+  <meta name="author" content="Ming-Kun Chou">
+  <link rel="canonical" href="https://www.mk-chou.com/publication/">
+  <title>Publications | Ming-Kun Chou</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css">
 </head>
 <body data-page="publication">
   <header class="site-header">
     <nav class="nav" aria-label="Main navigation" data-i18n="nav.label" data-i18n-attr="aria-label">
-      <a href="../" class="logo">MK Chou</a>
+      <a href="../" class="logo">Ming-Kun Chou</a>
       <div class="nav-end">
         <ul class="nav-links">
           <li><a href="../" data-i18n="nav.home">Home</a></li>
+          <li><a href="../research/" data-i18n="nav.research">Research</a></li>
+          <li><a href="../publication/" class="active" aria-current="page" data-i18n="nav.publications">Publications</a></li>
           <li><a href="../project/" data-i18n="nav.projects">Projects</a></li>
-          <li><a href="../about/" data-i18n="nav.about">About</a></li>
-          <li><a href="../publication/" class="active" aria-current="page" data-i18n="nav.publication">Publication</a></li>
+          <li><a href="../about/" data-i18n="nav.cv">CV</a></li>
         </ul>
         <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch to Chinese">中文</button>
         <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-i18n="nav.toggle" data-i18n-attr="aria-label">
@@ -30,34 +33,45 @@
     </nav>
   </header>
 
-  <main class="page-main">
-    <div class="container page-content">
-      <section class="about-section" aria-labelledby="publication-journal-title">
-        <h2 class="about-section-title" id="publication-journal-title" data-i18n="publication.journal.label">Journal</h2>
-        <p class="about-section-list" data-i18n="publication.journal.list"></p>
-      </section>
+  <main class="page">
+    <div class="container">
+      <header class="page-head">
+        <h1 class="page-title" data-i18n="pubs.title">Publications</h1>
+      </header>
 
-      <section class="about-section" aria-labelledby="publication-conference-title">
-        <h2 class="about-section-title" id="publication-conference-title" data-i18n="publication.conference.label">Conference</h2>
-        <p class="about-section-list" data-i18n="publication.conference.list"></p>
-      </section>
-
-      <section class="about-section" aria-labelledby="publication-workshop-title">
-        <h2 class="about-section-title" id="publication-workshop-title" data-i18n="publication.workshop.label">Workshop</h2>
-        <p class="about-section-list" data-i18n="publication.workshop.list"></p>
-      </section>
-
-      <section class="about-section" aria-labelledby="publication-thesis-title">
-        <h2 class="about-section-title" id="publication-thesis-title" data-i18n="publication.thesis.label">Thesis</h2>
-        <p class="about-section-list" data-i18n="publication.thesis.list"></p>
+      <section class="section">
+        <h2 class="section-title" data-i18n="pubs.h.conf">Conference papers</h2>
+      <article class="pub">
+        <h3 class="pub-title">Deployment Risk Probe Framework (DRPF): Complementing CER with Actionable Failure Modes<span class="pub-title-alt" lang="zh-Hant">部署風險探針框架（DRPF）：以可處置錯誤型態補充 CER</span></h3>
+        <p class="pub-authors"><span class="me">Ming-Kun Chou</span>, Yu-Tai Lo, Wen-Hsiang Lu</p>
+        <p class="pub-venue" data-i18n="pub.venue">ROCLING 2026 (38th Conference on Computational Linguistics and Speech Processing), Archival Track. Oral presentation, November 2026. To appear.</p>
+        <ul class="pub-links">
+          <li><a href="../research/drpf/"><span data-i18n="pub.link.page">Project page</span></a></li>
+          <li><a href="https://github.com/MKChou/DRPF-rocling2026"><span data-i18n="pub.link.code">Code and probe sets</span></a></li>
+        </ul>
+        <details>
+          <summary data-i18n="pub.abstract.summary">Abstract</summary>
+          <p class="small" data-i18n="pub.abstract.text">When deploying ASR in high-stakes settings, character error rate (CER) alone often cannot indicate whether to exclude spurious output on non-speech input, request a repeat utterance, or manually verify recognition content. We propose a layered evaluation that splits errors into text on non-speech input, empty output on speech, and incorrect content on speech, each mapped to one of these follow-up responses. We evaluate on advance care planning dialogue by comparing a cloud and an edge deployment pipeline: when CER is similar on clinic-style sentences, short answers diverge toward content errors versus empty outputs; with other settings held fixed, changing only the language setting also changes medical-term rewrites of negated short answers and lexical coverage. Thus similar CER need not imply the same follow-up handling.</p>
+        </details>
+        <details>
+          <summary>BibTeX</summary>
+          <pre>@inproceedings{chou2026drpf,
+  title     = {Deployment Risk Probe Framework ({DRPF}): Complementing {CER} with Actionable Failure Modes},
+  author    = {Chou, Ming-Kun and Lo, Yu-Tai and Lu, Wen-Hsiang},
+  booktitle = {Proceedings of the 38th Conference on Computational Linguistics and Speech Processing (ROCLING 2026)},
+  year      = {2026}
+}</pre>
+        </details>
+      </article>
+        <p class="muted small" data-i18n="pubs.lang.note" style="margin-top:.9rem">The paper is written in Chinese with an English abstract.</p>
       </section>
     </div>
   </main>
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>&copy; <span id="year"></span> <span data-i18n="footer.copy">MK Chou</span></p>
-      <a href="#" class="back-to-top" data-i18n="footer.top">Back to top ↑</a>
+      <p>&copy; <span id="year">2026</span> Ming-Kun Chou · <span data-i18n="footer.updated">Last updated October 2026</span></p>
+      <a class="back-to-top" data-i18n="footer.top" href="#">Back to top ↑</a>
     </div>
   </footer>
 

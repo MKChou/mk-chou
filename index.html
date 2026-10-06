@@ -3,23 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Personal site of Chou, Ming-Kun.">
-  <title>MK Chou | Personal site</title>
+  <meta name="description" content="Ming-Kun Chou is a research assistant at the Mi2S lab, National Cheng Kung University, working on speech recognition evaluation and language systems for healthcare.">
+  <meta name="author" content="Ming-Kun Chou">
+  <link rel="canonical" href="https://www.mk-chou.com/">
+  <title>Ming-Kun Chou | 周明坤</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=Source+Serif+4:wght@600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body data-page="home">
   <header class="site-header">
     <nav class="nav" aria-label="Main navigation" data-i18n="nav.label" data-i18n-attr="aria-label">
-      <a href="./" class="logo">MK Chou</a>
+      <a href="" class="logo">Ming-Kun Chou</a>
       <div class="nav-end">
         <ul class="nav-links">
-          <li><a href="./" class="active" aria-current="page" data-i18n="nav.home">Home</a></li>
+          <li><a href="" class="active" aria-current="page" data-i18n="nav.home">Home</a></li>
+          <li><a href="research/" data-i18n="nav.research">Research</a></li>
+          <li><a href="publication/" data-i18n="nav.publications">Publications</a></li>
           <li><a href="project/" data-i18n="nav.projects">Projects</a></li>
-          <li><a href="about/" data-i18n="nav.about">About</a></li>
-          <li><a href="publication/" data-i18n="nav.publication">Publication</a></li>
+          <li><a href="about/" data-i18n="nav.cv">CV</a></li>
         </ul>
         <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch to Chinese">中文</button>
         <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" data-i18n="nav.toggle" data-i18n-attr="aria-label">
@@ -30,77 +33,98 @@
     </nav>
   </header>
 
-  <section class="hero hero--home">
-    <div class="hero-bg" aria-hidden="true"></div>
-    <div class="container hero-content hero-content--profile">
-      <div class="hero-name">
-        <h1 class="hero-title hero-name-zh">周明坤</h1>
-        <p class="hero-name-en">Chou, Ming-Kun</p>
-      </div>
-      <img
-        class="hero-photo"
-        src="pic/datou.jpg"
-        alt="周明坤 · Chou, Ming-Kun"
-        width="3024"
-        height="4032"
-        loading="eager"
-      >
-    </div>
-  </section>
+  <main class="page">
+    <div class="container">
+      <section class="profile">
+        <img class="profile-photo" src="pic/profile.jpg" width="352" height="352" data-i18n="home.photo.alt" data-i18n-attr="alt" alt="Ming-Kun Chou">
+        <div>
+          <h1 class="profile-name">Ming-Kun Chou<span class="profile-name-zh" lang="zh-Hant">周明坤</span></h1>
+          <p class="profile-role" data-i18n="home.role">Research Assistant, Multilingual Intelligent Mind Service Lab (Mi2S)</p>
+          <p class="profile-aff" data-i18n="home.aff">Department of Computer Science and Information Engineering, National Cheng Kung University</p>
+          <ul class="link-row">
+            <li><a href="mailto:contact@mk-chou.com">contact@mk-chou.com</a></li>
+            <li><a href="https://github.com/MKChou" rel="me">GitHub</a></li>
+            <li><a href="https://orcid.org/0009-0003-9377-6130" rel="me">ORCID</a></li>
+            <li><a href="https://www.linkedin.com/in/mk-cou" rel="me">LinkedIn</a></li>
+            <li><a href="about/"><span data-i18n="home.link.cv">CV</span></a></li>
+          </ul>
+        </div>
+      </section>
 
-  <section class="section section--home-split">
-    <div class="container home-split">
-      <div class="home-split__col" id="about">
-        <div class="section-header">
-          <span class="section-label" data-i18n="home.about.label">About</span>
-        </div>
-        <div class="home-about-text">
-          <p class="section-lead" data-i18n="home.about.p1">Hello, I'm Ming-Kun Chou, from Linbian, Pingtung, and I currently live in Tainan City.</p>
-          <p class="section-lead" data-i18n="home.about.p2">My research spans embedded systems, artificial intelligence, and medical informatics — with interests in computer vision, multimodal machine learning, and hardware–software co-design, bridging algorithms and systems so work can reach real applications.</p>
-          <p class="section-lead" data-i18n="home.about.p3">In recent years I've focused on smart healthcare and robotics, exploring directions that combine AI with behavioral science and psychology for both academic value and social impact.</p>
-          <p class="section-lead" data-i18n="home.about.p4">Outside research, I love sports and music and stay curious across fields. I believe technology's worth lies not only in innovation and depth, but in whether it solves real-world problems and improves people's lives.</p>
-        </div>
-        <p class="home-pets">
-          <span data-i18n="home.about.pets.lead">看看我家寶貝</span><button type="button" class="pet-photo-trigger" data-photo="pic/shutiao.jpg" data-i18n="home.pets.shutiao.aria" data-i18n-attr="aria-label">薯條</button><button type="button" class="pet-photo-trigger" data-photo="pic/digua.jpg" data-i18n="home.pets.digua.aria" data-i18n-attr="aria-label">地瓜</button>
-        </p>
-      </div>
-      <div class="home-split__col" id="contact">
-        <div class="section-header">
-          <span class="section-label" data-i18n="home.contact.label">Contact</span>
-        </div>
-        <ul class="contact-plain">
-          <li>
-            <span class="contact-plain-label" data-i18n="home.contact.email">Email</span>
-            <div class="contact-plain-values">
-              <a href="mailto:contact@mk-chou.com">contact@mk-chou.com</a>
-              <a href="mailto:AN4096750@gs.ncku.edu.tw">AN4096750@gs.ncku.edu.tw</a>
-              
-            </div>
-          </li>
-          <li>
-            <span class="contact-plain-label" data-i18n="home.contact.social">Social</span>
-            <div class="contact-icon-row">
-              <a href="https://github.com/MKChou" class="contact-icon" target="_blank" rel="noopener" aria-label="GitHub">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.35 6.84 9.7.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.12-1.5-1.12-1.5-.92-.64.07-.63.07-.63 1.02.07 1.55 1.07 1.55 1.07.9 1.58 2.36 1.12 2.94.86.09-.67.35-1.12.64-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.32.1-2.74 0 0 .84-.27 2.75 1.05A9.2 9.2 0 0 1 12 6.84c.85.004 1.71.12 2.51.35 1.91-1.32 2.75-1.05 2.75-1.05.55 1.42.2 2.48.1 2.74.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.8 0 .27.18.6.69.49A10.03 10.03 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"/></svg>
-              </a>
-              <a href="https://www.linkedin.com/in/mk-cou" class="contact-icon" target="_blank" rel="noopener" aria-label="LinkedIn">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.58 0 4.24 2.36 4.24 5.43v6.31zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
-              </a>
-              <a href="https://line.me/ti/p/1GFOFqRrs_" class="contact-icon" target="_blank" rel="noopener" aria-label="LINE">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-              </a>
-              <a href="https://t.me/mkchou" class="contact-icon" target="_blank" rel="noopener" aria-label="Telegram">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-              </a>
-              <a href="https://youtube.com/@fdrgrhppfhfq?si=GOkLcvbCg4mYIByb" class="contact-icon" target="_blank" rel="noopener" aria-label="YouTube">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-              </a>
-            </div>
-          </li>
+      <div class="two-col">
+        <div>
+          <section class="section prose">
+            <h2 class="section-title" data-i18n="home.h.about">About</h2>
+            <p data-i18n="home.about.p1">I am a full-time research assistant at the Multilingual Intelligent Mind Service Lab (Mi2S) at National Cheng Kung University (NCKU), working with Prof. Wen-Hsiang Lu. I completed my bachelor's degree in NCKU's Cross College Elite Program in 2026.</p>
+            <p data-i18n="home.about.p2" data-i18n-html>My current work is on speech and language systems for healthcare, where one misrecognized word can reverse what a patient meant. I am the first author of <a href="research/drpf/">DRPF</a>, an evaluation framework that sorts speech recognition errors by the follow-up each one calls for; the paper will be presented as an oral talk at ROCLING 2026. In a project on advance care planning with clinicians at NCKU Hospital, I build the knowledge graph and the question answering that draws on it.</p>
+            <p data-i18n="home.about.p3" data-i18n-html>As an undergraduate I worked on edge AI: a <a href="project/2/">multimodal fall detector</a> on a Jetson Nano with 2 GB of memory, and a <a href="project/3/">co-design study</a> that ran one model on a PC, a Jetson, and an FPGA to find where the latency actually goes.</p>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title" data-i18n="home.h.pub">Publication</h2>
+      <article class="pub">
+        <h3 class="pub-title">Deployment Risk Probe Framework (DRPF): Complementing CER with Actionable Failure Modes<span class="pub-title-alt" lang="zh-Hant">部署風險探針框架（DRPF）：以可處置錯誤型態補充 CER</span></h3>
+        <p class="pub-authors"><span class="me">Ming-Kun Chou</span>, Yu-Tai Lo, Wen-Hsiang Lu</p>
+        <p class="pub-venue" data-i18n="pub.venue">ROCLING 2026 (38th Conference on Computational Linguistics and Speech Processing), Archival Track. Oral presentation, November 2026. To appear.</p>
+        <ul class="pub-links">
+          <li><a href="research/drpf/"><span data-i18n="pub.link.page">Project page</span></a></li>
+          <li><a href="https://github.com/MKChou/DRPF-rocling2026"><span data-i18n="pub.link.code">Code and probe sets</span></a></li>
         </ul>
+      </article>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title" data-i18n="home.h.res">Research and projects</h2>
+            <ul class="interest-list">
+            <li><a href="research/drpf/"><span data-i18n="res.drpf.title">DRPF: evaluating deployment risk in speech recognition</span></a> <span class="tag tag--pub" data-i18n="res.drpf.tag">Published</span></li>
+            <li><a href="research/#voice"><span data-i18n="res.voice.title">VOICE: a voice-interaction platform for advance care planning</span></a> <span class="tag" data-i18n="res.voice.tag">NSTC project</span></li>
+            <li><a href="research/#chimei"><span data-i18n="res.chimei.title">Mandarin–Taiwanese speech recognition for a hospital service desk</span></a> <span class="tag" data-i18n="res.chimei.tag">ITRI × Chi Mei Medical Center</span></li>
+            <li><a href="research/#kuenling"><span data-i18n="res.kuenling.title">An on-premise document retrieval system</span></a> <span class="tag" data-i18n="res.kuenling.tag">Industry collaboration</span></li>
+            <li><a href="research/#ship"><span data-i18n="res.ship.title">Ship sound classification across datasets</span></a> <span class="tag" data-i18n="res.ship.tag">NCSIST project</span></li>
+            <li><a href="research/#iseeme"><span data-i18n="res.iseeme.title">iSeeME: an app for guided emotional disclosure and assessment</span></a> <span class="tag" data-i18n="res.iseeme.tag">NSTC project</span></li>
+            </ul>
+            <p class="small" style="margin-top:.75rem"><a href="project/"><span data-i18n="home.res.more">Undergraduate and course projects</span></a></p>
+          </section>
+        </div>
+
+        <aside>
+          <section class="section">
+            <h2 class="section-title" data-i18n="home.h.int">Research interests</h2>
+            <ul class="interest-list">
+            <li data-i18n="home.int.0">Evaluating speech recognition for high-stakes use</li>
+            <li data-i18n="home.int.1">Knowledge-grounded language models for healthcare communication</li>
+            <li data-i18n="home.int.2">Edge AI and hardware–software co-design</li>
+            </ul>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title" data-i18n="home.h.news">News</h2>
+            <ul class="news small">
+            <li><time datetime="2026-11"><span data-i18n="home.news.0.when">Nov 2026</span></time><span data-i18n="home.news.0.text">I will present DRPF as an oral talk at ROCLING 2026, November 6–7.</span></li>
+            <li><time datetime="2026-09"><span data-i18n="home.news.1.when">Sep 2026</span></time><span data-i18n="home.news.1.text">DRPF was accepted to ROCLING 2026 (Archival Track) for oral presentation.</span></li>
+            <li><time datetime="2026-09"><span data-i18n="home.news.2.when">Sep 2026</span></time><span data-i18n="home.news.2.text">The iSeeME app was exhibited at a smart-healthcare industry forum.</span></li>
+            <li><time datetime="2026-08"><span data-i18n="home.news.3.when">Aug 2026</span></time><span data-i18n="home.news.3.text">Demonstrated Kasih, the lab's multilingual translation app, at a senior-care expo in Taipei.</span></li>
+            <li><time datetime="2025-10"><span data-i18n="home.news.4.when">Oct 2025</span></time><span data-i18n="home.news.4.text">First place, Smart Cultural Tourism track, Visioning the South 2025.</span></li>
+            </ul>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title" data-i18n="home.h.contact">Contact</h2>
+            <p class="small"><a href="mailto:contact@mk-chou.com">contact@mk-chou.com</a><br><a href="mailto:AN4096750@gs.ncku.edu.tw">AN4096750@gs.ncku.edu.tw</a></p>
+          </section>
+
+          <section class="section">
+            <h2 class="section-title" data-i18n="home.h.outside">Outside research</h2>
+            <p class="small"><span data-i18n="home.outside.p">I ran the 110 m hurdles for the NCKU track and field team and play the clarinet. I live in Tainan with a dachshund; a hamster used to live here too.</span>
+              <button type="button" class="text-button pet-photo-trigger" data-photo="pic/shutiao.jpg" data-i18n="home.pets.shutiao.aria" data-i18n-attr="aria-label" aria-label="Show a photo of Fries"><span data-i18n="home.pets.shutiao">Fries</span></button>
+              ·
+              <button type="button" class="text-button pet-photo-trigger" data-photo="pic/digua.jpg" data-i18n="home.pets.digua.aria" data-i18n-attr="aria-label" aria-label="Show a photo of Digua"><span data-i18n="home.pets.digua">Digua</span></button>
+            </p>
+          </section>
+        </aside>
       </div>
     </div>
-  </section>
+  </main>
 
   <div class="photo-lightbox" id="photo-lightbox" hidden>
     <button type="button" class="photo-lightbox__close" id="photo-lightbox-close" data-i18n="home.pets.close" data-i18n-attr="aria-label" aria-label="Close">×</button>
@@ -109,11 +133,10 @@
       <figcaption id="photo-lightbox-caption"></figcaption>
     </figure>
   </div>
-
   <footer class="site-footer">
     <div class="container footer-inner">
-      <p>&copy; <span id="year"></span> <span data-i18n="footer.copy">MK Chou</span></p>
-      <a href="#" class="back-to-top" data-i18n="footer.top">Back to top ↑</a>
+      <p>&copy; <span id="year">2026</span> Ming-Kun Chou · <span data-i18n="footer.updated">Last updated October 2026</span></p>
+      <a class="back-to-top" data-i18n="footer.top" href="#">Back to top ↑</a>
     </div>
   </footer>
 
@@ -121,4 +144,3 @@
   <script src="js/main.js"></script>
 </body>
 </html>
-
