@@ -356,6 +356,10 @@ p {
   color: var(--text-muted);
 }
 
+.profile-edu {
+  margin-top: 0.5rem;
+}
+
 .link-row {
   display: flex;
   flex-wrap: wrap;
