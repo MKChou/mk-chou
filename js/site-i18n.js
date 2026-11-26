@@ -1,6 +1,8 @@
 // Translations for the generated pages. English is also written in the HTML.
 const SITE_I18N = {
   "en": {
+    "home.news.paper.when": "Nov 2026",
+    "home.news.paper.text": "The DRPF paper is now in the ROCLING 2026 proceedings on the <a href=\"https://aclanthology.org/2026.rocling-main.8/\">ACL Anthology</a>.",
     "home.news.award.when": "Nov 2026",
     "home.news.award.text": "Two lab projects, iSeeME and Kasih, each received the National Innovation Award; I presented Kasih in Taipei.",
     "home.news.admit.when": "Nov 2026",
@@ -39,7 +41,8 @@ const SITE_I18N = {
     "home.h.pub": "Publication",
     "pub.link.page": "Project page",
     "pub.link.code": "Code and probe sets",
-    "pub.venue": "ROCLING 2026 (38th Conference on Computational Linguistics and Speech Processing), Archival Track. Oral presentation, November 2026. Proceedings forthcoming.",
+    "pub.link.pdf": "PDF",
+    "pub.venue": "Proceedings of the 38th Conference on Computational Linguistics and Speech Processing (ROCLING 2026), pages 77–85. Archival Track, oral presentation.",
     "home.h.res": "Research and projects",
     "home.res.more": "Undergraduate and course projects",
     "home.h.int": "Research interests",
@@ -101,7 +104,7 @@ const SITE_I18N = {
     "drpf.set2": "Edge (Nemotron)",
     "drpf.back": "← Research",
     "drpf.sub": "Complementing CER with actionable failure modes",
-    "drpf.venue": "ROCLING 2026, Archival Track. Oral presentation, November 2026.",
+    "drpf.venue": "ROCLING 2026, pages 77–85. Archival Track, oral presentation, November 2026.",
     "drpf.link.cite": "Citation",
     "drpf.note": "The paper is written in Chinese with an English abstract. This page summarizes it; the proceedings version will be linked here once it is in the ACL Anthology.",
     "drpf.h.why": "Why CER is not enough",
@@ -257,6 +260,8 @@ const SITE_I18N = {
     "meta.about.description": "Curriculum vitae of Ming-Kun Chou: education, research experience, publication, awards, and skills."
   },
   "zh": {
+    "home.news.paper.when": "2026 年 11 月",
+    "home.news.paper.text": "DRPF 論文已收錄於 ROCLING 2026 論文集，可於 <a href=\"https://aclanthology.org/2026.rocling-main.8/\">ACL Anthology</a> 取得。",
     "home.news.award.when": "2026 年 11 月",
     "home.news.award.text": "實驗室的「iSeeME 心識」與「Kasih 卡水」兩項計畫皆獲國家新創獎；Kasih 由我赴台北報告。",
     "home.news.admit.when": "2026 年 11 月",
@@ -295,7 +300,8 @@ const SITE_I18N = {
     "home.h.pub": "論文",
     "pub.link.page": "研究介紹",
     "pub.link.code": "程式與測試集",
-    "pub.venue": "ROCLING 2026（第 38 屆計算語言學與語音處理研討會），Archival Track。2026 年 11 月口頭發表，論文集出版中。",
+    "pub.link.pdf": "論文 PDF",
+    "pub.venue": "收錄於 ROCLING 2026（第 38 屆計算語言學與語音處理研討會）論文集，第 77–85 頁。Archival Track，口頭發表。",
     "home.h.res": "研究與計畫",
     "home.res.more": "大學專題與課堂作品",
     "home.h.int": "研究興趣",
@@ -357,7 +363,7 @@ const SITE_I18N = {
     "drpf.set2": "邊緣（Nemotron）",
     "drpf.back": "← 研究",
     "drpf.sub": "以可處置錯誤型態補充 CER",
-    "drpf.venue": "ROCLING 2026，Archival Track。2026 年 11 月口頭發表。",
+    "drpf.venue": "ROCLING 2026，第 77–85 頁。Archival Track，2026 年 11 月口頭發表。",
     "drpf.link.cite": "引用格式",
     "drpf.note": "論文正文為中文，附英文摘要。本頁為內容摘要；論文集版本收錄於 ACL Anthology 後會在這裡補上連結。",
     "drpf.h.why": "為什麼只看 CER 不夠",
